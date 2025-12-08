@@ -1,92 +1,119 @@
-# 🗺️ GeoTentacles — Spatial Analytics for Marine Species & Habitats
+# 🗺️ GeoTentacles — Spatial Analytics for Marine Species, Pollution & Habitat Dynamics
 
-**GeoTentacles** is a spatial analytics offshoot of the larger `Squid_Fest` project. It aims to map the spatial distributions and environmental relationships of marine species using PostgreSQL, PostGIS, QGIS, and web‑based mapping tools. Though it’s in early stages, this repo already includes foundational schema and analysis scripts — and it’s set to grow into an interactive spatial analytics suite.
+🌍 **Real-World Value**  
+GeoTentacles transforms marine biological, chemical, and environmental datasets into spatial intelligence.  
+It reveals *where* marine patterns occur, *how* they evolve, and *what* environmental factors shape them — using PostgreSQL/PostGIS, machine learning, and GIS workflows.
 
----
+This repo supports:
+- Fisheries agencies: mapping catch hotspots, effort distribution, and long-term spatial trends  
+- Marine ecologists: linking species patterns to environmental drivers  
+- Environmental groups: monitoring pollution levels and identifying risk zones  
+- Data scientists: learning practical spatial analytics, geodata engineering, and ML for geospatial prediction  
 
-## 🌊 Positioning & Purpose
+GeoTentacles is the spatial “mapping wing” of the broader **Squid_Fest ecosystem**, complementing:
+- **SquidStack** — deep biochemical & pollutant bioindicator exploration  
+- **SquidStock** — long-term catch, environment, and predictive modeling  
+- **GeoTentacles** — *the spatial dimension*, stitching catch, pollution, and environmental layers into geographic context  
 
-Think of **GeoTentacles** as the cartographer’s desk in your research ecosystem:  
-- **SquidStack** dove into pollutant bioindicators — akin to exploring a remote, hidden trench — rare, rigorous, and deeply exploratory.  
-- **SquidStock** surveys the broader shelf and coastal domain (including that trench), applying stock assessments, environmental modeling, and predictive tools to uncover patterns across more commonly traveled waters.  
-- **GeoTentacles** focuses on the *where* — spatial structure, geographic patterns, and mapping the data that links stack & stock insights into place.
-
-This repository is under active development. The README, module layout, and project content will evolve as scripts mature, spatial models are added, and dashboards go live.
-
----
-
-## 📂 What You Can Explore Right Now
-
-These are the features & scripts currently available:
-
-- **PostgreSQL/PostGIS schema scripts** for tables like `squid_catch`, `concentrations`, `distance_land` with spatial (geometry/geography) columns  
-- **Geometry update queries**: turning latitude/longitude into spatial geometry via `ST_SetSRID` and `ST_MakePoint`  
-- **Spatial query prototypes**:
-  - Distance joins: e.g. measuring how far squid catch points lie from land areas  
-  - Aggregation by spatial bins (e.g. grouping by area, distance ranges)  
-  - Linking concentration data to catch geometry to form pollutant spatial layers  
-- **Indexing / performance scripts**: spatial indexing, geometry population, etc.
-
-Even though these are early-stage, they set the base structure for the spatial analyses to come.
+🛂 **This repository hosts spatial workflows, datasets, prototypes, and dashboards.  
+The full research pipeline lives in the private Squid_Fest repo — email me for collaboration.**
 
 ---
 
-## 🔍 Planned GeoTentacles Projects (Tentative)
+## 📂 Repository Structure
 
-These are the future spatial modules I'm planning, to be added over time:
+/sql — PostGIS schema, spatial functions, index scripts
+/spatial — QGIS layers, GeoJSON exports, grids, rasters
+/notebooks — Exploratory spatial notebooks (Python + SQL)
+/outputs — Maps, hotspot layers, summary tables, rasters
+/data — Raw & processed geospatial datasets
+/app — Future interactive Streamlit spatial dashboards
 
-1. **Project 1 — Sampling Explorer (Map + Baseline Stats)**  
-   *Story:* “Where and when did we sample? What’s the baseline distribution of biological traits?”  
-   *Key tasks:* Create spatial table of samples, map sampling locations, filter by year/area/maturity, summary metadata, CSV export.  
-   *Deliverables:* Postgres schema + seed scripts, QGIS snapshots, Streamlit map + summary UI.
-
-2. **Project 2 (numbered “4” in your list) — Hotspot & Clustering Analysis**  
-   *Story:* “Where are contamination hotspots, and are they persistent across years?”  
-   *Key tasks:* Use clustering (e.g. KMeans), spatial aggregation (grid), Getis‑Ord hot spot analysis.  
-   *Deliverables:* Hotspot SQL, GeoJSON exports, Streamlit hotspot maps & time animation, QGIS package.
-
-3. **Project 3 (your “6”) — Risk Assessment & Compliance Mapper**  
-   *Story:* “Which catches or zones exceed health thresholds — and what’s the risk if consumed or entering the supply chain?”  
-   *Key tasks:* Join concentration and threshold tables, map exceedances, spatial intersections with fishing zones.  
-   *Deliverables:* Map of exceedances, toggles per pollutant, “if consumed” calculator in UI, exportable maps & CSV.
-
-4. **Project 4 (your “7”) — Spatio-Temporal Prediction (Interpolation & Uncertainty)**  
-   *Story:* “Where are contaminant levels likely high in unsampled areas — with quantified uncertainty?”  
-   *Key tasks:* Kriging / IDW modeling, convert predictions to raster / GeoTIFF, store in PostGIS.  
-   *Deliverables:* Prediction pipeline, spatial raster layers, UI to visualize predictions + uncertainty.
-
-*(Optional future module — Capstone StoryMap & Decision Support tool — not listed here yet, but may come later.)*
-
-> 🔄 This README will be updated as modules mature. Project names, nicknames, and workflows will become more structured and navigable over time.
 
 ---
 
-## 🛠 Tools & Technologies
+## 📦 Project Modules & Flow
 
-Here’s the toolbox behind GeoTentacles and what’s planned:
-
-- **Database / Spatial Backend:** PostgreSQL & PostGIS  
-- **Spatial & GIS Tools:** QGIS (desktop), future plans for web mapping (Leaflet, Mapbox, etc.)  
-- **Spatial SQL & Scripting:** native PostGIS functions (`ST_Distance`, `ST_DWithin`, `ST_MakePoint`, grid snapping, clustering, etc.)  
-- **Integration Potential:** linking spatial layers with SquidStack pollutant data and SquidStock catch / environmental data  
-- **Planned Libraries / Tools:** Geospatial Python (e.g. `geopandas`, `rasterio`), spatial modeling / interpolation (e.g. `pykrige`), web mapping stacks  
-
----
-
-## ⚠️ Status & Notes
-
-- This repository is **in progress** — many scripts are prototypes or drafts and may require refinement.  
-- The spatial layers currently rely heavily on the existing catch & concentration tables with geometry fields. External environmental spatial layers (e.g. bathymetry, oceanographic rasters) are planned but not yet integrated.  
-- As modules become more mature, this README will be reorganized with direct links, stable workflows, dashboards, and usage examples.
+| Module | Stage Name | What It Does | Status | Link | App |
+|--------|------------|---------------|--------|-------|------|
+| **20-Year Squid Catch Hotspot Dynamics** | **Spatial Time Capsule** | Long-term hotspot trends (2000–2020) using PostGIS clustering, grids, density maps | 🟢 Planned | 🔗 TBD | 🗺️ Future Map |
+| **Pollution Level Spatial Prediction (Regression)** | **Toxic Tides** | Predict pollution intensity across space using ML regression + interpolated grids | 🟢 Planned | 🔗 TBD | 🧪 Future Model |
+| **Squid Catch Hotspot Prediction (Classification)** | **The Forecasting Net** | ML classification to identify likely future catch hotspots | 🟢 Planned | 🔗 TBD | 🎯 Future Predictor |
+| **Marine Pollution Interpolation (Kriging / IDW)** | **Seafloor Signals** | Spatial interpolation of pollutant chemistry into continuous surfaces | 🟢 Planned | 🔗 TBD | 🗾 Future Raster UI |
+| **Marine Health Index (MCI)** | **EcoPulse** | Composite index combining catch, pollution, and habitat layers | 🟢 Planned | 🔗 TBD | 💚 Future Dashboard |
+| **COVID-Impact Marine Health Model** | **Disruption Dynamics** | Spatial ML model capturing marine ecosystem changes pre- vs post-COVID | 🟢 Planned | 🔗 TBD | 🔬 Future Explorer |
 
 ---
 
-## 👥 Who This Seems Useful For
+## 🎯 Objectives
 
-- GIS / spatial scientists interested in marine ecology  
-- Students or researchers learning PostGIS and spatial modeling  
-- Marine biologists wanting to link location to pollutant or biological data  
-- Anyone curious about how space can add context to pollution, catch, and ecological patterns  
+GeoTentacles aims to:
+
+- Build reproducible spatial workflows for marine ecological datasets  
+- Discover spatial hotspots of catch, pollution, and biological traits  
+- Create predictive spatial models (classification + regression)  
+- Generate continuous pollution surfaces via geostatistics  
+- Construct composite health indices to support policy and management  
+- Integrate catch + pollutant + environment geodata for multi-layer insights  
+- Develop interactive dashboards for visualization and decision support  
+
+---
+
+## 🛠 Tools & Techniques Used
+
+### **Spatial Database & Backend**
+- PostgreSQL + PostGIS  
+- Geometry & geography columns  
+- Spatial indexing (GiST), tiling, grid creation  
+
+### **GIS Tooling**
+- QGIS  
+- GeoJSON, shapefiles, rasters, WMS layers  
+
+### **Geospatial Python**
+- geopandas  
+- shapely  
+- rasterio  
+- pykrige / scikit-learn spatial ML  
+
+### **Machine Learning**
+- Classification: Random Forest, Gradient Boosting, XGBoost (grid-aggregated)  
+- Regression: Random Forest Regressor, GAMs, Gradient Boosting  
+- Spatial cross-validation (blocked CV)  
+
+### **Dashboards**
+- Streamlit (planned)  
+- Mapbox / Leaflet (optional future expansion)  
+
+---
+
+## 📌 Data & Method Highlights
+
+- **Geometry creation:**  
+  `ST_SetSRID(ST_MakePoint(lon, lat), 4326)`  
+- **Distance-to-land or zone:**  
+  `ST_Distance`, `ST_DWithin`  
+- **Grid tiling:**  
+  hex or square cells for hotspot stability  
+- **Pollution interpolation:**  
+  kriging, IDW, ML regression on grid averages  
+- **Hotspot detection:**  
+  DBSCAN, Getis-Ord, kernel density estimation  
+- **Marine Health Index:**  
+  normalized scores across pollution, catch, distance, etc.  
+
+---
+
+## 👥 Audience & Use Cases
+
+This project is valuable for:
+
+- Marine ecologists  
+- Fisheries scientists  
+- Environmental monitoring agencies  
+- GIS analysts  
+- Data scientists learning spatial ML  
+- Students in geospatial modeling  
 
 ---
 
@@ -95,6 +122,7 @@ Here’s the toolbox behind GeoTentacles and what’s planned:
 - 🐛 [Open an issue](https://github.com/Euchie23/GeoTentacles/issues) — suggestions, bugs, feature requests  
 - ✉️ [Email me](mailto:euchiejnpierre@gmail.com) — for collaboration or access to related `Squid_Fest` resources  
 - 💼 [Connect on LinkedIn](https://www.linkedin.com/in/euchiejnpierre/) — happy to discuss spatial work, marine science, or data  
+
 
 ---
 
