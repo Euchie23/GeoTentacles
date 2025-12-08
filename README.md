@@ -1,6 +1,7 @@
 # 🗺️ GeoTentacles — Spatial Analytics for Marine Species, Pollution & Habitat Dynamics
 
-🌍 **Real-World Value**  
+## 🌍 **Real-World Value** 
+
 GeoTentacles transforms marine biological, chemical, and environmental datasets into spatial intelligence.  
 It reveals *where* marine patterns occur, *how* they evolve, and *what* environmental factors shape them — using PostgreSQL/PostGIS, machine learning, and GIS workflows.
 
@@ -22,7 +23,7 @@ The full research pipeline lives in the private Squid_Fest repo — email me for
 
 ## 📂 Repository Structure
 
-/sql — PostGIS schema, spatial functions, index scripts
+- '/sql' — PostGIS schema, spatial functions, index scripts
 /spatial — QGIS layers, GeoJSON exports, grids, rasters
 /notebooks — Exploratory spatial notebooks (Python + SQL)
 /outputs — Maps, hotspot layers, summary tables, rasters
