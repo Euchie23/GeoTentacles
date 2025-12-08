@@ -23,12 +23,12 @@ The full research pipeline lives in the private Squid_Fest repo — email me for
 
 ## 📂 Repository Structure
 
-- '/sql' — PostGIS schema, spatial functions, index scripts
-/spatial — QGIS layers, GeoJSON exports, grids, rasters
-/notebooks — Exploratory spatial notebooks (Python + SQL)
-/outputs — Maps, hotspot layers, summary tables, rasters
-/data — Raw & processed geospatial datasets
-/app — Future interactive Streamlit spatial dashboards
+- `/sql` — PostGIS schema, spatial functions, index scripts
+- `/spatial` — QGIS layers, GeoJSON exports, grids, rasters
+- `/notebooks` — Exploratory spatial notebooks (Python + SQL)
+- `/outputs` — Maps, hotspot layers, summary tables, rasters
+- `/data` — Raw & processed geospatial datasets
+- `/app` — Future interactive Streamlit spatial dashboards
 
 
 ---
