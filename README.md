@@ -126,4 +126,4 @@ This project is valuable for:
 
 ---
 
-> Thanks for checking out **GeoTentacles**. Though it’s early, the spatial threads are already being laid. Return in the future to see maps, models, and dashboards emerge from these foundations.  
+> Thanks for checking out **GeoTentacles** -– the spatial foundations that bring squid-focused maps, models, and geospatial insights to life.
