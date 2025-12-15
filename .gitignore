@@ -1,0 +1,32 @@
+# PostgreSQL outputs and logs
+*.sql~ 
+*.log
+
+# QGIS temporary files
+*.qgz~
+*.qgs~
+
+# GeoPackage auxiliary files (SQLite WAL/SHM)
+*.gpkg-wal
+*.gpkg-shm
+
+# Exported rasters, large maps, GIFs
+outputs/rasters/
+outputs/maps/*.gif
+outputs/maps/*.tif
+
+# OS / editor-specific files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Python / Jupyter artifacts
+__pycache__/
+.ipynb_checkpoints/
+
+# Other large binaries you don’t want in Git
+*.sqlite
+*.db
