@@ -70,6 +70,7 @@ The following variables must be defined on your local machine before running the
 
 ### Example (macOS / Linux / Git Bash)
 
+macOS(bash)
 ```bash
 export PGUSER=postgres
 export PGPASSWORD=your_password
@@ -88,7 +89,7 @@ Windows Notes
 
    ```
     import os
-       os.environ["PGUSER"] = "postgres"
+    os.environ["PGUSER"] = "postgres"
     os.environ["PGPASSWORD"] = "your_password"
     os.environ["PGHOST"] = "localhost"
     os.environ["PGPORT"] = "5432"
