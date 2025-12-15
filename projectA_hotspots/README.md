@@ -141,4 +141,3 @@ Contributions and extensions are welcome, particularly in:
 
 ## 🔒 Data Confidentiality Notice
 This project uses an anonymized and simulated dataset modeled on patterns observed during research. No proprietary or confidential information is included
-<img width="468" height="643" alt="image" src="https://github.com/user-attachments/assets/595660de-23b9-441d-be3a-61f15e03d58d" />
