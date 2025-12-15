@@ -1,4 +1,4 @@
-# Charting the Currents — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch
+# 🌊 Charting the Currents — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch
 
 ## 🌍 Real-World Value
 This project aggregates 20 years of squid catch data into spatial hotspots, helping fisheries managers, policymakers, and research teams identify persistent and emerging high-catch areas. It enables evidence-based planning for marine resource management and enforcement of territorial fishing laws.
