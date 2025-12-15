@@ -70,7 +70,7 @@ The following variables must be defined on your local machine before running the
 
 ### Example (macOS / Linux / Git Bash)
 
-macOS(bash)
+macOS/Linux(bash)
 ```bash
 export PGUSER=postgres
 export PGPASSWORD=your_password
@@ -95,6 +95,14 @@ Windows Notes
     os.environ["PGPORT"] = "5432"
     os.environ["PGDATABASE"] = "your_database"
     ```
+
+Security Notes
+
+ - Do not commit credentials directly into notebooks or scripts
+
+ - .env files (if used) should be added to .gitignore
+
+ - Each user must configure their own local database credential
    
 ---
 
