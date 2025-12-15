@@ -54,6 +54,49 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 
 ---
 
+## 🗄️ Database Configuration (Required)
+
+This project connects to a PostgreSQL/PostGIS database using **environment variables**.  
+Database credentials are **not stored in the repository** for security reasons.
+
+### Required Environment Variables
+The following variables must be defined on your local machine before running the notebooks:
+
+- `PGUSER` — PostgreSQL username  
+- `PGPASSWORD` — PostgreSQL password  
+- `PGHOST` — database host (e.g. `localhost`)  
+- `PGPORT` — database port (default: `5432`)  
+- `PGDATABASE` — database name  
+
+### Example (macOS / Linux / Git Bash)
+
+```bash
+export PGUSER=postgres
+export PGPASSWORD=your_password
+export PGHOST=localhost
+export PGPORT=5432
+export PGDATABASE=your_database
+```
+
+Windows Notes
+
+- If using Git Bash, environment variables only exist in that shell session.
+
+ - If Jupyter is launched from Anaconda Navigator or VS Code, those variables may not be visible.
+
+ - In that case, variables can be set inside Python for the session
+
+   ```
+    import os
+       os.environ["PGUSER"] = "postgres"
+    os.environ["PGPASSWORD"] = "your_password"
+    os.environ["PGHOST"] = "localhost"
+    os.environ["PGPORT"] = "5432"
+    os.environ["PGDATABASE"] = "your_database"
+    ```
+   
+---
+
 ## 📈 Visual Outputs
 | Visualization | Description | File Location |
 |---------------|------------|---------------|
