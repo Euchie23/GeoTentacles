@@ -51,6 +51,8 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 - Yearly CPUE calculation
 - Heatmap visualization of hotspots
 - Export of canonical spatial outputs for dashboards
+- Log-scaled graduated symbology applied at the visualization stage to represent highly skewed catch distributions while preserving raw values for analysis
+
 
 ---
 
@@ -115,12 +117,17 @@ Security Notes
 | Hotspot Map 2020 | Post-EEZ enforcement | `outputs/maps/hotspot_2020.png` |
 | Yearly Summary Table | Total catch, effort, CPUE | `outputs/tables/hotspot_summary.csv` |
 
+Note on Map Symbology  
+Catch quantities displayed in the hotspot maps use logarithmic (base-10) graduated color scaling in QGIS. This transformation is applied only at the visualization stage to improve interpretability of highly right-skewed fisheries data and to emphasize relative hotspot intensity. All analytical calculations (e.g., CPUE, summaries, and trend analysis) are performed using raw catch values in kilograms.
+
 ---
 
 ## 📉 Limitations & Future Work
 - Hotspots are based on available vessel data; unreported catches are not included
 - Grid size (0.25°) may smooth fine-scale patterns; future work could experiment with smaller grids
 - Environmental drivers (SST, Chlorophyll-a, depth) not yet incorporated into predictive models — next step for integration into Streamlit/Shiny dashboard
+- Future work could compare log-scaled visual hotspot patterns with alternative normalizations (e.g., effort-normalized density surfaces) to assess sensitivity of hotspot delineation.
+
 
 ---
 
