@@ -42,6 +42,8 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 ---
 
 ## 🔧 Tools & Techniques
+
+**Core Stack**
 - **PostgreSQL + PostGIS:** spatial database, queries, and aggregation
 - **QGIS:** visualization, layer styling, and GeoPackage exports
 - **Python / Jupyter Notebooks:** exploratory analysis, temporal animations, and plotting
@@ -115,6 +117,7 @@ Security Notes
 | Hotspot Map 2010 | Shifted catch hotspot | `outputs/maps/hotspot_2010.png` |
 | Hotspot Map 2011 | Major geographic shift | `outputs/maps/hotspot_2011.png` |
 | Hotspot Map 2020 | Post-EEZ enforcement | `outputs/maps/hotspot_2020.png` |
+| Animated  Hotspots | Spatio-temporal evolution | `outputs/maps/animated_hotspots.gif`|
 | Yearly Summary Table | Total catch, effort, CPUE | `outputs/tables/hotspot_summary.csv` |
 
 Note on Map Symbology  
@@ -147,4 +150,27 @@ Contributions and extensions are welcome, particularly in:
 ---
 
 ## 🔒 Data Confidentiality Notice
-This project uses an anonymized and simulated dataset modeled on patterns observed during research. No proprietary or confidential information is included
+This dataset is a simulated approximation of a real-world squid stock assessment
+dataset used during my tenure as a part-time research assistant at National Taiwan
+University. Although it closely resembles actual data, any interpretation or
+conclusions drawn here cannot be assumed to represent real conditions in the
+region.
+
+---
+
+## 📸 Static Previews
+
+**Hotspot Map - 2000**
+- Hotspot Map — 2000
+- Hotspot Map — 2010
+- Hotspot Map — 2011
+- Hotspot Map — 2020
+- Animated Hotspot Shifts (2000–2020)
+- Catch & CPUE Time Series
+
+---
+
+> 📁 For more on spatio-temporal mapping, spatial database design, and geospatial
+visual analytics using PostGIS and QGIS, see the other modules in the
+GeoTentacles repository.
+> 
