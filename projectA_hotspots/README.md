@@ -119,6 +119,8 @@ Security Notes
 ---
 
 ## 📈 Visual Outputs
+> Go to "📸 Static Previews" section below for a quick preview of outputs.
+> 
 | Visualization | Description | File Location |
 |---------------|------------|---------------|
 | Hotspot Map 2000 | Catch density for 2000 | `outputs/maps/hotspot_2000.png` |
@@ -153,7 +155,7 @@ Contributions and extensions are welcome, particularly in:
 - Spatio-temporal modeling and visualization
 - Interactive dashboard development (Streamlit/Shiny)
 
-📬 Email | LinkedIn
+📬 [Email](mailto:euchiejnpierre@gmail.com) | [LinkedIn](https://www.linkedin.com/in/euchiejnpierre/)
 
 ---
 
@@ -168,13 +170,21 @@ region.
 
 ## 📸 Static Previews
 
-**Hotspot Map - 2000**
-- Hotspot Map — 2000
-- Hotspot Map — 2010
-- Hotspot Map — 2011
-- Hotspot Map — 2020
-- Animated Hotspot Shifts (2000–2020)
-- Catch & CPUE Time Series
+**Hotspot Map - 2000 (Baseline)**
+- ![Hotspot Map — 2000](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2000.png)
+
+**Hotspot Map - 2010 (Shifted Catch Hotspots)**
+- ![Hotspot Map — 2010](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2010.png)
+
+**Hotspot Map - 2011 (Major Geographic Shift)**
+- ![Hotspot Map — 2011](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2011.png)
+- ![Hotspot Map — 2020](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2020.png)
+
+**Animated Hotspot Shift - 2000, 2010, 2011, 2020**
+- ![Animated Hotspot Shifts](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/animated_hotspots.gif)
+
+**CPUE Time Series**
+- ![Catch & CPUE Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/squid_catch_cpue.png)
 
 ---
 
