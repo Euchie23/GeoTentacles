@@ -28,7 +28,7 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 ## Database schema and analysis workflow
 
 The diagram below shows the database tables used in the GIS analysis and
-the flow of data from raw CSV ingestion to spatial aggregation.
+the flow of data from raw CSV ingestion to spatial aggregation.<br>
 ![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/pA_ERD.drawio.png)
 
 ---
