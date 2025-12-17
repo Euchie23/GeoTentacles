@@ -185,7 +185,7 @@ region.
 **Animated Hotspot Shift - 2000, 2010, 2011, 2020**
 - ![Animated Hotspot Shifts](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/animated_hotspots.gif)
 
-**Catch Time Series**
+**Catch & CPUE Time Series**
 - ![Catch Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/squid_catch_cpue_over_time.png)
 
 **Sample of Hotspots Colored by CPUE (Supplementary)**
