@@ -171,12 +171,18 @@ region.
 ## 📸 Static Previews
 
 **Hotspot Map - 2000 (Baseline)**
+> EEZ boundaries represented by red lines on the map
+> 
 - ![Hotspot Map — 2000](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2000.png)
 
 **Hotspot Map - 2010 (Shifted Catch Hotspots)**
+> EEZ boundaries represented by red lines on the map
+> 
 - ![Hotspot Map — 2010](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2010.png)
 
 **Hotspot Map - 2011 (Major Geographic Shift)**
+> EEZ boundaries represented by red lines on the map
+> 
 - ![Hotspot Map — 2011](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2011.png)
 
 **Hotspot Map - 2020 (Post EEZ Enforcement)**
