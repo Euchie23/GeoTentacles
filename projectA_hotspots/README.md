@@ -178,10 +178,12 @@ region.
 
 **Hotspot Map - 2011 (Major Geographic Shift)**
 - ![Hotspot Map — 2011](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2011.png)
+
+**Hotspot Map - 2020 (Post EEZ Enforcement)**
 - ![Hotspot Map — 2020](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2020.png)
 
 **Animated Hotspot Shift - 2000, 2010, 2011, 2020**
-- ![Animated Hotspot Shifts](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/animated_hotspots.gif)
+- ![Animated Hotspot Shifts](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/animated_hotspots.gif)
 
 **CPUE Time Series**
 - ![Catch & CPUE Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/squid_catch_cpue.png)
