@@ -180,6 +180,8 @@ region.
 - ![Hotspot Map — 2011](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2011.png)
 
 **Hotspot Map - 2020 (Post EEZ Enforcement)**
+> EEZ boundaries represented by red lines on the map
+> 
 - ![Hotspot Map — 2020](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2020.png)
 
 **Animated Hotspot Shift - 2000, 2010, 2011, 2020**
