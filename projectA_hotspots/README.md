@@ -119,7 +119,7 @@ Security Notes
 ---
 
 ## 📈 Visual Outputs
-> Go to "📸 Static Previews" section below for a quick preview of outputs.
+> Go to "📸 Static Previews" section below for a quick preview of main and supplementary outputs.
 > 
 | Visualization | Description | File Location |
 |---------------|------------|---------------|
@@ -185,8 +185,11 @@ region.
 **Animated Hotspot Shift - 2000, 2010, 2011, 2020**
 - ![Animated Hotspot Shifts](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/animated_hotspots.gif)
 
-**CPUE Time Series**
-- ![Catch & CPUE Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/squid_catch_cpue_over_time.png)
+**Catch Time Series**
+- ![Catch Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/squid_catch_cpue_over_time.png)
+
+**Sample of Hotspots Colored by CPUE (Supplementary)**
+- ![CPUE Hotspots](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/sample_of_hotspots_colored_by_cpue.png)
 
 ---
 
