@@ -186,7 +186,7 @@ region.
 - ![Animated Hotspot Shifts](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/animated_hotspots.gif)
 
 **CPUE Time Series**
-- ![Catch & CPUE Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/squid_catch_cpue.png)
+- ![Catch & CPUE Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/squid_catch_cpue_over_time.png)
 
 ---
 
