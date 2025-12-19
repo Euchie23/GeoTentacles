@@ -63,8 +63,8 @@ spatial/hotspots_yearly.geojson — yearly polygon-based hotspot layers
 - Polygon-level CPUE calculated as total catch per vessel-day within each grid cell and year
 - Yearly CPUE calculation
 - Heatmap visualization of hotspots
-- Export of canonical spatial outputs for dashboards
-- Log-scaled (base-10) graduated symbology is applied at the visualization stage using CPUE values aggregated at the polygon level. Raw CPUE values are retained in the database and summary tables; logarithmic transformation is used solely to improve visual interpretability of highly skewed spatial patterns.
+- Export of canonical spatial outputs for dashboards 
+- Log-scaled (base-10) graduated symbology applied at the visualization stage in QGIS to represent highly skewed catch and CPUE distributions while preserving raw values for analysis and web delivery via GeoJSON; logarithmic transformation is used solely to improve visual interpretability of highly skewed spatial patterns.
 
 
 ---
