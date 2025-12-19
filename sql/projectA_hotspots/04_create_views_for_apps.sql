@@ -1,15 +1,15 @@
 /* ==========================================================
    04_create_views_for_apps.sql
    ----------------------------------------------------------
-   Provides simple public-facing views for visualization
-   layers in QGIS and data access in Shiny dashboards.
+   Public-facing views for QGIS and dashboards.
    ========================================================== */
 
 DROP VIEW IF EXISTS public.squid_hotspots;
 
 CREATE VIEW public.squid_hotspots AS
 SELECT *
-FROM analysis.squid_grid_025;
+FROM analysis.squid_hotspots;
 
-COMMENT ON VIEW public.squid_hotspots IS 
-'View used by QGIS and Shiny for hotspot visualization.';
+COMMENT ON VIEW public.squid_hotspots IS
+'Polygon-based squid catch hotspots for visualization and apps.';
+
