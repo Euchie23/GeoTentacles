@@ -1,7 +1,7 @@
 # 🌊 Charting the Currents — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch
 
 ## 🌍 Real-World Value
-This project aggregates 20 years of squid catch data into spatial hotspots, helping fisheries managers, policymakers, and research teams identify persistent and emerging high-catch areas. It enables evidence-based planning for marine resource management and enforcement of territorial fishing laws.
+This project aggregates 20 years of squid catch data into polygon-based spatial grid cells (0.25° × 0.25°), enabling robust hotspot detection and comparison across time. It enables evidence-based planning for marine resource management and enforcement of territorial fishing laws.
 
 **Who This Helps**
 - Fisheries agencies: identify high-density fishing areas for management and regulation
@@ -14,7 +14,7 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 ---
 
 ## 📘 Executive Summary
-**What we did:** Aggregated vessel-based catch data into spatial grids, calculated yearly CPUE, and visualized 20 years of squid fishing hotspots.  
+**What we did:**Aggregated vessel-based catch events into origin-aligned 0.25° polygon grid cells, calculated yearly CPUE per cell, and visualized 20 years of squid fishing hotspots.  
 **Main outcomes:**
 - Hotspots shift geographically over time, reflecting ecological and regulatory patterns
 - Peak catches concentrated in specific regions, especially during 2010–2011
@@ -27,20 +27,23 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 
 ## 🧱 Database schema and analysis workflow
 
-The diagram below illustrates the database tables used in the GIS analysis and the flow of data from raw CSV ingestion to spatial aggregation. For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/Data%20Dictionary.pdf).<br><br>
+The diagram below illustrates the database tables used in the GIS analysis and the flow of data from raw CSV ingestion to spatial aggregation. For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/Data%20Dictionary.pdf).
+Spatial aggregation is performed using polygon grid cells rather than point-based bins. Each fishing event (point geometry) is assigned to a single 0.25° × 0.25° polygon using point-in-polygon spatial joins. This approach prevents visual overlap, supports area-based summaries, and aligns with industry-standard fisheries hotspot workflows.<br><br>
 ![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/pA_ERD.drawio.png)
 
 ---
+spatial/grid_025deg_poly.geojson — 0.25° × 0.25° polygon reference grid
+spatial/hotspots_yearly.geojson — yearly polygon-based hotspot layers
 
 ## 🧩 Module Overview
 **Core Objectives**
-- Aggregate catch into 0.25° spatial grids
+- Aggregate catch into 0.25° × 0.25° polygon grid cells
 - Identify annual hotspots based on CPUE
 - Export GeoJSON, GeoPackage, PNGs, and summary tables for analysis and dashboard integration
 
 **Outputs Generated**
-- `spatial/grid_025deg.geojson` — 0.25° reference grid
-- `spatial/hotspots_yearly.geojson` — yearly hotspot points
+- `spatial/grid_025deg_poly.geojson` — 0.25° × 0.25° polygon reference grid
+- `spatial/hotspots_yearly.geojson` — yearly polygon-based hotspot layers
 - `spatial/hotspots_aggregated.gpkg` — combined layers for visualization
 - `spatial/qgis_project.qgz` — QGIS project file with styling
 - `outputs/maps/` — PNG snapshots of key years (2000, 2010, 2011, 2020)
@@ -56,11 +59,12 @@ The diagram below illustrates the database tables used in the GIS analysis and t
 - **Python / Jupyter Notebooks:** exploratory analysis, temporal animations, and plotting
 
 **Key Methods**
-- Spatial join and aggregation into grid cells
+- Point-in-polygon spatial joins to aggregate fishing events into polygon grid cells
+- Polygon-level CPUE calculated as total catch per vessel-day within each grid cell and year
 - Yearly CPUE calculation
 - Heatmap visualization of hotspots
 - Export of canonical spatial outputs for dashboards
-- Log-scaled graduated symbology applied at the visualization stage to represent highly skewed catch distributions while preserving raw values for analysis
+- Log-scaled (base-10) graduated symbology is applied at the visualization stage using CPUE values aggregated at the polygon level. Raw CPUE values are retained in the database and summary tables; logarithmic transformation is used solely to improve visual interpretability of highly skewed spatial patterns.
 
 
 ---
@@ -130,13 +134,13 @@ Security Notes
 | Yearly Summary Table | Total catch, effort, CPUE | `outputs/tables/hotspot_summary.csv` |
 
 Note on Map Symbology  
-Catch quantities displayed in the hotspot maps use logarithmic (base-10) graduated color scaling in QGIS. This transformation is applied only at the visualization stage to improve interpretability of highly right-skewed fisheries data and to emphasize relative hotspot intensity. All analytical calculations (e.g., CPUE, summaries, and trend analysis) are performed using raw catch values in kilograms.
+Legend values display back-transformed CPUE values (kg per vessel-day). While grid cells are symbolized using a log₁₀ transformation to handle extreme skewness, legend labels are shown in real-world units to ensure interpretability for non-technical audiences. Color differences therefore represent orders-of-magnitude changes in catch efficiency rather than linear increments.
 
 ---
 
 ## 📉 Limitations & Future Work
 - Hotspots are based on available vessel data; unreported catches are not included
-- Grid size (0.25°) may smooth fine-scale patterns; future work could experiment with smaller grids
+- Polygon grid size (0.25° × 0.25°) may smooth fine-scale fishing behavios; future work could experiment with smaller grids
 - Environmental drivers (SST, Chlorophyll-a, depth) not yet incorporated into predictive models — next step for integration into Streamlit/Shiny dashboard
 - Future work could compare log-scaled visual hotspot patterns with alternative normalizations (e.g., effort-normalized density surfaces) to assess sensitivity of hotspot delineation.
 
@@ -144,7 +148,7 @@ Catch quantities displayed in the hotspot maps use logarithmic (base-10) graduat
 ---
 
 ## 🧭 Summary Statement
-This module establishes a **robust, industry-standard workflow** for spatio-temporal hotspot analysis of squid catch. Outputs are suitable for visual exploration, reporting, and integration into interactive dashboards, providing both ecological insight and regulatory intelligence.
+This module establishes **a robust, polygon-based, industry-standard workflow** for spatio-temporal hotspot analysis of squid catch. Outputs are suitable for visual exploration, reporting, and integration into interactive dashboards, providing both ecological insight and regulatory intelligence.
 
 ---
 
