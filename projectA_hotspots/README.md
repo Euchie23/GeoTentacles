@@ -27,7 +27,7 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 
 ## 🧱 Database schema and analysis workflow
 
-The diagram below illustrates the database tables used in the GIS analysis and the flow of data from raw CSV ingestion to spatial aggregation. For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/Data%20Dictionary.pdf).
+The diagram below illustrates the database tables used in the GIS analysis and the flow of data from raw CSV ingestion to spatial aggregation. For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/Data_Dictionary.pdf).
 Spatial aggregation is performed using polygon grid cells rather than point-based bins. Each fishing event (point geometry) is assigned to a single 0.25° × 0.25° polygon using point-in-polygon spatial joins. This approach prevents visual overlap, supports area-based summaries, and aligns with industry-standard fisheries hotspot workflows.<br><br>
 ![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/pA_ERD.drawio.png)
 
