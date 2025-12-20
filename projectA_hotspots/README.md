@@ -152,7 +152,7 @@ This module establishes **a robust, polygon-based, industry-standard workflow** 
 
 ---
 
-## 🔗 Continuation: Forecasting the Swarms (Squid Catch Hotspot Predictions using Classification Modelling)
+## 🔗 Continuation: 🗺️ Forecasting the Swarms (Squid Catch Hotspot Predictions using Classification Modelling)
 
 This hotspot analysis serves as the spatial foundation for **Forecasting the Swarms**, which extends the workflow into predictive modeling. Using the same polygon grid framework, environmental variables, and spatial aggregation logic, Forecasting the Swarms applies machine learning to estimate the probability of future squid catch hotspots under varying oceanographic conditions.
 
