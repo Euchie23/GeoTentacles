@@ -188,5 +188,31 @@ Contributions and extensions are welcome, particularly in:
 ---
 
 ## 🔒 Data Confidentiality Notice
-This dataset is a simulated approximation of a real-world squid stock assessment dataset. While structurally realistic, it should not be interpreted as representing actual fishery conditions.
+This dataset is a simulated approximation of a real-world squid stock assessment
+dataset used during my tenure as a part-time research assistant at National Taiwan
+University. Although it closely resembles actual data, any interpretation or
+conclusions drawn here cannot be assumed to represent real conditions in the
+region.
 
+---
+
+## 📸 Static Previews
+
+**Predicted Hotspot Probability — 2016**
+- ![Hotspot Probability 2016](outputs/projectB_ml/maps/hotspot_prob_2016.png)
+
+**Binary Hotspot Prediction — 2018**
+- ![Binary Hotspots 2018](outputs/projectB_ml/maps/hotspot_binary_2018.png)
+
+**Calibration Curves by Year**
+- ![Calibration Curves](outputs/projectB_ml/plots/calibration_curves.png)
+
+**ROC Curve & AUC**
+- ![ROC Curve](outputs/projectB_ml/plots/roc_auc.png)
+
+---
+
+> 📁 For more on spatio-temporal mapping, spatial database design, and geospatial
+visual analytics using PostGIS and QGIS, see the other modules in the
+GeoTentacles repository.
+> 
