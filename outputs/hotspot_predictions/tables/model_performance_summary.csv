@@ -1,1 +1,13 @@
-
+"model_name","dataset","metric","value"
+"RandomForest_v1","Test (2016–2020)","AUC",0.62063522397187
+"RandomForest_v1","Test (2016–2020)","Accuracy",0.740072202166065
+"RandomForest_v1","Test (2016–2020)","Kappa",0.049470975121533
+"RandomForest_v1","Test (2016–2020)","Precision",0.7531328320802
+"RandomForest_v1","Test (2016–2020)","Recall",0.969354838709677
+"RandomForest_v1","Test (2016–2020)","Specificity",0.0663507109004739
+"RandomForest_v1","Test (2016–2020)","F1",0.847672778561354
+"RandomForest_v1","Test (2016–2020)","AUC_2016",0.776143211627083
+"RandomForest_v1","Test (2016–2020)","AUC_2017",0.669934640522876
+"RandomForest_v1","Test (2016–2020)","AUC_2018",0.65108843537415
+"RandomForest_v1","Test (2016–2020)","AUC_2019",0.573775448498287
+"RandomForest_v1","Test (2016–2020)","AUC_2020",0.583926031294452
