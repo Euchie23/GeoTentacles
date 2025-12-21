@@ -17,7 +17,7 @@ Hotspots are dynamic. Predicting where they are *likely* to occur — and quanti
 
 ## 📘 Executive Summary
 **What we did:**  
-Built a Random Forest classification model to predict squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from Project A. Predictions were generated as continuous probability surfaces and thresholded into binary hotspot classifications.
+Built a Random Forest classification model to predict squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from hotspot_dynamics. Predictions were generated as continuous probability surfaces and thresholded into binary hotspot classifications.
 
 **Main outcomes:**
 - Hotspot probability surfaces reveal coherent spatial patterns in years with strong aggregation signals (2016–2018)
@@ -33,10 +33,10 @@ This approach captures habitat suitability and aggregation potential rather than
 ---
 
 ## 🧱 Modeling Workflow & Data Lineage
-This project directly builds on the spatial database, polygon grid, and aggregation logic established in **Project A**. No new spatial discretization was introduced.
+This project directly builds on the spatial database, polygon grid, and aggregation logic established in **hotspot_dynamics**. No new spatial discretization was introduced.
 
 **Workflow overview:**
-1. Polygon-level features generated from Project A outputs  
+1. Polygon-level features generated from hotspot_dynamics outputs  
 2. Environmental and catch summaries assembled into an ML feature table  
 3. Random Forest classification trained on historical years  
 4. Predictions generated for independent test years (2016–2020)  
@@ -147,12 +147,12 @@ These limitations reflect data availability and ecological variability rather th
 ---
 
 ## 🧭 Summary Statement
-This module demonstrates how spatial hotspot analysis can be extended into **probabilistic prediction** using machine learning, while maintaining ecological interpretability and transparency. Together with Project A, it forms a coherent analytical pipeline from historical mapping to forward-looking decision support.
+This module demonstrates how spatial hotspot analysis can be extended into **probabilistic prediction** using machine learning, while maintaining ecological interpretability and transparency. Together with hotspot_dynamics, it forms a coherent analytical pipeline from historical mapping to forward-looking decision support.
 
 ---
 
-## 🔗 Relationship to Project A
-This project is a direct continuation of **Project A — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch**. Project A establishes the spatial foundation and aggregation logic, while Project B builds predictive capability on top of that framework.
+## 🔗 Relationship to hotspot_dynamics
+This project is a direct continuation of **hotspot_dynamics — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch**. hotspot_dynamics establishes the spatial foundation and aggregation logic, while Project B builds predictive capability on top of that framework.
 
 ---
 
