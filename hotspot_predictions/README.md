@@ -1,7 +1,7 @@
 # 🦑 Forecasting the Swarms — Predicting Squid Catch Hotspots Using Machine Learning
 
 ## 🌍 Real-World Value
-This module extends the spatial hotspot framework developed in **Project A** by introducing predictive modeling. Using the same polygon grid system, spatial aggregation logic, and environmental covariates, this project applies machine-learning classification to estimate the **probability of squid catch hotspots** across multiple years.
+This module extends the spatial hotspot framework developed in **hotspot_dynamics** by introducing predictive modeling. Using the same polygon grid system, spatial aggregation logic, and environmental covariates, this project applies machine-learning classification to estimate the **probability of squid catch hotspots** across multiple years.
 
 Rather than reproducing historical fishing patterns, the model identifies **environmentally suitable regions for squid aggregation**, supporting proactive planning and risk-based decision-making.
 
