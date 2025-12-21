@@ -152,7 +152,7 @@ This module demonstrates how spatial hotspot analysis can be extended into **pro
 ---
 
 ## 🔗 Relationship to hotspot_dynamics
-This project is a direct continuation of **hotspot_dynamics — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch**. hotspot_dynamics establishes the spatial foundation and aggregation logic, while Project B builds predictive capability on top of that framework.
+This project is a direct continuation of **hotspot_dynamics — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch**. hotspot_dynamics establishes the spatial foundation and aggregation logic, while hotspot_predictions builds predictive capability on top of that framework.
 
 ---
 
