@@ -27,9 +27,9 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 
 ## 🧱 Database schema and analysis workflow
 
-The diagram below illustrates the database tables used in the GIS analysis and the flow of data from raw CSV ingestion to spatial aggregation. For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/Data_Dictionary.pdf).
+The diagram below illustrates the database tables used in the GIS analysis and the flow of data from raw CSV ingestion to spatial aggregation. For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/Data_Dictionary.pdf).
 Spatial aggregation is performed using polygon grid cells rather than point-based bins. Each fishing event (point geometry) is assigned to a single 0.25° × 0.25° polygon using point-in-polygon spatial joins. This approach prevents visual overlap, supports area-based summaries, and aligns with industry-standard fisheries hotspot workflows.<br><br>
-![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/tables/pA_ERD.drawio.png)
+![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/pA_ERD.drawio.png)
 
 ---
 spatial/grid_025deg_poly.geojson — 0.25° × 0.25° polygon reference grid
@@ -189,31 +189,31 @@ region.
 **Hotspot Map - 2000 (Baseline)**
 > EEZ boundaries represented by red lines on the map
 > 
-- ![Hotspot Map — 2000](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2000.png)
+- ![Hotspot Map — 2000](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/maps/hotspots_2000.png)
 
 **Hotspot Map - 2010 (Shifted Catch Hotspots)**
 > EEZ boundaries represented by red lines on the map
 > 
-- ![Hotspot Map — 2010](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2010.png)
+- ![Hotspot Map — 2010](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/maps/hotspots_2010.png)
 
 **Hotspot Map - 2011 (Major Geographic Shift)**
 > EEZ boundaries represented by red lines on the map
 > 
-- ![Hotspot Map — 2011](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2011.png)
+- ![Hotspot Map — 2011](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/maps/hotspots_2011.png)
 
 **Hotspot Map - 2020 (Post EEZ Enforcement)**
 > EEZ boundaries represented by red lines on the map
 > 
-- ![Hotspot Map — 2020](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/hotspots_2020.png)
+- ![Hotspot Map — 2020](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/maps/hotspots_2020.png)
 
 **Animated Hotspot Shift - 2000, 2010, 2011, 2020**
-- ![Animated Hotspot Shifts](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/maps/animated_hotspots.gif)
+- ![Animated Hotspot Shifts](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/maps/animated_hotspots.gif)
 
 **Catch & CPUE Time Series**
-- ![Catch Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/squid_catch_cpue_over_time.png)
+- ![Catch Time Series](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/plots/squid_catch_cpue_over_time.png)
 
 **Sample of Hotspots Colored by CPUE (Supplementary)**
-- ![CPUE Hotspots](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/projectA_hotspots/plots/sample_of_hotspots_colored_by_cpue.png)
+- ![CPUE Hotspots](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/plots/sample_of_hotspots_colored_by_cpue.png)
 
 ---
 
