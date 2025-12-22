@@ -14,7 +14,8 @@ Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by 
 ---
 
 ## 📘 Executive Summary
-**What we did:**Aggregated vessel-based catch events into origin-aligned 0.25° polygon grid cells, calculated yearly CPUE per cell, and visualized 20 years of squid fishing hotspots.  
+**What we did:**
+Aggregated vessel-based catch events into origin-aligned 0.25° polygon grid cells, calculated yearly CPUE per cell, and visualized 20 years of squid fishing hotspots.  
 **Main outcomes:**
 - Hotspots shift geographically over time, reflecting ecological and regulatory patterns
 - Peak catches concentrated in specific regions, especially during 2010–2011
