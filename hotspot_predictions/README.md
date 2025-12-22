@@ -11,14 +11,16 @@ Rather than attempting to reproduce historical fishing effort, the model focuses
 - **NGOs & practitioners:** explore habitat suitability, risk, and interannual variability  
 
 ### Why It Matters
-Hotspots are inherently dynamic. Predicting where they are *more likely* to occur — and explicitly communicating uncertainty — provides a more realistic foundation for adaptive management than retrospective mapping alone.
+Hotspots are inherently dynamic. Predicting where they are *more likely* to occur — and explicitly communicating uncertainty — provides a more realistic foundation for adaptive management than retrospective mapping alone. By focusing on the January–June period, the model aligns with seasonal aggregation dynamics and common survey and monitoring windows.
+
 
 ---
 
 ## 📘 Executive Summary
 
 ### What we did
-Developed a Random Forest classification model to estimate squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from **hotspot_dynamics**. Predictions were generated as continuous probability surfaces and conservatively thresholded into binary hotspot classifications for decision-support use.
+Developed a Random Forest classification model to estimate squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from **hotspot_dynamics**. Predictions were generated for independent test years (2016–2020), restricted to the January–June period to align with peak aggregation and data availability.
+
 
 ### Main outcomes
 - Predicted probability surfaces reveal coherent and ecologically plausible spatial patterns during years with strong aggregation signals (2016–2018)
@@ -83,7 +85,8 @@ All predictions are served from PostgreSQL/PostGIS to support reproducible analy
 ## 📊 Model Validation & Results
 
 ### 1️⃣ Hotspot Probability Validation
-Predicted probabilities were grouped into bins and compared against observed mean catch.
+Predicted probabilities were grouped into bins and compared against observed mean catch. All validation metrics and spatial predictions reflect January–June conditions only and should be interpreted as seasonal, not annual, performance.
+
 
 **Figure:** Observed Catch by Predicted Hotspot Probability  
 📌 *Insert figure showing mean observed catch by probability bin (2016–2020)*
@@ -158,7 +161,8 @@ This illustrates how probabilistic outputs can guide **risk-aware planning** wit
 ---
 
 ## 🌱 Ecological Interpretation
-Predicted hotspot probabilities show a consistent northward concentration during 2016–2018, followed by weakened spatial structure in 2019 and a near absence of high-probability hotspots in 2020. This pattern aligns with known squid life-history dynamics along the Patagonian Shelf, including feeding migrations and spawning-related movements.
+Predicted hotspot probabilities show a consistent northward concentration during 2016–2018, followed by weakened spatial structure in 2019 and a near absence of high-probability hotspots in 2020. This pattern aligns with known squid life-history dynamics along the Patagonian Shelf, including feeding migrations and spawning-related movements. All spatial patterns reflect January–June conditions, corresponding to known seasonal migration and aggregation phases in the squid life cycle.
+
 
 Notably, predicted hotspots often occur slightly north of observed catch locations, suggesting the model captures **environmental suitability and aggregation potential**, rather than simply reproducing historical fishing effort.
 
