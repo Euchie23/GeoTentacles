@@ -1,80 +1,82 @@
 # 🦑 Forecasting the Swarms — Predicting Squid Catch Hotspots Using Machine Learning
 
 ## 🌍 Real-World Value
-This module extends the spatial hotspot framework developed in **hotspot_dynamics** by introducing predictive modeling. Using the same polygon grid system, spatial aggregation logic, and environmental covariates, this project applies machine-learning classification to estimate the **probability of squid catch hotspots** across multiple years.
+This module extends the spatial hotspot framework developed in **hotspot_dynamics** by introducing predictive, forward-looking analysis. Using the same polygon grid system, spatial aggregation logic, and environmental covariates, this project applies machine-learning classification to estimate the **likelihood of squid catch hotspots** across multiple years.
 
-Rather than reproducing historical fishing patterns, the model identifies **environmentally suitable regions for squid aggregation**, supporting proactive planning and risk-based decision-making.
+Rather than attempting to reproduce historical fishing effort, the model focuses on identifying **environmentally suitable regions for squid aggregation**, supporting proactive planning and risk-aware decision-making.
 
-**Who This Helps**
-- Fisheries managers: anticipate likely hotspot regions under varying conditions  
-- Environmental consultancies: support spatial planning and monitoring strategies  
-- NGOs & researchers: explore habitat suitability and interannual variability  
+### Who This Helps
+- **Fisheries managers:** anticipate likely hotspot regions under changing conditions  
+- **Environmental consultancies:** support spatial planning, monitoring, and survey design  
+- **NGOs & practitioners:** explore habitat suitability, risk, and interannual variability  
 
-**Why It Matters**
-Hotspots are dynamic. Predicting where they are *likely* to occur — and quantifying uncertainty — provides a stronger foundation for adaptive management than retrospective mapping alone.
+### Why It Matters
+Hotspots are inherently dynamic. Predicting where they are *more likely* to occur — and explicitly communicating uncertainty — provides a more realistic foundation for adaptive management than retrospective mapping alone.
 
 ---
 
 ## 📘 Executive Summary
-**What we did:**  
-Built a Random Forest classification model to predict squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from hotspot_dynamics. Predictions were generated as continuous probability surfaces and thresholded into binary hotspot classifications.
 
-**Main outcomes:**
-- Hotspot probability surfaces reveal coherent spatial patterns in years with strong aggregation signals (2016–2018)
-- Model confidence and discrimination weaken in later years (2019–2020), consistent with reduced aggregation and data coverage
-- Probability-based outputs provide a more informative and cautious representation than binary classification alone
+### What we did
+Developed a Random Forest classification model to estimate squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from **hotspot_dynamics**. Predictions were generated as continuous probability surfaces and conservatively thresholded into binary hotspot classifications for decision-support use.
 
-**Why it matters:**  
-This approach captures habitat suitability and aggregation potential rather than fishing effort alone, enabling more ecologically meaningful and transparent hotspot predictions.
+### Main outcomes
+- Predicted probability surfaces reveal coherent and ecologically plausible spatial patterns during years with strong aggregation signals (2016–2018)
+- Predictive discrimination weakens in later years (2019–2020), consistent with reduced aggregation and weaker spatial structure rather than model instability
+- Probability-based outputs provide a more transparent and informative representation of uncertainty than binary classification alone
 
-**Data scope:**  
-20-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells, with environmental variables including SST, depth, SSH, and chlorophyll-a.
+### Why it matters
+This approach emphasizes **habitat suitability and aggregation potential**, not fishing effort, enabling cautious and interpretable hotspot prediction suitable for applied decision-making.
+
+### Data scope
+A 20-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells, paired with environmental variables including sea surface temperature (SST), bathymetry, sea surface height (SSH), and chlorophyll-a.
 
 ---
 
 ## 🧱 Modeling Workflow & Data Lineage
-This project directly builds on the spatial database, polygon grid, and aggregation logic established in **hotspot_dynamics**. No new spatial discretization was introduced.
+This project directly builds on the spatial database, polygon grid, and aggregation logic established in **hotspot_dynamics**. No new spatial discretization or regridding was introduced.
 
-**Workflow overview:**
-1. Polygon-level features generated from hotspot_dynamics outputs  
-2. Environmental and catch summaries assembled into an ML feature table  
-3. Random Forest classification trained on historical years  
+### Workflow overview
+1. Polygon-level features derived from hotspot_dynamics outputs  
+2. Environmental and catch summaries assembled into a modeling feature table  
+3. Random Forest classifier trained on historical data  
 4. Predictions generated for independent test years (2016–2020)  
-5. Outputs exported to PostGIS for validation and interactive use  
+5. Outputs exported to PostGIS for validation, visualization, and dashboard use  
 
-All predictions are served from PostgreSQL/PostGIS to support reproducible analysis and Shiny integration.
+All predictions are served from PostgreSQL/PostGIS to support reproducible analysis and future Shiny integration.
 
 ---
 
 ## 🧩 Module Objectives
-**Core Objectives**
-- Predict squid catch hotspot likelihood at the polygon level
-- Quantify uncertainty using probability-based outputs
-- Validate predictions using multiple complementary metrics
-- Prepare spatial outputs for interactive dashboard deployment
 
-**Outputs Generated**
-- Probability maps by year (2016–2020)
-- Binary hotspot classification maps
-- Validation figures (probability bins, calibration curves, ROC/AUC)
-- Confusion matrices and performance summaries
-- Serialized model and results objects (`.qs`) for Shiny runtime
+### Core Objectives
+- Predict squid catch hotspot likelihood at the polygon level  
+- Quantify uncertainty using probability-based outputs  
+- Validate predictions using multiple complementary metrics  
+- Prepare spatial outputs for interactive and client-facing deployment  
+
+### Outputs Generated
+- Hotspot probability maps by year (2016–2020)  
+- Binary hotspot classification maps  
+- Validation figures (probability bins, calibration curves, ROC/AUC)  
+- Confusion matrices and performance summaries  
+- Serialized model and results objects (`.qs`) for Shiny runtime  
 
 ---
 
 ## 🔧 Tools & Techniques
 
-**Core Stack**
-- **PostgreSQL + PostGIS:** feature storage and spatial serving layer  
+### Core Stack
+- **PostgreSQL + PostGIS:** spatial feature storage and serving  
 - **R:** modeling, validation, and visualization  
 - **Random Forest:** tree-based classification with probabilistic outputs  
 - **Shiny (planned):** interactive exploration and decision support  
 
-**Key Methods**
-- Probability-based classification rather than deterministic labeling  
-- Temporal hold-out validation (training vs independent test years)  
-- Multi-metric model evaluation (discrimination, calibration, ecological plausibility)  
-- Conservative thresholding to avoid overconfident predictions  
+### Key Methods
+- Probability-based prediction rather than deterministic labeling  
+- Temporal hold-out validation using independent test years  
+- Multi-metric evaluation (discrimination, calibration, spatial plausibility)  
+- Conservative thresholding to minimize false positives  
 
 ---
 
@@ -83,133 +85,153 @@ All predictions are served from PostgreSQL/PostGIS to support reproducible analy
 ### 1️⃣ Hotspot Probability Validation
 Predicted probabilities were grouped into bins and compared against observed mean catch.
 
-**Figure:** Hotspot Probability Validation (Mean Catch by Probability Bin)  
-*Insert PNG here*
+**Figure:** Observed Catch by Predicted Hotspot Probability  
+📌 *Insert figure showing mean observed catch by probability bin (2016–2020)*
 
-Key findings:
-- Mean observed catch generally increases with predicted probability (2016–2019)
-- High-probability bins contain few observations, reflecting hotspot rarity
-- No high-probability predictions in 2020, consistent with weak aggregation signals
+**Key findings**
+- Mean observed catch generally increases with predicted probability in most years  
+- High-probability bins contain relatively few observations, reflecting hotspot rarity  
+- No high-probability predictions occur in 2020, consistent with weak aggregation signals  
 
 ---
 
 ### 2️⃣ Calibration Curves
-Calibration curves were used to assess probability reliability across years.
+Calibration curves were used to assess how well predicted probabilities align with observed hotspot frequencies.
 
 **Figure:** Calibration Curves by Year  
-*Insert PNG here*
+📌 *Insert multi-panel calibration plot (2016–2020)*
 
-Key findings:
-- Reasonable calibration during strong aggregation years (2016–2018)
-- Degraded calibration in later years, reflecting environmental variability and sparse sampling
+**Key findings**
+- Reasonable calibration during years with strong spatial structure (2016–2018)  
+- Reduced calibration in later years, reflecting ecological variability and sparse positive cases  
+- Probabilities remain conservative rather than overconfident  
 
 ---
 
 ### 3️⃣ Binary Hotspot Classification
-Probability outputs were thresholded to produce binary hotspot maps.
+Probability outputs were thresholded to produce binary hotspot predictions suitable for operational use.
 
 **Figure:** Predicted Hotspots by Year (Binary Classification)  
-*Insert PNG here*
+📌 *Insert binary hotspot maps for all years*
 
-Key findings:
-- High true-negative rates across all years
-- True positives concentrated in earlier years
-- Conservative behavior under weak signal conditions
+**Key findings**
+- High true-negative rates across all years  
+- True positives concentrated in earlier years with stronger aggregation  
+- Conservative behavior under weak-signal conditions, avoiding widespread false positives  
 
 ---
 
 ### 4️⃣ Discrimination Performance (ROC / AUC)
 
 **Figure:** ROC Curves and AUC Scores by Year  
-*Insert PNG here*
+📌 *Insert ROC curves and AUC summary bar chart*
 
-- Overall AUC: **0.649**
-- Strong discrimination in 2016 and 2018
-- Near-random discrimination in 2019–2020, consistent with reduced spatial structure
+**AUC by year**
+- 2016: **0.776**  
+- 2017: **0.670**  
+- 2018: **0.651**  
+- 2019: **0.574**  
+- 2020: **0.584**
+
+Overall discrimination is consistently above random expectations, with performance variability reflecting changing ecological conditions rather than overfitting.
+
+---
+
+## 🧭 Decision Framing & Intended Use
+This model is designed as a **decision-support tool**, not a deterministic predictor of catch.
+
+Recommended use cases include:
+- Prioritizing survey or monitoring effort toward higher-probability regions  
+- Screening large spatial domains to identify areas of elevated aggregation risk  
+- Supporting spatial planning under uncertainty, where false positives are costly  
+
+Probability outputs are intended to inform *relative risk and prioritization*, rather than binary operational decisions in isolation.
+
+---
+
+## 📌 Applied Example
+**Example scenario:**  
+If a monitoring program were planned for 2018, polygons with predicted hotspot probability above a conservative threshold (e.g. >0.4) could be prioritized for survey allocation. Lower-probability regions would remain candidates for background sampling, ensuring coverage while focusing limited resources on areas with higher aggregation potential.
+
+This illustrates how probabilistic outputs can guide **risk-aware planning** without assuming guaranteed outcomes.
 
 ---
 
 ## 🌱 Ecological Interpretation
-Predicted hotspot probabilities exhibit a clear northward concentration during 2016–2018, followed by a weakening pattern in 2019 and a near-absence of high-probability hotspots in 2020. This spatial signal aligns with the known squid life cycle, including southward feeding migrations along the Patagonian Shelf and subsequent northward movement toward spawning grounds.
+Predicted hotspot probabilities show a consistent northward concentration during 2016–2018, followed by weakened spatial structure in 2019 and a near absence of high-probability hotspots in 2020. This pattern aligns with known squid life-history dynamics along the Patagonian Shelf, including feeding migrations and spawning-related movements.
 
-Importantly, predicted hotspots often occur north of observed catch locations, suggesting that the model identifies environmentally suitable aggregation or pre-spawning regions rather than reproducing historical fishing effort alone.
+Notably, predicted hotspots often occur slightly north of observed catch locations, suggesting the model captures **environmental suitability and aggregation potential**, rather than simply reproducing historical fishing effort.
 
 ---
 
 ## 📉 Limitations & Considerations
-- Hotspots are rare, leading to sparse high-probability observations  
-- Temporal coverage is uneven across years and seasons  
-- Model performance declines during years with weak aggregation signals  
-- Predictions reflect environmental suitability, not fishing effort or accessibility  
+- Hotspots are rare events, leading to limited high-probability observations  
+- Temporal coverage and sampling intensity vary across years  
+- Model discrimination declines during periods of weak aggregation  
+- Predictions reflect environmental suitability, not fishing accessibility or effort  
 
-These limitations reflect data availability and ecological variability rather than overfitting or model instability.
+These limitations reflect ecological variability and data constraints rather than model instability.
 
 ---
 
 ## 🧭 Summary Statement
-This module demonstrates how spatial hotspot analysis can be extended into **probabilistic prediction** using machine learning, while maintaining ecological interpretability and transparency. Together with hotspot_dynamics, it forms a coherent analytical pipeline from historical mapping to forward-looking decision support.
+This module demonstrates how spatial hotspot analysis can be extended into **probabilistic, forward-looking prediction** using machine learning, while maintaining transparency and ecological interpretability. Together with **hotspot_dynamics**, it forms a coherent pipeline from historical mapping to applied decision support.
 
 ---
 
 ## 🔗 Relationship to hotspot_dynamics
-This project is a direct continuation of **hotspot_dynamics — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch**. hotspot_dynamics establishes the spatial foundation and aggregation logic, while hotspot_predictions builds predictive capability on top of that framework.
+This project is a direct continuation of **hotspot_dynamics — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch**. hotspot_dynamics establishes the spatial foundation and aggregation logic, while this module adds predictive capability and uncertainty-aware outputs.
 
 ---
 
 ## 📸 Visual Outputs (Selected)
 
-| Visualization | Description |
-|---------------|-------------|
-| Hotspot Probability Maps | Continuous probability surfaces by year |
-| Binary Hotspot Maps | Thresholded hotspot predictions |
-| Probability Validation | Mean observed catch by probability bin |
-| Calibration Curves | Probability reliability by year |
-| ROC / AUC | Discrimination performance |
+| Visualization | Purpose |
+|--------------|--------|
+| Hotspot Probability Maps | Identify relative likelihood of aggregation |
+| Binary Hotspot Maps | Conservative decision-support outputs |
+| Probability Validation | Link predictions to observed catch |
+| Calibration Curves | Assess probability reliability |
+| ROC / AUC | Evaluate discrimination performance |
 
 ---
 
 ## 🧪 Shiny Integration (In Progress)
-All model outputs, validation objects, and predictions are stored as serialized `.qs` files and PostGIS tables to support interactive exploration in a Shiny application. Users will be able to:
-- Adjust probability thresholds
-- Explore year-specific predictions
-- Compare probability and binary views
-- Review model performance metrics
+All model outputs, validation metrics, and spatial predictions are stored as serialized `.qs` files and PostGIS tables to support interactive exploration in a Shiny application. Planned functionality includes:
+- Adjustable probability thresholds  
+- Year-by-year comparison  
+- Probability vs binary views  
+- On-demand performance diagnostics  
 
 ---
 
 ## 🤝 Collaboration & Contact
 Contributions and extensions are welcome, particularly in:
-- Fisheries ecology and habitat modeling
-- Spatio-temporal ML workflows
-- Interactive geospatial dashboards
+- Fisheries ecology and habitat modeling  
+- Applied spatio-temporal ML workflows  
+- Interactive geospatial dashboards  
 
-📬 [Email](mailto:euchiejnpierre@gmail.com) | [LinkedIn](https://www.linkedin.com/in/euchiejnpierre/)
+📬 **Email** | **LinkedIn**
 
 ---
 
 ## 🔒 Data Confidentiality Notice
-This dataset is a simulated approximation of a real-world squid stock assessment
-dataset used during my tenure as a part-time research assistant at National Taiwan
-University. Although it closely resembles actual data, any interpretation or
-conclusions drawn here cannot be assumed to represent real conditions in the
-region.
+This dataset is a simulated approximation of a real-world squid stock assessment dataset used during my tenure as a part-time research assistant at National Taiwan University. While it closely resembles operational data, results presented here should be interpreted as methodological demonstrations rather than real-world stock assessments.
 
 ---
 
 ## 📸 Static Previews
+📌 The figures above provide full technical validation.  
+The static previews below highlight representative outputs for quick, non-technical review.
 
-**Predicted Hotspot Probability — 2016**
-- ![Hotspot Probability 2016](outputs/projectB_ml/maps/hotspot_prob_2016.png)
-
-**Binary Hotspot Prediction — 2018**
-- ![Binary Hotspots 2018](outputs/projectB_ml/maps/hotspot_binary_2018.png)
-
-**Calibration Curves by Year**
-- ![Calibration Curves](outputs/projectB_ml/plots/calibration_curves.png)
-
-**ROC Curve & AUC**
-- ![ROC Curve](outputs/projectB_ml/plots/roc_auc.png)
-
+- **Predicted Hotspot Probability — Representative Year (e.g., 2016) (Spatial probability surface)**
+  
+   
+- **Binary Hotspot Prediction — Representative Year (e.g., 2018) (Thresholded decision-support map)**
+  
+  
+- **Observed Catch vs Probability Bins (Validation of probabilistic outputs)**
+  
 ---
 
 > 📁 For more on spatio-temporal mapping, spatial database design, and geospatial
