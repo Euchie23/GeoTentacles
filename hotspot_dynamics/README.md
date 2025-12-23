@@ -198,7 +198,7 @@ Forecasting the Swarms focuses on:
 - Quantifying uncertainty using probability surfaces
 - Validating predictions across independent years
 
-➡️ See [**Forecasting the Swarms — Squid Catch Hotspot Prediction (ML)**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/) for details.
+➡️ See [**Forecasting the Swarms — Squid Catch Hotspot Prediction (ML)**](https://github.com/Euchie23/GeoTentacles/blob/main/hotspot_predictions/) for details.
 
 ---
 
