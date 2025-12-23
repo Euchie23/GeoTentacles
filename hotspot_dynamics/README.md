@@ -7,7 +7,6 @@ Aggregated vessel-based catch events into origin-aligned 0.25° polygon grid cel
 - Hotspots shift geographically over time, reflecting ecological and regulatory patterns
 - Peak catches concentrated in specific regions, especially during 2010–2011
 - By 2020, fishing activity aligned with EEZ regulations
-**Why it matters:** The maps and CPUE trends highlight both ecological patterns and management impacts over two decades.
 
 **Data scope:** 20-year dataset of vessel fishing events with spatial coordinates, environmental variables (SST, Chlorophyll-a), and catch volumes.
 
@@ -60,15 +59,14 @@ Conservation organizations and policy teams can:
 - Identify areas of recurring pressure that may warrant protection or monitoring
 - Use visual hotspot evidence in policy briefs and advocacy materials
 
-⚠️ **Interpretation Note:**  
-Hotspots represent **fishing activity density**, not direct biomass estimates. They should be interpreted alongside ecological indicators and regulatory context rather than as standalone abundance measures.
+⚠️ Interpretation Note: Hotspots indicate historical fishing activity density. Not direct biomass. Use alongside ecological and regulatory indicators.
 
 ---
 
 ## 🧱 Database schema and analysis workflow
 
 The diagram below illustrates the database tables used in the GIS analysis and the flow of data from raw CSV ingestion to spatial aggregation. For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/Data_Dictionary.pdf).
-Spatial aggregation is performed using polygon grid cells rather than point-based bins. Each fishing event (point geometry) is assigned to a single 0.25° × 0.25° polygon using point-in-polygon spatial joins. This approach prevents visual overlap, supports area-based summaries, and aligns with industry-standard fisheries hotspot workflows.<br><br>
+Aggregation uses point-in-polygon spatial joins, calculating CPUE per 0.25° polygon annually. Outputs include GeoJSON, GeoPackage, and visual maps. This approach prevents visual overlap, supports area-based summaries, and aligns with industry-standard fisheries hotspot workflows.<br><br>
 ![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/pA_ERD.drawio.png)
 
 ---
@@ -179,7 +177,6 @@ Legend values display back-transformed CPUE values (kg per vessel-day). While gr
 ---
 
 ## 📉 Limitations & Future Work
-- Hotspots are based on available vessel data; unreported catches are not included
 - Polygon grid size (0.25° × 0.25°) may smooth fine-scale fishing behavios; future work could experiment with smaller grids
 - Environmental drivers (SST, Chlorophyll-a, depth) not yet incorporated into predictive models — next step for integration into Streamlit/Shiny dashboard
 - Future work could compare log-scaled visual hotspot patterns with alternative normalizations (e.g., effort-normalized density surfaces) to assess sensitivity of hotspot delineation.
@@ -194,14 +191,14 @@ This module establishes **a robust, polygon-based, industry-standard workflow** 
 
 ## 🔗 Continuation: 🗺️ Forecasting the Swarms (Squid Catch Hotspot Predictions using Classification Modelling)
 
-This hotspot analysis serves as the spatial foundation for **Forecasting the Swarms**, which extends the workflow into predictive modeling. Using the same polygon grid framework, environmental variables, and spatial aggregation logic, Forecasting the Swarms applies machine learning to estimate the probability of future squid catch hotspots under varying oceanographic conditions.
+This hotspot analysis serves as the spatial foundation for **Forecasting the Swarms**, which extends the workflow into predictive modeling. 
 
 Forecasting the Swarms focuses on:
 - Predicting hotspot likelihood rather than historical density
 - Quantifying uncertainty using probability surfaces
 - Validating predictions across independent years
 
-➡️ See **Forecasting the Swarms — Squid Catch Hotspot Prediction (ML)** for details.
+➡️ See [**Forecasting the Swarms — Squid Catch Hotspot Prediction (ML)**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/) for details.
 
 ---
 
