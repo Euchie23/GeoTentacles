@@ -101,7 +101,7 @@ Predicted probabilities were grouped into bins and compared against observed mea
 - No high-probability predictions occur in 2020 
 
 **Figure:** Observed Catch by Predicted Hotspot Probability
-![**Observed Hotspot Probability**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/plots/hotspot_probability_by_year.png)
+![**Observed Hotspot Probability**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/maps/hotspot_probability_by_year.png)
 
 **Figure:** Hotspot Probability Validation
 ![**Hotspot Probability Validation**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/plots/hotspot_probability_validation.png)
@@ -130,7 +130,7 @@ Probability outputs were thresholded to produce binary hotspot predictions suita
 - Conservative predictions with limited false-positive classification  
 
 **Figure:** Predicted Hotspots by Year (Binary Classification) 
-![**Binary Hotspot Prediction**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/plots/predicted_hotspots_by_year.png)
+![**Binary Hotspot Prediction**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/maps/predicted_hotspots_by_year.png)
 
 ---
 
