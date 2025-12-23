@@ -1,5 +1,23 @@
 # 🦑 Forecasting the Swarms — Predicting Squid Catch Hotspots Using Machine Learning
 
+## 📘 Executive Summary
+
+### What we did
+Developed a Random Forest classification model to estimate squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from **hotspot_dynamics**. Predictions were generated for independent test years (2016–2020), restricted to the January–June period to align with peak aggregation and data availability.
+
+### Main outcomes
+- Predicted probability surfaces reveal coherent and ecologically plausible spatial patterns during years with strong aggregation signals (2016–2018)
+- Predictive discrimination weakens in later years (2019–2020), consistent with reduced aggregation and weaker spatial structure rather than model instability
+- Probability-based outputs provide a more transparent and informative representation of uncertainty than binary classification alone
+
+### Why it matters
+This approach emphasizes **habitat suitability and aggregation potential**, not fishing effort, enabling cautious and interpretable hotspot prediction suitable for applied decision-making.
+
+### Data scope
+A 20-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells, paired with environmental variables including sea surface temperature (SST), bathymetry, sea surface height (SSH), and chlorophyll-a.
+
+---
+
 ## 🌍 Real-World Value
 This module extends the spatial hotspot framework developed in **hotspot_dynamics** by introducing predictive, forward-looking analysis. Using the same polygon grid system, spatial aggregation logic, and environmental covariates, this project applies machine-learning classification to estimate the **likelihood of squid catch hotspots** across multiple years.
 
@@ -13,25 +31,43 @@ Rather than attempting to reproduce historical fishing effort, the model focuses
 ### Why It Matters
 Hotspots are inherently dynamic. Predicting where they are *more likely* to occur — and explicitly communicating uncertainty — provides a more realistic foundation for adaptive management than retrospective mapping alone. By focusing on the January–June period, the model aligns with seasonal aggregation dynamics and common survey and monitoring windows.
 
-
 ---
 
-## 📘 Executive Summary
+## 🎯 Applied Use Case
 
-### What we did
-Developed a Random Forest classification model to estimate squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from **hotspot_dynamics**. Predictions were generated for independent test years (2016–2020), restricted to the January–June period to align with peak aggregation and data availability.
+This model is intended to support **risk-aware spatial planning**, not deterministic prediction of catch.
 
+### Primary Decision Context
+Agencies and consultancies often need to decide **where to allocate limited survey, monitoring, or enforcement resources** under uncertainty. This model provides probabilistic hotspot estimates that rank spatial risk rather than assert guaranteed outcomes.
 
-### Main outcomes
-- Predicted probability surfaces reveal coherent and ecologically plausible spatial patterns during years with strong aggregation signals (2016–2018)
-- Predictive discrimination weakens in later years (2019–2020), consistent with reduced aggregation and weaker spatial structure rather than model instability
-- Probability-based outputs provide a more transparent and informative representation of uncertainty than binary classification alone
+### Example Application
+**Scenario:** A fisheries monitoring program is being planned for the January–June season.
 
-### Why it matters
-This approach emphasizes **habitat suitability and aggregation potential**, not fishing effort, enabling cautious and interpretable hotspot prediction suitable for applied decision-making.
+**How the model is used:**
+- Polygons with predicted hotspot probability above a conservative threshold (e.g. > 0.4) are prioritized for survey allocation
+- Medium-probability areas are included for background sampling
+- Low-probability regions remain deprioritized but not excluded
 
-### Data scope
-A 20-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells, paired with environmental variables including sea surface temperature (SST), bathymetry, sea surface height (SSH), and chlorophyll-a.
+This approach balances efficiency with coverage and avoids overreacting to noisy signals.
+
+### Why Probability Matters
+Binary hotspot maps imply certainty where none exists. Probability surfaces:
+- Communicate uncertainty transparently
+- Reduce false positives during weak aggregation years
+- Allow managers to tune risk tolerance based on operational constraints
+
+### Appropriate Uses
+- Survey design and prioritization  
+- Screening large spatial domains for elevated aggregation risk  
+- Scenario planning under environmental variability  
+
+### Inappropriate Uses
+- Estimating absolute biomass  
+- Predicting vessel behavior or effort  
+- Enforcing regulations without additional ecological or operational context  
+
+⚠️ **Interpretation Note:**  
+Predictions reflect **environmental suitability and aggregation potential**, not guaranteed catch outcomes or fishing accessibility.
 
 ---
 
@@ -137,26 +173,6 @@ Probability outputs were thresholded to produce binary hotspot predictions suita
 - 2020: **0.584**
 
 Overall discrimination is consistently above random expectations, with performance variability reflecting changing ecological conditions rather than overfitting.
-
----
-
-## 🧭 Decision Framing & Intended Use
-This model is designed as a **decision-support tool**, not a deterministic predictor of catch.
-
-Recommended use cases include:
-- Prioritizing survey or monitoring effort toward higher-probability regions  
-- Screening large spatial domains to identify areas of elevated aggregation risk  
-- Supporting spatial planning under uncertainty, where false positives are costly  
-
-Probability outputs are intended to inform *relative risk and prioritization*, rather than binary operational decisions in isolation.
-
----
-
-## 📌 Applied Example
-**Example scenario:**  
-If a monitoring program were planned for 2018, polygons with predicted hotspot probability above a conservative threshold (e.g. >0.4) could be prioritized for survey allocation. Lower-probability regions would remain candidates for background sampling, ensuring coverage while focusing limited resources on areas with higher aggregation potential.
-
-This illustrates how probabilistic outputs can guide **risk-aware planning** without assuming guaranteed outcomes.
 
 ---
 
