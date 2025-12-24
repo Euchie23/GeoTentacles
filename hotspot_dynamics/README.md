@@ -1,5 +1,12 @@
 # 🌊 Charting the Currents — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch
 
+## 🧭 Problem Framing & Data Context
+Long-term squid fisheries data often exhibit **high spatial and temporal variability**, complicating management and ecosystem-based planning. Traditional CPUE metrics are noisy, and vessel-level aggregation may obscure recurring hotspots.  
+
+**Goal:** Identify **persistent and shifting fishing hotspots** over 20 years using spatial aggregation and polygon-based CPUE calculations, providing actionable intelligence for **regulatory compliance, ecological insight, and resource management**.
+
+---
+
 ## 📘 Executive Summary
 **What we did:**
 Aggregated vessel-based catch events into origin-aligned 0.25° polygon grid cells, calculated yearly CPUE per cell, and visualized 20 years of squid fishing hotspots.  
@@ -13,15 +20,15 @@ Aggregated vessel-based catch events into origin-aligned 0.25° polygon grid cel
 ---
 
 ## 🌍 Real-World Value
-This project aggregates 20 years of squid catch data into polygon-based spatial grid cells (0.25° × 0.25°), enabling robust hotspot detection and comparison across time. It enables evidence-based planning for marine resource management and enforcement of territorial fishing laws.
+This polygon-based aggregation allows **robust, interpretable hotspot detection**. It informs management, compliance, research, and advocacy.  
 
-**Who This Helps**
-- Fisheries agencies: identify high-density fishing areas for management and regulation
-- Research labs: explore spatio-temporal patterns in cephalopod fisheries
-- NGOs & policy groups: prioritize monitoring and conservation efforts
+**Who This Helps:**
+- Fisheries agencies: identify high-density fishing areas for monitoring
+- Research labs: explore spatial and temporal patterns in cephalopod fisheries
+- NGOs & policy teams: prioritize conservation and regulatory efforts
 
-**Why It Matters**
-Traditional CPUE (Catch Per Unit Effort) metrics can be noisy and influenced by gear, vessel, and environmental variability. Mapping catch density over time reveals consistent hotspots and informs ecosystem-based management decisions.
+**Why It Matters:**  
+By moving beyond raw CPUE metrics to polygon-level aggregation, the analysis reveals **consistent spatial patterns**, supports **evidence-based enforcement**, and facilitates **ecosystem-aware planning**.
 
 ---
 
@@ -63,16 +70,6 @@ Conservation organizations and policy teams can:
 
 ---
 
-## 🧱 Database schema and analysis workflow
-
-The diagram below illustrates the database tables used in the GIS analysis and the flow of data from raw CSV ingestion to spatial aggregation. For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/Data_Dictionary.pdf).
-Aggregation uses point-in-polygon spatial joins, calculating CPUE per 0.25° polygon annually. Outputs include GeoJSON, GeoPackage, and visual maps. This approach prevents visual overlap, supports area-based summaries, and aligns with industry-standard fisheries hotspot workflows.<br><br>
-![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/pA_ERD.drawio.png)
-
----
-spatial/grid_025deg_poly.geojson — 0.25° × 0.25° polygon reference grid
-spatial/hotspots_yearly.geojson — yearly polygon-based hotspot layers
-
 ## 🧩 Module Overview
 **Core Objectives**
 - Aggregate catch into 0.25° × 0.25° polygon grid cells
@@ -107,10 +104,12 @@ spatial/hotspots_yearly.geojson — yearly polygon-based hotspot layers
 
 ---
 
-## 🗄️ Database Configuration (Required)
+## 🗄️ Database & Workflow
 
 This project connects to a PostgreSQL/PostGIS database using **environment variables**.  
 Database credentials are **not stored in the repository** for security reasons.
+
+**Database Design:** polygon-based aggregation prevents overlap, supports area summaries, and aligns with industry-standard workflows.
 
 ### Required Environment Variables
 The following variables must be defined on your local machine before running the notebooks:
@@ -156,7 +155,13 @@ Security Notes
  - .env files (if used) should be added to .gitignore
 
  - Each user must configure their own local database credential
-   
+
+Workflow: CSV ingestion → spatial aggregation → CPUE calculation → hotspot mapping → visualization/export. 
+
+![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/pA_ERD.drawio.png)
+
+> For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/Data_Dictionary.pdf).
+
 ---
 
 ## 📈 Visual Outputs
@@ -177,6 +182,9 @@ Legend values display back-transformed CPUE values (kg per vessel-day). While gr
 ---
 
 ## 📉 Limitations & Future Work
+
+> In a consultancy or management context, understanding limitations ensures hotspot insights guide decisions prudently, rather than prompting overreaction to noisy or incomplete data.
+
 - Polygon grid size (0.25° × 0.25°) may smooth fine-scale fishing behavios; future work could experiment with smaller grids
 - Environmental drivers (SST, Chlorophyll-a, depth) not yet incorporated into predictive models — next step for integration into Streamlit/Shiny dashboard
 - Future work could compare log-scaled visual hotspot patterns with alternative normalizations (e.g., effort-normalized density surfaces) to assess sensitivity of hotspot delineation.
