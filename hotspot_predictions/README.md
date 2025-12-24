@@ -1,33 +1,42 @@
 # 🦑 Forecasting the Swarms — Predicting Squid Catch Hotspots Using Machine Learning
 
+
+## 🧭 Problem Framing & Data Context
+
+Building on **hotspot_dynamics**, which mapped 20 years of historical squid fishing hotspots, fisheries managers, environmental consultancies, and NGOs face a critical challenge: **hotspots shift over time due to environmental variability and squid life-history dynamics**, and retrospective maps alone cannot guide proactive monitoring or risk-aware resource allocation.  
+
+This module addresses the need for **forward-looking, probabilistic hotspot predictions** using machine learning, allowing stakeholders to anticipate where squid aggregations are likely to occur while quantifying uncertainty.
+
+> **Link to previous module:** `hotspot_dynamics` established polygon-level aggregation, CPUE calculation, and spatial hotspot visualization. These outputs form the spatial and environmental foundation for predictive modeling in this module.
+
+---
+
 ## 📘 Executive Summary
 
-### What we did
-Developed a Random Forest classification model to estimate squid catch hotspot likelihood using spatially aggregated environmental and catch data derived from **hotspot_dynamics**. Predictions were generated for independent test years (2016–2020), restricted to the January–June period to align with peak aggregation and data availability.
+**What we did:**  
+We developed a Random Forest classifier to estimate squid catch hotspot likelihood using polygon-level environmental and catch features derived from `hotspot_dynamics`. Predictions were generated for independent test years (2016–2020), restricted to the January–June peak aggregation period.
 
-### Main outcomes
-- Predicted probability surfaces reveal coherent and ecologically plausible spatial patterns during years with strong aggregation signals (2016–2018)
-- Predictive discrimination weakens in later years (2019–2020), consistent with reduced aggregation and weaker spatial structure rather than model instability
-- Probability-based outputs provide a more transparent and informative representation of uncertainty than binary classification alone
+**Main outcomes:**  
+- Predicted probability surfaces reveal coherent, ecologically plausible patterns during years with strong aggregation (2016–2018).  
+- Predictive discrimination weakens in later years (2019–2020), reflecting reduced aggregation rather than model instability.  
+- Probabilistic outputs provide transparent representations of uncertainty, superior to binary classification alone.
 
-### Why it matters
-This approach emphasizes **habitat suitability and aggregation potential**, not fishing effort, enabling cautious and interpretable hotspot prediction suitable for applied decision-making.
-
-### Data scope
-A 20-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells, paired with environmental variables including sea surface temperature (SST), bathymetry, sea surface height (SSH), and chlorophyll-a.
+**Data scope:**  
+- 20-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells  
+- Environmental covariates: SST, bathymetry, sea surface height (SSH), chlorophyll-a
 
 ---
 
 ## 🌍 Real-World Value
 
-This module extends the spatial hotspot framework developed in **hotspot_dynamics** by adding forward-looking, probability-based hotspot prediction. Using the same polygon grid and environmental covariates, it supports proactive planning where aggregation patterns are expected to change over time.
+This module extends `hotspot_dynamics` into **risk-aware spatial planning**. By predicting hotspot likelihood, it supports proactive monitoring, survey allocation, and resource prioritization.
 
-### Who This Helps
+**Who this helps:**  
 - **Fisheries managers:** prioritize survey effort under uncertainty  
-- **Environmental consultancies:** support spatial risk screening and planning  
-- **NGOs & practitioners:** explore interannual variability in habitat suitability  
+- **Environmental consultancies:** conduct spatial risk screening  
+- **NGOs & practitioners:** explore interannual variability in habitat suitability
 
-This module is designed to complement retrospective hotspot mapping by identifying **relative aggregation risk**, not guaranteed fishing outcomes.
+**Takeaway:** Complements retrospective mapping by quantifying **relative aggregation risk** without assuming guaranteed catch outcomes.
 
 ---
 
@@ -135,21 +144,13 @@ Probability outputs were thresholded to produce binary hotspot predictions suita
 ---
 
 ### 4️⃣ Discrimination Performance (ROC / AUC)
-
-**AUC by year**
-- 2016: **0.776**  
-- 2017: **0.670**  
-- 2018: **0.651**  
-- 2019: **0.574**  
-- 2020: **0.584**
-
-Overall discrimination is consistently above random expectations across all years
+- 2016: 0.776 | 2017: 0.670 | 2018: 0.651 | 2019: 0.574 | 2020: 0.584  
+- Discrimination remains above random expectations; lower AUC in later years reflects weaker aggregation signals.
 
 **Figure:** ROC Curves and AUC Scores by Year
 ![**Roc_Curve_By_Year**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/plots/roc_curve_by_year.png)
 
 📁 For full validation outputs (confusion matrices, calibration bin tables, and extended ROC metrics), see [Validation Folder](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/plots/)
-
 
 ---
 
@@ -161,12 +162,10 @@ Notably, predicted hotspots often occur slightly north of observed catch locatio
 
 ---
 
-## 🔒 Data Confidentiality Notice
-This dataset is a simulated approximation of a real-world squid stock assessment dataset used during my tenure as a part-time research assistant at National Taiwan University. While it closely resembles operational data, results presented here should be interpreted as methodological demonstrations rather than real-world stock assessments.
-
----
-
 ## 📉 Limitations & Considerations
+
+> From a decision-support perspective, the following limitations define **how these predictions should be interpreted and operationalized**, rather than indicating shortcomings in the modeling approach. They clarify where hotspot probability outputs are most informative, where uncertainty is highest, and how results should be combined with regulatory, ecological, and operational knowledge in real-world planning.
+
 - Hotspots are rare events, leading to limited high-probability observations  
 - Temporal coverage and sampling intensity vary across years  
 - Model discrimination declines during periods of weak aggregation  
@@ -204,6 +203,11 @@ All model outputs, validation metrics, and spatial predictions are stored as ser
 - Year-by-year comparison  
 - Probability vs binary views  
 - On-demand performance diagnostics  
+
+---
+
+## 🔒 Data Confidentiality Notice
+This dataset is a simulated approximation of a real-world squid stock assessment dataset used during my tenure as a part-time research assistant at National Taiwan University. While it closely resembles operational data, results presented here should be interpreted as methodological demonstrations rather than real-world stock assessments.
 
 ---
 
