@@ -1,7 +1,7 @@
 # 🌊 Charting the Currents — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch
 
 ## 🧭 Problem Framing & Data Context
-Long-term squid fisheries data often exhibit **high spatial and temporal variability**, complicating management and ecosystem-based planning. Traditional CPUE metrics are noisy, and vessel-level aggregation may obscure recurring hotspots.  
+Long-term squid fisheries **(SquidStock Series)** data often exhibit **high spatial and temporal variability**, complicating management and ecosystem-based planning. Traditional CPUE metrics are noisy, and vessel-level aggregation may obscure recurring hotspots.  
 
 **Goal:** Identify **persistent and shifting fishing hotspots** over 20 years using spatial aggregation and polygon-based CPUE calculations, providing actionable intelligence for **regulatory compliance, ecological insight, and resource management**.
 
@@ -104,12 +104,16 @@ Conservation organizations and policy teams can:
 
 ---
 
-## 🗄️ Database & Workflow
+## 🗄️ Database Schema & Workflow
 
 This project connects to a PostgreSQL/PostGIS database using **environment variables**.  
 Database credentials are **not stored in the repository** for security reasons.
 
 **Database Design:** polygon-based aggregation prevents overlap, supports area summaries, and aligns with industry-standard workflows.
+
+The diagram below illustrates the core PostgreSQL/PostGIS tables used in this project, including their relationships and column types. It provides a high-level overview of how raw vessel catch data flows through aggregation and spatial joins into polygon-based hotspot outputs. For a detailed description of each table, including example data and formats, see the [Data Dictionary PDF](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/Data_Dictionary.pdf).
+
+![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/pA_ERD.drawio.png)
 
 ### Required Environment Variables
 The following variables must be defined on your local machine before running the notebooks:
@@ -157,10 +161,6 @@ Security Notes
  - Each user must configure their own local database credential
 
 Workflow: CSV ingestion → spatial aggregation → CPUE calculation → hotspot mapping → visualization/export. 
-
-![Database schema](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/pA_ERD.drawio.png)
-
-> For a complete overview of all tables and columns, please see our [Data Dictionary](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_dynamics/tables/Data_Dictionary.pdf).
 
 ---
 
