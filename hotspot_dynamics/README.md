@@ -1,21 +1,21 @@
 # 🌊 Charting the Currents — 20-Year Spatio-Temporal Hotspot Analysis of Squid Catch
 
-## 🧭 Problem Framing & Data Context
-Long-term squid fisheries **(SquidStock Series)** data often exhibit **high spatial and temporal variability**, complicating management and ecosystem-based planning. Traditional CPUE metrics are noisy, and vessel-level aggregation may obscure recurring hotspots.  
+### 🧭 Problem Framing & Decision Context
+Long-term squid fisheries data exhibit high spatial and temporal variability. Traditional CPUE metrics are noisy, and vessel-level aggregation often obscures recurring hotspots. Regulatory agencies, environmental consultancies, and NGOs need robust, interpretable hotspot detection to support evidence-based monitoring, spatial planning, and resource management.
 
-**Goal:** Identify **persistent and shifting fishing hotspots** over 20 years using spatial aggregation and polygon-based CPUE calculations, providing actionable intelligence for **regulatory compliance, ecological insight, and resource management**.
+This module establishes a **polygon-level aggregation workflow** to identify persistent and shifting squid fishing hotspots over 20 years, producing outputs that are actionable for decision-making and ecological insight.
 
 ---
 
-## 📘 Executive Summary
-**What we did:**
-Aggregated vessel-based catch events into origin-aligned 0.25° polygon grid cells, calculated yearly CPUE per cell, and visualized 20 years of squid fishing hotspots.  
-**Main outcomes:**
-- Hotspots shift geographically over time, reflecting ecological and regulatory patterns
-- Peak catches concentrated in specific regions, especially during 2010–2011
-- By 2020, fishing activity aligned with EEZ regulations
+### 📘 Executive Summary
+- Aggregated vessel-based catch events into 0.25° × 0.25° polygons and calculated yearly CPUE per cell.  
+- Visualized hotspot evolution from 2000–2020, highlighting ecological and regulatory patterns.  
+- Key insights:
+  - Hotspots shift geographically over time, reflecting environmental variability and regulatory changes.  
+  - Peak catches were concentrated in specific regions (notably 2010–2011).  
+  - By 2020, fishing aligned with EEZ regulations, demonstrating compliance trends.
 
-**Data scope:** 20-year dataset of vessel fishing events with spatial coordinates, environmental variables (SST, Chlorophyll-a), and catch volumes.
+**Takeaway for decision-makers:** Polygon-based hotspot maps reveal areas of recurring fishing pressure, enabling targeted patrol, monitoring, and ecosystem-aware planning.
 
 ---
 
@@ -32,41 +32,12 @@ By moving beyond raw CPUE metrics to polygon-level aggregation, the analysis rev
 
 ---
 
-## 🎯 Applied Use Case
+### 🎯 Applied Use Cases
+1. **Spatial Management & Enforcement:** Identify consistently high-pressure fishing areas and allocate patrols efficiently. 
+2. **Ecosystem-Based Management:** Analyze core habitat use and interannual shifts of Illex argentinus.  
+3. **Survey & Research Design:** Stratify sampling frameworks based on historical hotspots.  
+4. **Policy & Advocacy:** Use hotspot visualizations in reports and conservation planning.
 
-This hotspot analysis is designed to support **spatially explicit fisheries decision-making** by revealing where squid fishing activity concentrates, how hotspots shift over time, and how management boundaries influence behavior.
-
-### Example Applications
-
-**1. Spatial Management & Enforcement**
-Fisheries agencies can use yearly hotspot maps to:
-- Identify consistently high-pressure fishing areas
-- Allocate patrol and monitoring resources more efficiently
-- Evaluate whether fishing effort shifts align with EEZ enforcement or regulatory changes
-
-By comparing hotspot locations before and after regulatory milestones (e.g., post-2010 EEZ alignment), managers can assess compliance indirectly through spatial behavior.
-
-**2. Ecosystem-Based Fisheries Management**
-Hotspot persistence and movement provide insight into:
-- Core habitat use by *Illex argentinus*
-- Interannual shifts driven by environmental variability or stock dynamics
-- Regions where fishing pressure repeatedly overlaps with key ecological zones
-
-This supports ecosystem-based planning beyond single-year CPUE metrics.
-
-**3. Research & Survey Design**
-Research groups can use hotspot outputs to:
-- Prioritize regions for scientific surveys or tagging campaigns
-- Compare spatial CPUE patterns with environmental drivers (SST, Chlorophyll-a)
-- Design stratified sampling frameworks based on historical fishing intensity
-
-**4. NGO & Policy Analysis**
-Conservation organizations and policy teams can:
-- Communicate long-term spatial fishing patterns to stakeholders
-- Identify areas of recurring pressure that may warrant protection or monitoring
-- Use visual hotspot evidence in policy briefs and advocacy materials
-
-⚠️ Interpretation Note: Hotspots indicate historical fishing activity density. Not direct biomass. Use alongside ecological and regulatory indicators.
 
 ---
 
