@@ -144,7 +144,7 @@ Probability outputs were thresholded to produce binary hotspot predictions suita
 ---
 
 ### 4️⃣ Discrimination Performance (ROC / AUC)
-- 2016: 0.776 | 2017: 0.670 | 2018: 0.651 | 2019: 0.574 | 2020: 0.584  
+- Yearly AUC results; 2016: 0.776 | 2017: 0.670 | 2018: 0.651 | 2019: 0.574 | 2020: 0.584  
 - Discrimination remains above random expectations; lower AUC in later years reflects weaker aggregation signals.
 
 **Figure:** ROC Curves and AUC Scores by Year
