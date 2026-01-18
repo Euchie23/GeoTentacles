@@ -14,16 +14,17 @@ This module addresses the need for **forward-looking, probabilistic hotspot pred
 ## 📘 Executive Summary
 
 **What we did:**  
-We developed a Random Forest classifier to estimate squid catch hotspot likelihood using polygon-level environmental and catch features derived from `hotspot_dynamics`. Predictions were generated for independent test years (2016–2020), restricted to the January–June peak aggregation period.
+We developed and validated a Random Forest classifier to estimate squid catch hotspot likelihood using vessel-scale environmental predictors (sea surface temperature and depth) derived from polygon-level summaries. Predictions were evaluated on independent test years (2016–2020) during the January–June peak aggregation
 
 **Main outcomes:**  
-- Predicted probability surfaces reveal coherent, ecologically plausible patterns during years with strong aggregation (2016–2018).  
-- Predictive discrimination weakens in later years (2019–2020), reflecting reduced aggregation rather than model instability.  
-- Probabilistic outputs provide transparent representations of uncertainty, superior to binary classification alone.
+- The selected reduced model reliably distinguishes hotspot from non-hotspot conditions across all years, performing consistently better than random allocation. 
+- Model performance varies interannually, with strongest discrimination and calibration observed in 2017–2018 and 2020, reflecting years with clearer environmental structure.  
+- Probability-based outputs reveal meaningful spatial gradients even when binary hotspot detection is conservative, supporting risk-aware interpretation rather than deterministic classification.
 
 **Data scope:**  
-- 20-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells  
-- Environmental covariates: SST, bathymetry, sea surface height (SSH), chlorophyll-a
+- 21-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells  
+- Environmental covariates used in the final model: sea surface temperature (SST) and bathymetry (depth)
+- Additional remote sensing variables were evaluated but excluded due to marginal or inconsistent performance gains
 
 ---
 
@@ -98,16 +99,16 @@ All predictions are served from PostgreSQL/PostGIS to support reproducible analy
 ## 📊 Model Validation & Results
 
 > **Interpretation note:**  
-> Interannual variation in validation performance reflects differences in squid aggregation strength and ecological conditions across years, rather than model instability. Results should be interpreted conservatively, especially in years with weak spatial structure.
+>Interannual variation in validation performance reflects differences in environmental structure and squid aggregation strength rather than model instability. Results should be interpreted probabilistically, particularly in years with diffuse or weak spatial signals.
 
 
 ### 1️⃣ Hotspot Probability Validation
 Predicted probabilities were grouped into bins and compared against observed mean catch. All validation metrics and spatial predictions reflect January–June conditions only and should be interpreted as seasonal, not annual, performance.
 
 **Key findings**
-- Mean observed catch generally increases with predicted probability in most years  
+- Mean observed catch increases systematically with predicted hotspot probability 
 - High-probability bins contain relatively few observations, reflecting hotspot rarity  
-- No high-probability predictions occur in 2020 
+- Years with limited aggregation (e.g., 2020) show few or no high-probability predictions
 
 **Figure:** Observed Catch by Predicted Hotspot Probability
 ![**Observed Hotspot Probability**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/maps/hotspot_probability_by_year.png)
@@ -121,9 +122,9 @@ Predicted probabilities were grouped into bins and compared against observed mea
 Calibration curves were used to assess how well predicted probabilities align with observed hotspot frequencies.
 
 **Key findings**
-- Reasonable calibration during years with strong spatial structure (2016–2018)  
-- Reduced calibration in later years, with fewer positive cases  
-- Probabilities remain conservative rather than overconfident  
+- Predicted probabilities align well with observed frequencies in low-to-moderate ranges  
+- Deviations at higher probabilities reflect the rarity of extreme hotspot events  
+- The model remains conservative rather than overconfident across years  
 
 **Figure:** Calibration Curves by Year - multi-panel calibration plot (2016–2020)
 ![**Calibration Curves**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/plots/calibration_curve_by_year.png)
@@ -131,12 +132,12 @@ Calibration curves were used to assess how well predicted probabilities align wi
 ---
 
 ### 3️⃣ Binary Hotspot Classification
-Probability outputs were thresholded to produce binary hotspot predictions suitable for operational use.
+Probability outputs were thresholded (default = 0.7) to generate conservative binary hotspot predictions.
 
 **Key findings**
-- High true-negative rates across all years  
-- True positives concentrated in earlier years with stronger aggregation  
-- Conservative predictions with limited false-positive classification  
+- Strong ability to correctly identify non-hotspot areas across all years  
+- Hotspot detections are concentrated in years with clearer aggregation patterns (2017–2018)  
+- Missed hotspots occur primarily during low-signal years rather than systematic bias  
 
 **Figure:** Predicted Hotspots by Year (Binary Classification) 
 ![**Binary Hotspot Prediction**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/maps/predicted_hotspots_by_year.png)
@@ -144,8 +145,10 @@ Probability outputs were thresholded to produce binary hotspot predictions suita
 ---
 
 ### 4️⃣ Discrimination Performance (ROC / AUC)
-- Yearly AUC results; 2016: 0.776 | 2017: 0.670 | 2018: 0.651 | 2019: 0.574 | 2020: 0.584  
-- Discrimination remains above random expectations; lower AUC in later years reflects weaker aggregation signals.
+- Yearly AUC results; 2016: 0.66 | 2017: 0.71 | 2018: 0.72 | 2019: 0.65 | 2020: 0.74  
+- The model consistently performs better than random chance
+- Strongest discrimination occurs in years with clearer SST–depth structure
+- Lower AUC reflects ecological complexity, not model failure
 
 **Figure:** ROC Curves and AUC Scores by Year
 ![**Roc_Curve_By_Year**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/plots/roc_curve_by_year.png)
@@ -155,7 +158,7 @@ Probability outputs were thresholded to produce binary hotspot predictions suita
 ---
 
 ## 🌱 Ecological Interpretation
-Predicted hotspot probabilities show a consistent northward concentration during 2016–2018, followed by weakened spatial structure in 2019 and a near absence of high-probability hotspots in 2020. This pattern aligns with known squid life-history dynamics along the Patagonian Shelf, including feeding migrations and spawning-related movements. All spatial patterns reflect conditions, corresponding to known seasonal migration and aggregation phases in the squid life cycle.
+Predicted hotspot probabilities show coherent spatial structure during 2017–2018, followed by reduced aggregation and weaker signals in 2019 and especially 2020. These patterns align with known variability in squid distribution along the Patagonian Shelf and reflect shifts in environmental suitability rather than changes in fishing behavior alone.
 
 
 Notably, predicted hotspots often occur slightly north of observed catch locations, suggesting the model captures **environmental suitability and aggregation potential**, rather than simply reproducing historical fishing effort.
@@ -167,9 +170,9 @@ Notably, predicted hotspots often occur slightly north of observed catch locatio
 > From a decision-support perspective, the following limitations define **how these predictions should be interpreted and operationalized**, rather than indicating shortcomings in the modeling approach. They clarify where hotspot probability outputs are most informative, where uncertainty is highest, and how results should be combined with regulatory, ecological, and operational knowledge in real-world planning.
 
 - Hotspots are rare events, leading to limited high-probability observations  
-- Temporal coverage and sampling intensity vary across years  
-- Model discrimination declines during periods of weak aggregation  
-- Predictions reflect environmental suitability, not fishing accessibility or effort  
+- Environmental drivers explain suitability, not fishing access or effort  
+- Predictability declines during years of weak aggregation  
+- Outputs are probabilistic and should inform, not replace, expert judgment  
 
 These limitations reflect ecological variability and data constraints rather than model instability.
 
