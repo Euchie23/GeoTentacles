@@ -110,11 +110,11 @@ Predicted probabilities were grouped into bins and compared against observed mea
 - High-probability bins contain relatively few observations, reflecting hotspot rarity  
 - Years with limited aggregation (e.g., 2020) show few or no high-probability predictions
 
-**Figure:** Observed Catch by Predicted Hotspot Probability
-![**Observed Hotspot Probability**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/maps/hotspot_probability_by_year.png)
-
 **Figure:** Hotspot Probability Validation
 ![**Hotspot Probability Validation**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/plots/hotspot_probability_validation.png)
+
+**Figure:** Observed Catch by Predicted Hotspot Probability
+![**Observed Hotspot Probability**](https://github.com/Euchie23/GeoTentacles/blob/main/outputs/hotspot_predictions/maps/hotspot_probability_by_year.png)
 
 ---
 
