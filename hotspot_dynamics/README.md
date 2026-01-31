@@ -133,6 +133,16 @@ Security Notes
 
 Workflow: CSV ingestion → spatial aggregation → CPUE calculation → hotspot mapping → visualization/export. 
 
+### Deployment & Database Access Notes
+
+For deployed interactive dashboards, the same spatial tables and queries were
+served from a cloud-hosted PostgreSQL backend **(NeonDB)** to allow secure,
+read-only access in hosted environments without requiring users to run a local
+database.
+
+All spatial logic, schemas, and queries remain unchanged between local and
+deployed setups.
+
 ---
 
 ## 📈 Visual Outputs
