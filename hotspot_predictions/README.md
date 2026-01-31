@@ -62,6 +62,12 @@ This project uses polygon-level features derived from hotspot_dynamics outputs.
 
 All predictions are served from PostgreSQL/PostGIS to support reproducible analysis and future Shiny integration.
 
+> Deployment note:  
+While model development and validation were performed locally, deployed dashboards
+accessed these PostGIS tables via a cloud-hosted PostgreSQL backend **(NeonDB)**
+to support secure, scalable, read-only access for interactive exploration.
+
+
 ---
 
 ## 🧩 Module Objectives
