@@ -35,14 +35,14 @@ The full research pipeline lives in the private Squid_Fest repo — email me for
 
 ## 📦 Project Modules & Flow
 
-| Module | Stage Name | What It Does | Status | Link | App |
+| Module | Stage Name | What It Does | Status | App |
 |--------|------------|---------------|--------|-------|------|
-| **20-Year Squid Catch Hotspot Dynamics** | **Charting the Currents** | Explore long-term squid catch hotspots (2000–2020) using PostGIS clustering, spatial grids, and density maps to understand where squids gather over time. | 🟢 Completed | 🔗 TBD | [🗺️ Hotspots Dashboard](<https://euchie23.shinyapps.io/geotentacles__hotspots/>) |
-| **Squid Catch Hotspot Prediction (Classification)** | **Forecasting the Swarms** | Predict likely future squid catch hotspots with ML classification, helping fisheries anticipate and plan for swarming behavior. | 🟢 Completed | 🔗 TBD | 🗺️ Hotspots Dashboard |
-| **Pollution Level Spatial Prediction (Regression)** | **Toxic Tide Mapping** | Map predicted pollution intensity across space using ML regression and interpolated grids, identifying areas where contaminants may impact marine life. | 🟢 Planned | 🔗 TBD | 🧪 Pollution & Marine Health Explorer |
-| **Marine Pollution Interpolation (Kriging / IDW)** | **Seafloor Signals** | Transform raw pollutant chemistry points into smooth, continuous spatial surfaces using kriging and IDW interpolation for easier interpretation. | 🟢 Planned | 🔗 TBD | 🧪 Pollution & Marine Health Explorer |
-| **Marine Health Index (MCI)** | **EcoPulse Index** | Combine catch, pollution, and habitat layers into a single composite index that measures the overall health of marine ecosystems. | 🟢 Planned | 🔗 TBD | 🧪 Pollution & Marine Health Explorer |
-| **COVID-Impact Marine Health Model** | **Disruption Dynamics** | Analyze how marine ecosystems changed pre- vs post-COVID with spatial ML modeling, providing scenario-based insights for policy and management. | 🟢 Planned | 🔗 TBD | 🔬 Scenario Simulator / Capstone |
+| **20-Year Squid Catch Hotspot Dynamics** | **Charting the Currents** | Explore long-term squid catch hotspots (2000–2020) using PostGIS clustering, spatial grids, and density maps to understand where squids gather over time. | ✅ Completed | [🗺️ Hotspots Dashboard](<https://euchie23.shinyapps.io/geotentacles__hotspots/>) |
+| **Squid Catch Hotspot Prediction (Classification)** | **Forecasting the Swarms** | Predict likely future squid catch hotspots with ML classification, helping fisheries anticipate and plan for swarming behavior. | ✅ Completed | 🗺️ Hotspots Dashboard |
+| **Pollution Level Spatial Prediction (Regression)** | **Toxic Tide Mapping** | Map predicted pollution intensity across space using ML regression and interpolated grids, identifying areas where contaminants may impact marine life. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
+| **Marine Pollution Interpolation (Kriging / IDW)** | **Seafloor Signals** | Transform raw pollutant chemistry points into smooth, continuous spatial surfaces using kriging and IDW interpolation for easier interpretation. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
+| **Marine Health Index (MCI)** | **EcoPulse Index** | Combine catch, pollution, and habitat layers into a single composite index that measures the overall health of marine ecosystems. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
+| **COVID-Impact Marine Health Model** | **Disruption Dynamics** | Analyze how marine ecosystems changed pre- vs post-COVID with spatial ML modeling, providing scenario-based insights for policy and management. | 🟢 Planned | 🔬 Scenario Simulator / Capstone |
 
 
 ---
