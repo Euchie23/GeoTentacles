@@ -66,7 +66,13 @@ GeoTentacles aims to:
 ### **Spatial Database & Backend**
 - PostgreSQL + PostGIS  
 - Geometry & geography columns  
-- Spatial indexing (GiST), tiling, grid creation  
+- Spatial indexing (GiST), tiling, grid creation
+> Deployment Note  
+  While GeoTentacles was developed against a local PostgreSQL/PostGIS database, deployed
+  dashboards may connect to a cloud-hosted PostgreSQL backend (e.g., NeonDB) to allow the
+  same spatial SQL workflows to run in hosted environments without maintaining a local
+  database server.
+
 
 ### **GIS Tooling**
 - QGIS  
