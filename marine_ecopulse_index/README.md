@@ -1,7 +1,7 @@
 # 🌊 EcoPulse Index — Marine Health Composite Index
 
 ## 🧭 Problem Framing & Decision Context
-Marine ecosystem health depends on interacting factors: catch levels, pollution, habitat, and human pressures. This module now incorporates **2018–2020 environmental catch data** (SST, SSH, Chlorophyll-a, Depth) with **lagged effects**, improving the robustness of the index.
+Marine ecosystem health depends on interacting factors: catch levels, pollution, habitat, and human pressures. This module also incorporates **2018–2020 environmental catch data** (SST, SSH, Chlorophyll-a, Depth) with **lagged effects**, improving the robustness of the index.
 
 ## 📘 Executive Summary
 - **Input:** catch data, pollutant concentrations, habitat layers, industrial/agricultural pressures, lagged environmental and catch features  
