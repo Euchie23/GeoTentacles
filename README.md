@@ -39,10 +39,10 @@ The full research pipeline lives in the private Squid_Fest repo — email me for
 |--------|------------|---------------|--------|------|
 | **20-Year Squid Catch Hotspot Dynamics** | [**Charting the Currents**](https://github.com/Euchie23/GeoTentacles/tree/main/hotspot_dynamics) | Explore long-term squid catch hotspots (2000–2020) using PostGIS clustering, spatial grids, and density maps to understand where squids gather over time. | ✅ Completed | [🗺️ Hotspots Dashboard](<https://euchie23.shinyapps.io/geotentacles__hotspots/>) |
 | **Squid Catch Hotspot Prediction (Classification)** | [**Forecasting the Swarms**](https://github.com/Euchie23/GeoTentacles/tree/main/hotspot_predictions) | Predict likely future squid catch hotspots with ML classification, helping fisheries anticipate and plan for swarming behavior. | ✅ Completed | 🗺️ Hotspots Dashboard |
-| **Pollution Level Spatial Prediction (Regression)** | **Toxic Tide Mapping** | Map predicted pollution intensity across space using ML regression and interpolated grids, identifying areas where contaminants may impact marine life. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
+| **Pollution Level Spatial Prediction (Regression)** | **Toxic Tide Mapping** |Map predicted pollution intensity across space using ML regression, interpolated grids, and upstream human activity (industrial & agricultural pressures) to identify areas where contaminants may impact marine life. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
 | **Marine Pollution Interpolation (Kriging / IDW)** | **Seafloor Signals** | Transform raw pollutant chemistry points into smooth, continuous spatial surfaces using kriging and IDW interpolation for easier interpretation. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
 | **Marine Health Index (MCI)** | **EcoPulse Index** | Combine catch, pollution, and habitat layers into a single composite index that measures the overall health of marine ecosystems. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
-| **COVID-Impact Marine Health Model** | **Disruption Dynamics** | Analyze how marine ecosystems changed pre- vs post-COVID with spatial ML modeling, providing scenario-based insights for policy and management. | 🟢 Planned | 🔬 Scenario Simulator / Capstone |
+| **COVID-Impact Marine Health Model** | **Disruption Dynamics** | Analyze how marine ecosystems changed pre- vs post-COVID using spatial ML modeling, integrated with lagged industrial and agricultural activity, providing scenario-based insights for policy and management. | 🟢 Planned | 🔬 Scenario Simulator / Capstone |
 
 
 ---
@@ -56,72 +56,45 @@ GeoTentacles aims to:
 - Create predictive spatial models (classification + regression)  
 - Generate continuous pollution surfaces via geostatistics  
 - Construct composite health indices to support policy and management  
-- Integrate catch + pollutant + environment geodata for multi-layer insights  
+- Integrate catch + pollutant + environmental geodata, including upstream pressures, for multi-layer insights
 - Develop interactive dashboards for visualization and decision support  
 
 ---
 
-## 🛠 Tools & Techniques Used
+### 🛠 Tools & Techniques Used
+**Spatial Database & Backend**
+- PostgreSQL + PostGIS (geometry & geography columns, spatial indexing, tiling, grid creation)
+- Cloud-hosted deployment for reproducible spatial SQL queries (NeonDB)
 
-### **Spatial Database & Backend**
-- PostgreSQL + PostGIS  
-- Geometry & geography columns  
-- Spatial indexing (GiST), tiling, grid creation
-> Deployment Note:  
-  While GeoTentacles was developed against a local PostgreSQL/PostGIS database, deployed
-  dashboards were connect to a cloud-hosted PostgreSQL backend **(NeonDB)** to allow the
-  same spatial SQL workflows to run in hosted environments without maintaining a local
-  database server.
+**GIS Tooling**
+- QGIS (GeoJSON, shapefiles, rasters, WMS layers)
+- Geospatial Python (geopandas, shapely, rasterio, pykrige / scikit-learn spatial ML)
 
+**Machine Learning**
+- Regression: Random Forest Regressor, GAMs, Gradient Boosting
+- Spatial cross-validation (blocked CV)
 
-### **GIS Tooling**
-- QGIS  
-- GeoJSON, shapefiles, rasters, WMS layers  
-
-### **Geospatial Python**
-- geopandas  
-- shapely  
-- rasterio  
-- pykrige / scikit-learn spatial ML  
-
-### **Machine Learning**
-- Classification: Random Forest, Gradient Boosting, XGBoost (grid-aggregated)  
-- Regression: Random Forest Regressor, GAMs, Gradient Boosting  
-- Spatial cross-validation (blocked CV)  
-
-### **Dashboards**
-- Streamlit (planned)  
-- Mapbox / Leaflet (optional future expansion)  
+**Dashboards**
+- Streamlit with modular tabs (overview + each module)
+- Optional Mapbox / Leaflet for interactive maps
 
 ---
 
-## 📌 Data & Method Highlights
-
-- **Geometry creation:**  
-  `ST_SetSRID(ST_MakePoint(lon, lat), 4326)`  
-- **Distance-to-land or zone:**  
-  `ST_Distance`, `ST_DWithin`  
-- **Grid tiling:**  
-  hex or square cells for hotspot stability  
-- **Pollution interpolation:**  
-  kriging, IDW, ML regression on grid averages  
-- **Hotspot detection:**  
-  DBSCAN, Getis-Ord, kernel density estimation  
-- **Marine Health Index:**  
-  normalized scores across pollution, catch, distance, etc.  
+### 📌 Data & Method Highlights
+- Geometry creation: `ST_SetSRID(ST_MakePoint(lon, lat), 4326)`
+- Distance metrics: `ST_Distance`, `ST_DWithin`
+- Grid tiling: hex or square cells for hotspot stability
+- Pollution interpolation: kriging, IDW, ML regression on grid averages
+- Marine Health Index: normalized composite of pollution, catch, habitat, and human pressures
+- Hotspot detection: DBSCAN, Getis-Ord, kernel density estimation
 
 ---
 
-## 👥 Audience & Use Cases
-
-This project is valuable for:
-
-- Marine ecologists  
-- Fisheries scientists  
-- Environmental monitoring agencies  
-- GIS analysts  
-- Data scientists learning spatial ML  
-- Students in geospatial modeling  
+### 👥 Audience & Use Cases
+- Marine ecologists & fisheries scientists
+- Environmental monitoring agencies
+- GIS analysts & data scientists
+- Students in geospatial modeling 
 
 ---
 
