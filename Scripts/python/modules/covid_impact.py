@@ -198,13 +198,6 @@ The focus is on **system sensitivity**, not direct causation.
 
         # Finally save back to session state
         st.session_state.params[TAB_NAME] = tab_params
-  
-
-        # include_2020 = st.checkbox(
-        #     "Include 2020 (pandemic year)",
-        #     value=True,
-        #     help="2020 represents active COVID conditions in this dataset"
-        # )
 
          # --- Divider Line ---
         st.sidebar.markdown("<hr style='border-top: 2px solid #39FF14; margin-top: 50px 0;'>", unsafe_allow_html=True)
