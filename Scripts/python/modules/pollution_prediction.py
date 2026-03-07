@@ -94,13 +94,8 @@ RISK_COLORS = {
     "Critical": "#E74C3C",
 }
 
-
 # ======================================================
-# Plain-language executive summary
-# ======================================================
-
-# ======================================================
-# Plain-language executive summary (defensible version)
+# Plain-language executive summary 
 # ======================================================
 
 def generate_toxic_tide_insights(metrics, pollutant, df):
@@ -234,10 +229,6 @@ def render():
     # ---------------------------------------------------
 
     TAB_NAME = "Toxic Tide Mapping"
-
-    # map_center_key = f"{TAB_NAME}_map_center"
-    # map_zoom_key = f"{TAB_NAME}_map_zoom"
-    # force_key = f"{TAB_NAME}_force_map_view"
 
     DEFAULT_MAP_CENTER = [-48.0, -55.0]
     DEFAULT_MAP_ZOOM = 4
@@ -381,8 +372,6 @@ def render():
 
         # Capture the inputs (example)
         inputs_to_save = {
-            # "years": st.session_state.params[TAB_NAME].get("years"),
-            # "tissue": st.session_state.params[TAB_NAME].get("tissue"),
             "pollutant": st.session_state.params[TAB_NAME].get("pollutant"),
             "model_type": st.session_state.params[TAB_NAME].get("model_type"),
             "map_center": st.session_state.current_map_center,
@@ -392,9 +381,7 @@ def render():
         
         # ---------------------------------------------------
         # NOTES PANELS
-        # ---------------------------------------------------
-
- 
+        # --------------------------------------------------- 
         st.markdown("### 🗒️ Notes Panel")
 
         with st.expander(
@@ -545,9 +532,6 @@ def render():
     c1.metric("R²", f"{metrics['R2']:.3f}")
     c2.metric("RMSE", f"{metrics['RMSE']:.3f}")
     c3.metric("Model type", model_type)
-
-    # import sklearn
-    # st.write("sklearn version:", sklearn.__version__)
     
 
     st.markdown(f"**Confidence tier:** {get_confidence_label(pollutant)}")
@@ -591,7 +575,6 @@ def render():
     # --------------------------------------------------
     # MAP — LAYER 2
     # --------------------------------------------------
-
     st.subheader("🗺️ Layer 2 — Spatial Risk Screening")
 
 
@@ -665,21 +648,10 @@ def render():
     # -----------------------------
     with st.spinner("Rendering map, please wait..."):
 
-        # Create Folium map
-        # m = folium.Map(
-        #     location=st.session_state.current_map_center,
-        #     zoom_start=st.session_state.map_zoom_level,
-        #     control_scale=True
-        # )
-
-
         m = folium.Map(
             location=DEFAULT_MAP_CENTER,  # static initial
             zoom_start=DEFAULT_MAP_ZOOM   # static initial
         )
-
-        # Create Folium map
-       # m = folium.Map(location=[lat_center, lon_center], zoom_start=6, control_scale=True)
 
         # Add realistic base tiles
         folium.TileLayer("Esri.WorldImagery", name="Satellite", control=True).add_to(m)
@@ -709,27 +681,6 @@ def render():
         # Layer control
         folium.LayerControl(collapsed=False).add_to(m)
 
-        # Render in Streamlit
-        # map_state = st_folium(
-        #     m,
-        #     width=None,
-        #     height=500,
-        #     returned_objects=["center", "zoom"]
-        # )
-
-    #     folium_kwargs = {
-    #     "width": None,
-    #     "height": 500,
-    #     "key": f"folium_map_{TAB_NAME}",
-    #     "returned_objects": ["center", "zoom"]
-    # }
-
-    # if st.session_state[force_key]:
-    #     folium_kwargs["center"] = st.session_state[map_center_key]
-    #     folium_kwargs["zoom"] = st.session_state[map_zoom_key]
-    #     st.session_state[force_key] = False
-
-    # map_state = st_folium(m, **folium_kwargs)
 
         folium_kwargs = {
             "width": None,
@@ -745,31 +696,6 @@ def render():
             st.session_state.force_map_view = False
 
         map_state = st_folium(m, **folium_kwargs)
-        
-
-    # if map_state:
-    #     new_center = map_state.get("center")
-    #     new_zoom = map_state.get("zoom")
-
-    #     if new_center:
-    #         st.session_state[map_center_key] = [
-    #             round(new_center["lat"], 6),
-    #             round(new_center["lng"], 6),
-    #         ]
-
-    #     if new_zoom is not None:
-    #         st.session_state[map_zoom_key] = new_zoom
-
-    #     if map_state:
-    #         st.session_state.current_map_center = map_state.get(
-    #             "center",
-    #             st.session_state.get("current_map_center", DEFAULT_MAP_CENTER)
-    #         )
-
-    #         st.session_state.map_zoom_level = map_state.get(
-    #             "zoom",
-    #             st.session_state.get("map_zoom_level", DEFAULT_MAP_ZOOM)
-    #         )
 
         if map_state:
 
@@ -791,8 +717,6 @@ def render():
                 if new_zoom != st.session_state.get("map_zoom_level"):
                     st.session_state.map_zoom_level = new_zoom
 
-        # Render full-width map in Streamlit
-        #st_folium(m, width="100%", height=500)
 
     st.markdown("<hr style='border-top: 2px solid #39FF14; margin-top: 50px 0;'>", unsafe_allow_html=True)
 
@@ -940,24 +864,4 @@ def render():
     """,
     unsafe_allow_html=True
     )
-
-# -----------------------------
-# Toast Message Display (at the very end)
-# -----------------------------
-# if st.session_state.get("toast_message"):
-#     st.success(st.session_state.toast_message)
-#     st.session_state.toast_message = None
-
-# # Reset just_saved_note after rendering toast
-# if st.session_state.get("just_saved_note"):
-#     st.session_state.just_saved_note = False
-
-    # # -----------------------------
-    # # FIRE TOAST REMINDER
-    # # -----------------------------
-    # # Place it after all widgets and maps
-    # st.toast(
-    #     "💡 Take a moment to capture your observations or interpretations in the sidebar notes panel! 🙂 "
-    #     "When you're done, click Save to store them in the Logbook tab."
-    # )
     
