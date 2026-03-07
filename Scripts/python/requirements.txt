@@ -1,0 +1,26 @@
+# Core
+streamlit>=1.30
+numpy==1.26.4
+pandas==1.5.3
+
+# Visualization
+plotly>=5.15
+matplotlib>=3.7
+pydeck>=0.8
+
+# Spatial
+geopandas>=0.13
+pyproj>=3.6
+shapely>=2.0
+rasterio>=1.3
+folium>=0.15
+streamlit-folium>=0.18
+
+# Stats
+scipy>=1.10
+pykrige>=1.7
+
+# Machine learning (MATCH TRAINING)
+scikit-learn==1.7.2
+joblib==1.3.2
+
