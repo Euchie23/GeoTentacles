@@ -41,7 +41,6 @@ def generate_ecopulse_insights( df, year, tissue, view_mode, maturity_levels, ge
     # ----------------------------------
     # Maturity interpretation (dynamic)
     # ----------------------------------
-
     #Defining ordered maturity labels
     MATURITY_MAP = {
     1: "Juvenile",
@@ -55,8 +54,6 @@ def generate_ecopulse_insights( df, year, tissue, view_mode, maturity_levels, ge
     #Deriving slected maturity context dynamically
     selected_stages = [MATURITY_MAP[k] for k in sorted(maturity_levels)]
 
-
-    #insight logic
 # ----------------------------------
 # Maturity interpretation (robust)
 # ----------------------------------
@@ -127,7 +124,7 @@ def generate_ecopulse_insights( df, year, tissue, view_mode, maturity_levels, ge
         )
     }[view_mode]
 
-        # ----------------------------------
+    # ----------------------------------
     # Distribution interpretation (robust logic)
     # ----------------------------------
 
@@ -355,12 +352,6 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
                 help="Select at least one life stage to enable biological interpretation."
             )
 
-            # maturity_labels = st.multiselect(
-            #     "Maturity stage",
-            #     options=[MATURITY_MAP[k] for k in sorted(MATURITY_MAP)],
-            #     default=[MATURITY_MAP[k] for k in sorted(MATURITY_MAP)],
-            #     help="Select at least one life stage to enable biological interpretation."
-            # )
 
             if not maturity_labels:
                 st.warning(
@@ -368,8 +359,6 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
                 )
                 st.stop()
                 
-
-
             # --------------------------------------------------
             # Gender label mapping (readability)
             # --------------------------------------------------
@@ -389,13 +378,6 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
                 help="Used for comparison only. Gender does not affect the EcoPulse score."
             )
 
-
-            # gender_filter = st.multiselect(
-            #     "Gender",
-            #     options=sorted(df["Gender_label"].unique()),
-            #     default=sorted(df["Gender_label"].unique()),
-            #     help="Used for comparison only. Gender does not affect the EcoPulse score."
-            # )
 
             if not gender_filter:
                 st.warning(
@@ -445,21 +427,11 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
         Model structure and assumptions remain fixed for consistency and defensibility.
         """)
 
-        # with st.expander(f"💬 Notes for 🌿EcoPulse Index ", #expanded=st.session_state.notes_expanded):
-        #     st.session_state.auto_expand_notes = False
-        #     note_text = st.text_area(
-        #         "Write your note here:",
-        #         key="note_input",
-        #         height=150,
-        #         placeholder="Type your note..."
-        #     )
         
         # Convert selected labels back to numeric levels
         maturity_levels = [
             k for k, v in MATURITY_MAP.items() if v in maturity_labels
         ]
-
-        
 
 
         # --- Divider Line ---
@@ -478,7 +450,6 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
         # ---------------------------------------------------
         # NOTES PANELS
         # ---------------------------------------------------
-
 
         st.markdown("### 🗒️ Notes Panel")
 
@@ -565,10 +536,10 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
                         else:
                             st.warning("⚠️ Nothing to save (note is empty).")
 
+        
         # -----------------------------
         # Footer Contact Information
         # -----------------------------
-
         # --- Divider Line ---
         st.sidebar.markdown("<hr style='border-top: 2px solid #39FF14; margin-top: 50px 0;'>", unsafe_allow_html=True)
 
@@ -609,8 +580,7 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
         return
 
 
-
-
+    
     # -----------------------------
     # Compute EcoPulse Index
     # -----------------------------
@@ -681,18 +651,6 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
         title= "EcoPulse Index by Sampling Location"
     )
 
-    # fig.update_layout(
-    #     coloraxis_colorbar=dict(
-    #         title="EcoPulse Index",
-    #         tickvals=[0.0, 0.33, 0.66, 1.0],
-    #         ticktext=[
-    #             "High stress (Red)",
-    #             "Moderate stress (Yellow)",
-    #             "Moderate resilience (Orange)",
-    #             "High resilience (Green)"
-    #         ]
-    #     )
-    # )
 
     fig.update_layout(
     coloraxis_colorbar=dict(
