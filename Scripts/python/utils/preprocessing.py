@@ -97,23 +97,6 @@ def aggregate_pollution(
     return agg_df
 
 
-# def pivot_pollutants(df):
-#     """
-#     Pivot pollutants into wide format for ML models.
-#     """
-#     wide_df = (
-#         df
-#         .pivot_table(
-#             index=["Year", "Latitude", "Longitude", "Tissue"],
-#             columns="pollutant",
-#             values="concentration",
-#             aggfunc="mean"
-#         )
-#         .reset_index()
-#     )
-
-#     return wide_df
-
 def pivot_pollutants(df):
 
     """
