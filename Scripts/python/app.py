@@ -86,29 +86,6 @@ if "auto_expand_notes" not in st.session_state:
 if "notes_expanded" not in st.session_state:
     st.session_state.notes_expanded = False
 
-# if "just_saved_note" not in st.session_state:
-#     st.session_state.just_saved_note = False
-
-# if st.session_state.get("edit_mode_just_cleared", False):
-#     st.session_state.edit_mode = {"active": False, "tab": None, "index": None}
-#     st.session_state.edit_mode_just_cleared = False
-
-# # Initialize timer
-# if "toast_start_time" not in st.session_state:
-#     st.session_state.toast_start_time = None
-
-# if "show_sidebar_toast" not in st.session_state:
-#     st.session_state.show_sidebar_toast = False
-
-# if "global_toast" not in st.session_state:
-#     st.session_state.global_toast = None
-
-# Initialize session state for current tab
-# if "current_tab" not in st.session_state:
-#     st.session_state.current_tab = None
-
-
-
 # ============================================================
 # 🔹 Load custom CSS
 # ============================================================
