@@ -1,1 +1,450 @@
 
+/* ---------------------- Sidebar ---------------------- */
+
+    /* Combine background image + overlay so it scrolls with content */
+[data-testid="stSidebar"] > div:first-child {
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    bottom: 0;
+    width: 370px !important;
+    overflow-y: auto;
+    color: #E1EAF2;
+
+    background:
+        linear-gradient(rgba(0, 31, 63, 0.6), rgba(0, 31, 63, 0.6)),
+        url("https://thumbs.dreamstime.com/b/underwater-seascape-ocean-coral-reef-deep-sea-bottom-swimming-under-water-marine-corals-background-vector-seaweed-algae-354608779.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+    
+
+/* Ensure sidebar content is above overlay */
+[data-testid="stSidebar"] > div:first-child > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Sidebar titles and headers */
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    color: #39FF14 !important;
+    margin-top: 4px !important;
+}
+
+/* Sidebar 'Tabs' section header */
+[data-testid="stSidebar"] [data-testid="stRadioGroupLabel"] p {
+    font-size: 25px !important;
+    font-weight: 800 !important;
+    color: #FFD700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+}
+
+/* Each sidebar radio button (tab option) */
+[data-testid="stSidebar"] [data-baseweb="radio"] label div p {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #E1EAF2 !important;
+    line-height: 1.6 !important;
+}
+
+/* Each radio option (“Overview”, etc.) */
+[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] label p {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #E1EAF2 !important;
+}
+
+/* Sidebar links */
+[data-testid="stSidebar"] a {
+    font-size: 20px !important;
+    color: #39FF14 !important;
+}
+
+
+/* Sidebar title */
+.custom-sidebar-title {
+    font-size: 40px !important;
+    font-weight: 900 !important;
+    color: #39FF14 !important;
+    margin-top: 0px !important;  /* pushes it to top */
+    margin-bottom: 60px !important;  /* add space before navigation */
+    text-align: center !important;
+    line-height: 1.1 !important;
+}
+
+/* Optional: remove Streamlit’s default padding around markdown */
+[data-testid="stSidebar"] > div:first-child {
+    padding-top: 2px !important;
+}
+
+
+/* Sidebar footer */
+.sidebar-footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    padding: 10px;
+}
+            
+/* Make the sidebar background extend the full height */
+/* section[data-testid="stSidebar"] {
+    min-height: 100vh !important;
+} */
+
+/* Optional: adjust padding for expanders inside sidebar */
+section[data-testid="stSidebar"] .st-expander {
+    margin-bottom: 1rem;
+}
+            
+/* Disable sidebar resize handle */
+/*div[data-testid="stSidebarResizer"] {
+    display: none !important;
+    pointer-events: none !important;
+}*/
+
+
+/* ---------------------- Main Panel Background ---------------------- */
+
+html, body {
+    background: none !important;
+}
+
+div[data-testid="stAppViewContainer"] {
+    background-image: url("https://images.unsplash.com/photo-1530951980629-fbeef86f69a1?q=80&w=2768&auto=format&fit=crop");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+div[data-testid="stAppViewContainer"]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 47, 68, 0.7);
+    z-index: 0;
+}
+
+div[data-testid="stAppViewContainer"] > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* div[data-testid="stAppViewContainer"]::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(10, 47, 68, 0.7);
+    z-index: 0;
+} */
+/* div[data-testid="stAppViewContainer"]> * {
+    position: relative;
+    z-index: 1;
+} */
+
+/* .block-container {
+    overflow-y: auto !important;
+    height: 100vh !important;
+    padding-top: 4rem !important;
+    padding-bottom: 2rem !important;
+
+
+    padding-left: 5rem !important; 
+    padding-right: 2rem !important;
+
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    max-width: 100% !important;
+} */
+
+ /* section[data-testid="stSidebar"] + div {
+    margin-left: 18rem; 
+} 
+*/
+/* ---------------------- Sidebar + Main Layout Fix ---------------------- */
+
+/* Sidebar width */
+[data-testid="stSidebar"] > div:first-child {
+    width: 370px !important;
+    min-width: 370px !important;
+}
+
+/* Remove default spacing from Streamlit wrappers */
+div[data-testid="stSidebar"],
+section[data-testid="stSidebar"] {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Force main content to start exactly at sidebar edge */
+/*div[data-testid="stAppViewContainer"] > div:nth-child(2) {
+    margin-left: 370px; 
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+    transition: margin-left 0.3s ease-in-out;
+}
+*/
+
+/* Main content margin when sidebar is collapsed */
+body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div:nth-child(2) {
+    margin-left: 0;
+}
+
+
+/* Ensure Streamlit’s block container doesn’t add spacing */
+/* .block-container {
+    margin: 0 !important;
+    padding: 2rem 3rem !important;
+    max-width: 100% !important;
+    overflow-y: auto !important;
+    height: 100vh !important;
+} */
+
+/* Collapsed sidebar behavior */
+@media (max-width: 992px) {
+    div[data-testid="stAppViewContainer"] > div:nth-child(2) {
+        margin-left: 0 !important;
+    }
+}
+
+/* Make sidebar + main content a flex row */
+[data-testid="stAppViewContainer"] {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+/* Sidebar stays fixed width */
+[data-testid="stSidebar"] > div:first-child {
+    width: 370px !important;
+    min-width: 370px !important;
+    flex-shrink: 0;  /* prevent shrinking */
+}
+
+/* Main content fills remaining space */
+[data-testid="stAppViewContainer"] > div[role="main"] {
+    flex-grow: 1;       /* take remaining space */
+    margin-left: 0 !important;  /* remove forced margins */
+    padding: 2rem !important;   /* optional padding */
+}
+
+/* ---------------------- FULL WIDTH MAIN PANEL & TABS FIX ---------------------- */
+
+/* Make all block-container elements inside main content occupy full width */
+[data-testid="stAppViewContainer"] .block-container,
+[data-testid="stAppViewContainer"] .block-container > div {
+    width: 100% !important;
+    max-width: 100% !important;   /* override Streamlit max width */
+    margin: 0 !important;         /* remove auto centering */
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    display: block !important;    /* prevent flex centering */
+}
+
+/* Ensure BaseWeb tabs themselves stretch full width */
+.stTabs,
+.stTabs > div[data-baseweb="tab-panel"],
+.stTabs > div[data-baseweb="tab-panel"] > div {
+    width: 100% !important;
+    display: block !important;    /* override internal flex centering */
+    margin: 0 !important;
+}
+
+/* Optional: fix buttons inside tabs so they align left instead of center */
+div.stButton > button:first-child {
+    margin: 0 !important;
+}
+
+/* ---------------------- Titles ---------------------- */
+h1, .stTitle {
+    font-size: 34px !important;
+    font-weight: 800 !important;
+    color: #39FF14 !important;
+}
+
+/* Markdown text */
+.stMarkdown, .stMarkdown p, .stMarkdown ul, .stMarkdown ol, .stMarkdown li, .stCaption {
+    font-size: 20px !important;
+    line-height: 1.8 !important;
+    color: #E1EAF2 !important;
+}
+
+            
+/* ---------------------- 🟢 Markdown Headers Fix ---------------------- */
+
+/* Ensure Markdown titles keep the right color and size across the app */
+.stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
+.block-container h1, .block-container h2, .block-container h3,
+[data-testid="stSidebar"] .stMarkdown h1,
+[data-testid="stSidebar"] .stMarkdown h2,
+[data-testid="stSidebar"] .stMarkdown h3 {
+    color: #39FF14 !important;
+    font-weight: 800 !important;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+}
+
+/* Header sizes */
+.stMarkdown h1, .block-container h1,
+[data-testid="stSidebar"] .stMarkdown h1 {
+    font-size: 34px !important;
+}
+.stMarkdown h2, .block-container h2,
+[data-testid="stSidebar"] .stMarkdown h2 {
+    font-size: 28px !important;
+}
+.stMarkdown h3, .block-container h3,
+[data-testid="stSidebar"] .stMarkdown h3 {
+    font-size: 24px !important;
+}
+
+/* Sidebar paragraph text */
+[data-testid="stSidebar"] .stMarkdown p {
+    color: #E1EAF2 !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+}
+
+/* ---------------------- Tabs ---------------------- */
+.stTabs [data-baseweb="tab"] {
+    font-size: 20px !important;
+    padding: 12px 20px !important;
+    font-weight: 600 !important;
+    color: #E1EAF2 !important;
+}
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    color: #FFD700 !important;
+    border-bottom: 3px solid #FFD700 !important;
+}
+
+/* ---------------------- DataFrames ---------------------- */
+[data-testid="stDataFrame"] {
+    width: 100% !important;
+    margin-bottom: 1.5rem !important;
+}
+[data-testid="stDataFrame"] table {
+    font-size: 19px !important;
+    line-height: 1.4 !important;
+    border-collapse: collapse !important;
+}
+[data-testid="stDataFrame"] th {
+    font-weight: 700 !important;
+    background-color: rgba(0, 31, 63, 0.8) !important;
+    color: #39FF14 !important;
+    padding: 8px !important;
+}
+[data-testid="stDataFrame"] td {
+    color: #E1EAF2 !important;
+    padding: 6px !important;
+}
+
+/* ---------------------- Top bar ---------------------- */
+header, .css-nahz7x {
+    background-color: #001f3f !important;
+}
+            
+/* ---------------------- 🧭 Fix Top Bar Alignment (Streamlit 1.51+) ---------------------- */
+
+/* Keep the top bar visible and consistent */
+/* header[data-testid="stHeader"] {
+    background-color: #001f3f !important;
+    height: 3.5rem !important;
+    z-index: 1000 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+} */
+
+/* Sidebar should start just below the fixed top bar */
+/*[data-testid="stSidebar"] {
+    position: fixed !important;
+    top: 3.5rem !important;      
+    height: calc(100vh - 3.5rem) !important;
+    margin: 0 !important;
+}*/
+
+/* Sidebar inner div scrolls normally */
+[data-testid="stSidebar"] > div:first-child {
+    height: 100% !important;
+    overflow-y: auto !important;
+}
+
+/* Main app container shifts down equally
+div[data-testid="stAppViewContainer"] {
+    margin-top: 3.5rem !important;   align with sidebar 
+    padding-top: 0 !important;
+} */
+
+/* The block container keeps its scroll and padding */
+/* .block-container {
+    height: calc(100vh - 3.5rem) !important;
+    overflow-y: auto !important;
+} */
+
+/*.block-container {
+    height: calc(100vh - 3.5rem) !important;
+    overflow-y: auto !important;
+    padding: 2rem 3rem !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}*/
+
+/* ---------------------- Buttons ---------------------- */
+div.stButton > button:first-child {
+    background-color: #39FF14 !important;
+    color: #001f3f !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    border: none !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+div.stButton > button:first-child:hover {
+    background-color: #32CD32 !important;
+    color: #eee4a7 !important;
+}
+
+/* ---------------------- Text displays ---------------------- */
+/* Target the numeric values in metrics and shrink them */
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
+    font-size: 20px !important;    /* adjust smaller */
+    font-weight: 600 !important;   /* optional: keep slightly bold */
+    line-height: 1.2 !important;
+}
+
+/* Keep metric titles unchanged */
+div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
+    font-size: 32px !important;    /* title size stays big */
+    font-weight: 800 !important;
+}
+
+/* ---------------------- Form Submit Buttons ---------------------- */
+
+div[data-testid="stForm"] button {
+    background-color: #39FF14 !important;
+    color: #001f3f !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    border: none !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+div[data-testid="stForm"] button:hover {
+    background-color: #32CD32 !important;
+    color: #eee4a7 !important;
+}
+
+
