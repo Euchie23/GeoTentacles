@@ -94,11 +94,6 @@ def render():
 
     TAB_NAME = "Seafloor Signals"
 
-    # DEFAULT_POLLUTANT = "Metal_A"
-    # DEFAULT_TISSUE = "liver"
-    # DEFAULT_YEAR = 2020
-    # DEFAULT_RESOLUTION = 100
-
     # ---------------------------------------------------
     # SESSION STATE INITIALIZATION (SAFE ORDER)
     # ---------------------------------------------------
@@ -139,20 +134,6 @@ def render():
         st.subheader("Interpolation Controls")
 
         with st.expander("🌊 Expand to adjust Interpolation Controls", expanded=False):
-
-            # tab_params = st.session_state.params.get(TAB_NAME, {})
-            
-            # pollutant = st.selectbox("pollutant", sorted(df["pollutant"].unique()))
-            # tab_params["pollutant"] = pollutant
-            # tissue = st.selectbox("Tissue", sorted(df["Tissue"].unique()))
-            # tab_params["tissue"] = tissue
-            # year = st.selectbox("Year", sorted(df["Year"].unique()))
-            # tab_params["year"] = year
-            # resolution = st.slider("Map resolution", 50, 200, 100, 10)
-            # tab_params["resolution"] = resolution
-
-            #  # Finally save back to session state
-            # st.session_state.params[TAB_NAME] = tab_params
 
             tab_params = st.session_state.params.setdefault(TAB_NAME, {})
 
