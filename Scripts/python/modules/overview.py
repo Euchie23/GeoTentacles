@@ -66,10 +66,6 @@ def render():
     if "edit_mode_saved" not in st.session_state:
         st.session_state.edit_mode_saved = False
 
-    # Initialize flag at top of render_overview()
-    # if "just_saved_note" not in st.session_state:
-    #     st.session_state.just_saved_note = False
-
     if "force_map_view" not in st.session_state:
         st.session_state.force_map_view = False
 
@@ -311,121 +307,6 @@ def render():
         # NOTES PANELS
         # ---------------------------------------------------
 
-        # st.markdown("### 🗒️ Notes Panel")
-
-        # with st.expander(
-        #     f"💬 Notes for {TAB_NAME}",
-        #     expanded=st.session_state.get("auto_expand_notes", False)
-        # ):
-            
-        #     success_msg = st.session_state.pop("edit_success_message", False)
-
-        #     if success_msg:
-        #         st.success("✅ Note updated! please click '❌ Exit Edit Mode' to unlock tabs.")
-
-        #     note_key = f"{TAB_NAME}_note_input"
-        #     if note_key not in st.session_state:
-        #         st.session_state[note_key] = ""
-        #       # Initialize session_state keys
-        #     # if "edit_mode" not in st.session_state:
-        #     #     st.session_state.edit_mode = {"active": False, "tab": None, "index": None}
-        #     # if "edit_mode_saved" not in st.session_state:
-        #     #     st.session_state.edit_mode_saved = False
-
-        #     in_edit_mode = st.session_state.edit_mode.get("active", False)
-        #     edit_saved = st.session_state.get("edit_mode_saved", False)
-
-        #     # Preload note if coming from Logbook edit and not yet saved
-        #     if in_edit_mode and not edit_saved and "preload_note_input" in st.session_state:
-        #         st.session_state[note_key] = st.session_state.pop("preload_note_input")
-
-        #     # 🔹 Preload note if editing
-        #     # if "preload_note_input" in st.session_state:
-        #     #     st.session_state[note_key] = st.session_state.pop("preload_note_input")
-
-
-        #     # ----------------- EDIT MODE, NOT SAVED -----------------
-        #     if in_edit_mode and not edit_saved:
-        #         with st.form(f"edit_note_form_{TAB_NAME}", clear_on_submit=False):
-        #         #with st.form(f"note_form_{TAB_NAME}", clear_on_submit=True):
-        #             note_text = st.text_area(
-        #                 "Write your note here:",
-        #                 key=note_key,
-        #                 height=150,
-        #                 # placeholder="Type your note...",
-        #                 disabled=edit_saved
-        #             )
-
-        #         #submitted = st.form_submit_button("💾 Save Note")
-        #             submitted = st.form_submit_button("💾 Save Note")
-        #             if submitted:
-        #                 content = note_text.strip()
-
-        #                 if not content:
-        #                     st.warning("⚠️ Nothing to save (note is empty).")
-
-        #                 else:
-        #                     edit_index = st.session_state.edit_mode["index"]
-
-        #                     st.session_state.notes[TAB_NAME][edit_index] = {
-        #                         "timestamp": datetime.now(),
-        #                         "notes": content,
-        #                         "inputs": inputs_to_save
-        #                     }
-
-        #                     st.session_state.edit_mode_saved = True
-        #                     st.session_state.edit_success_message = True
-        #                     st.rerun()
-        #             else:
-        #                 st.warning("⚠️ Nothing to save (note is empty).")
-    
-        #     # ----------------- EDIT MODE, ALREADY SAVED -----------------
-        #     elif in_edit_mode and edit_saved:
-        #         st.text_area(
-        #             "Edit your note (saved):",
-        #             key=note_key,
-        #             height=150,
-        #             disabled=True
-        #         )
-        #         st.button("💾 Save Note", disabled=True)
-        #     else:
-        #         with st.form("normal_note_form", clear_on_submit=True):
-        #             note_text = st.text_area(
-        #                 "Write your note here:",
-        #                 key=note_key,
-        #                 height=150,
-        #                 placeholder="Type your note..."
-        #             )
-
-        #             submitted = st.form_submit_button("💾 Save Note")
-
-        #             if submitted:
-        #                 #content = note_text.strip()
-        #                 content = st.session_state[note_key].strip()
-
-        #                 if not content:
-        #                     st.warning("⚠️ Nothing to save (note is empty).")
-
-        #                 else:
-        #                     st.session_state.notes[TAB_NAME].append({
-        #                         "timestamp": datetime.now(),
-        #                         "notes": content,
-        #                         "inputs": inputs_to_save
-        #                     })
-
-        #                     st.success("✅ Note saved to Logbook!")
-
-        #     # Ensure auto_expand resets after rendering
-        #     if st.session_state.get("auto_expand_notes", False):
-        #         st.session_state.auto_expand_notes = False
-
-                        # st.session_state.preload_note_input = ""
-                        # st.session_state.auto_expand_notes = False
-
-                    # else:
-                    #     # Keep warning for empty note
-                    #     st.warning("⚠️ Nothing to save (note is empty).")
-
         st.markdown("### 🗒️ Notes Panel")
 
         with st.expander(
@@ -510,11 +391,6 @@ def render():
                             st.success("✅ Note saved to Logbook!")
                         else:
                             st.warning("⚠️ Nothing to save (note is empty).")
-
-        # Reset auto_expand after rendering
-        # if st.session_state.get("auto_expand_notes", False):
-        #     st.session_state.auto_expand_notes = False
-
 
     # -----------------------------
     # Footer Contact Information
@@ -669,14 +545,6 @@ def render():
     # Wrap the map rendering in a spinner
     with st.spinner("Rendering map, please wait..."):
 
-        # Create Folium map
-        # m = folium.Map(
-        #     location=st.session_state.current_map_center,
-        #     zoom_start=st.session_state.get("map_zoom_level", DEFAULT_MAP_ZOOM),
-        #     control_scale=True,
-        #     prefer_canvas=True
-        # )
-
         m = folium.Map(
             location=DEFAULT_MAP_CENTER,  # static initial
             zoom_start=DEFAULT_MAP_ZOOM   # static initial
@@ -707,15 +575,6 @@ def render():
 
         # Add layer control to toggle tiles
         folium.LayerControl(collapsed=False).add_to(m)
-
-        # Render in Streamlit
-        # map_state = st_folium(
-        #     m,
-        #     width=None,
-        #     height=500,
-        #     returned_objects=["center", "zoom"],
-        #     key=f"folium_map_{TAB_NAME}"
-        # )
 
         folium_kwargs = {
             "width": None,
@@ -797,28 +656,4 @@ def render():
         """,
         unsafe_allow_html=True
     )
-
-# # -----------------------------
-# # Toast Message Display (at the very end)
-# # -----------------------------
-# if st.session_state.get("toast_message"):
-#     st.success(st.session_state.toast_message)
-#     st.session_state.toast_message = None
-
-# # Reset just_saved_note after rendering toast
-# if st.session_state.get("just_saved_note"):
-#     st.session_state.just_saved_note = False
-#     # Map reminder toast
-    # if not st.session_state.get("just_saved_note", False):
-    #     st.toast(
-    #         "💡 Take a moment to capture your observations or interpretations in the sidebar notes panel! 🙂 "
-    #         "When you're done, click Save to store them in the Logbook tab."
-    #     )
-    # else:
-    #     # Reset the flag so reminder appears on the next user interaction
-    #     st.session_state.just_saved_note = False
-
-    # if "global_toast" in st.session_state:
-    #     st.toast(st.session_state.global_toast["message"])
-    #     del st.session_state.global_toast
 
