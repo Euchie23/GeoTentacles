@@ -519,7 +519,16 @@ def render():
     # MODEL PERFORMANCE
     # --------------------------------------------------
 
-    metrics_df = pd.read_csv("output/model_comparison_table.csv")
+    BASE_DIR = Path(__file__).resolve()
+
+    REPO_ROOT = BASE_DIR.parents[3]  
+    # modules -> python -> Scripts -> repo root
+    
+    OUTPUT_FILE = REPO_ROOT / "output" / "marine_toxic_tide" / "model_comparison_table.csv"
+    
+    metrics_df = pd.read_csv(OUTPUT_FILE)
+
+    # metrics_df = pd.read_csv("output/model_comparison_table.csv")
     metrics = (
         metrics_df
         .query("pollutant == @pollutant and model == @model_type")
