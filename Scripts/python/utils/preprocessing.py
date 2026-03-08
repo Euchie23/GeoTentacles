@@ -198,7 +198,12 @@ def get_confidence_label(pollutant):
 
 
 
-ICON_DIR = Path(__file__).parent.parent / "assets" / "icons"
+#ICON_DIR = Path(__file__).parent.parent / "assets" / "icons"
+# Base directory is where app.py lives
+BASE_DIR = Path(__file__).resolve().parent
+
+# Path to the icon
+ICON_DIR = BASE_DIR / "assets" / "icons" 
 
 def get_pollutant_icons(pollutant_name):
     icons = []
