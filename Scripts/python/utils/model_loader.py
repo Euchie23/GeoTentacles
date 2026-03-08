@@ -27,7 +27,7 @@ def list_available_models():
 
     return models
 
-
+@st.cache_resource
 def load_model(pollutant, model_type):
     """
     Load a specific pretrained model
