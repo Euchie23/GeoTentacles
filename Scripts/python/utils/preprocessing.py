@@ -272,11 +272,12 @@ button[data-baseweb="accordion"] svg {
 # ------------------------------
 # Your source legend expander
 # ------------------------------
+# Update SOURCE_ICONS to store full Paths using ICON_DIR
 SOURCE_ICONS = {
-    "Industrial / Manufacturing": "assets/icons/Metal_A1.png",
-    "Mining": "assets/icons/Metal_A.png",
-    "Pharmaceutical": "assets/icons/Metal_H2.png",
-    "Agricultural": "assets/icons/Metal_G2.png",
+    "Industrial / Manufacturing": ICON_DIR / "Metal_A1.png",
+    "Mining": ICON_DIR / "Metal_A.png",
+    "Pharmaceutical": ICON_DIR / "Metal_H2.png",
+    "Agricultural": ICON_DIR / "Metal_G2.png",
 }
 
 def render_source_legend():
@@ -284,6 +285,13 @@ def render_source_legend():
         for label, icon_path in SOURCE_ICONS.items():
             cols = st.columns([1, 5])
             with cols[0]:
-                st.image(icon_path, width=24)
+                # Convert Path object to str for st.image
+                if icon_path.exists():
+                    st.image(str(icon_path), width=24)
+                else:
+                    st.warning(f"Icon not found: {icon_path}")
             with cols[1]:
-                st.markdown(f"<p style='margin:0; font-size:18px;'>{label}</p>", unsafe_allow_html=True)
+                st.markdown(
+                    f"<p style='margin:0; font-size:18px;'>{label}</p>",
+                    unsafe_allow_html=True
+                )
