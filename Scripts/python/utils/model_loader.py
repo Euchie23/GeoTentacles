@@ -1,5 +1,5 @@
 # utils/model_loader.py
-
+import streamlit as st
 from pathlib import Path
 import joblib
 
