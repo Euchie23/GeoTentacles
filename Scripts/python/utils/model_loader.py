@@ -3,7 +3,7 @@
 from pathlib import Path
 import joblib
 
-MODEL_DIR = Path("marine_toxic_tide"/"models")
+MODEL_DIR = Path("marine_toxic_tide") / "models"
 
 def list_available_models():
     """
