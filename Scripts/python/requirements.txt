@@ -25,6 +25,6 @@ scipy
 pykrige
 
 # Machine learning (MATCH TRAINING)
-scikit-learn
+scikit-learn==1.7.2
 joblib
 
