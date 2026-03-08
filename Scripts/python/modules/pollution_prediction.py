@@ -526,7 +526,7 @@ def render():
     REPO_ROOT = BASE_DIR.parents[3]  
     # modules -> python -> Scripts -> repo root
     
-    OUTPUT_FILE = REPO_ROOT / "output" / "marine_toxic_tide" / "model_comparison_table.csv"
+    OUTPUT_FILE = REPO_ROOT / "outputs" / "marine_toxic_tide" / "model_comparison_table.csv"
     
     metrics_df = pd.read_csv(OUTPUT_FILE)
 
