@@ -3,7 +3,7 @@ import streamlit as st
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[3]  # up 3 levels from utils/data_loader.py
-DATA_DIR = REPO_ROOT / "data" / "raw"
+DATA_DIR = REPO_ROOT / "data" 
 
 @st.cache_data
 def load_pollution_data():
