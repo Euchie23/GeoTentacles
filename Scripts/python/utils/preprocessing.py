@@ -285,9 +285,12 @@ def render_source_legend():
         for label, icon_path in SOURCE_ICONS.items():
             cols = st.columns([1, 5])
             with cols[0]:
-                # Convert Path object to str for st.image
                 if icon_path.exists():
-                    st.image(str(icon_path), width=24)
+                    encoded = image_to_base64(icon_path)
+                    st.markdown(
+                        f"<img src='data:image/png;base64,{encoded}' width='24'>",
+                        unsafe_allow_html=True
+                    )
                 else:
                     st.warning(f"Icon not found: {icon_path}")
             with cols[1]:
