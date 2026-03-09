@@ -371,6 +371,20 @@ div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
     font-weight: 800 !important;
 }
 
+/* Shrink numeric values in st.metric completely */
+div[data-testid="stMetric"] div[data-testid="stMetricValue"],
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] span {
+    font-size: 20px !important;     /* smaller, same as label */
+    font-weight: 600 !important;    /* optional */
+    line-height: 1.2 !important;
+}
+
+/* Keep labels consistent */
+div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+}
+
 /* ---------------------- Form Submit Buttons ---------------------- */
 
 div[data-testid="stForm"] button {
