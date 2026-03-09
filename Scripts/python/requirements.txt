@@ -1,7 +1,9 @@
 # Core
-streamlit>=1.30
-numpy
-panda
+streamlit==1.38.0
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.11.4
+
 gspread
 google-auth
 google-auth-oauthlib
@@ -21,10 +23,9 @@ folium
 streamlit-folium
 
 # Stats
-scipy
 pykrige
 
-# Machine learning (MATCH TRAINING)
-scikit-learn
-joblib
+# Machine learning
+scikit-learn==1.7.2
+joblib==1.3.2
 
