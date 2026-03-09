@@ -2,6 +2,12 @@ import streamlit as st
 from pathlib import Path
 import time
 
+# Add the current folder (scripts/python) and its subfolders to Python path
+base_path = Path(__file__).parent
+sys.path.append(str(base_path))
+sys.path.append(str(base_path / "modules"))
+sys.path.append(str(base_path / "utils"))
+
 st.set_page_config(layout="wide")
 
 from modules.overview import render as overview_render
