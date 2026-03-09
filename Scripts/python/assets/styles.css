@@ -235,7 +235,7 @@ h1, .stTitle {
 
 /* Markdown text */
 [data-testid="stMarkdownContainer"] p {
-    font-size: 28px !important;
+    font-size: 20px !important;
     line-height: 1.6 !important;
 }
 
@@ -283,7 +283,12 @@ h1, .stTitle {
 }
 
 /* ---------------------- Top bar ---------------------- */
-header, .css-nahz7x {
+header[data-testid="stHeader"] {
+    background-color: #0a2f44 !important;
+}
+
+/* remove transparent overlay Streamlit sometimes adds */
+header[data-testid="stHeader"]::before {
     background-color: #0a2f44 !important;
 }
          
