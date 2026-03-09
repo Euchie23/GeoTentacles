@@ -370,7 +370,7 @@ div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
 div[data-testid="stMetric"] div[data-testid="stMetricValue"],
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span,
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span * {
-    font-size: 18px !important;      /* same as label */
+    font-size: 16px !important;      /* same as label */
     font-weight: 600 !important;     /* slightly bold */
     line-height: 1.2 !important;
     color: #E1EAF2 !important;       /* match label text color */
