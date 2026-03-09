@@ -73,15 +73,15 @@
 
 
 /* Sidebar title */
-.custom-sidebar-title {
+/* .custom-sidebar-title {
     font-size: 40px !important;
     font-weight: 900 !important;
     color: #39FF14 !important;
     margin-top: 0px !important;  /* pushes it to top */
-    margin-bottom: 60px !important;  /* add space before navigation */
-    text-align: center !important;
+    /* margin-bottom: 60px !important;  /* add space before navigation */
+    /* text-align: center !important;
     line-height: 1.1 !important;
-}
+}  */
 
 /* Optional: remove Streamlit’s default padding around markdown */
 [data-testid="stSidebar"] > div:first-child {
@@ -193,7 +193,7 @@ h1, .stTitle {
 
 /* Markdown text */
 .stMarkdown, .stMarkdown p, .stMarkdown ul, .stMarkdown ol, .stMarkdown li, .stCaption {
-    font-size: 28px !important;
+    font-size: 20px !important;
     line-height: 1.8 !important;
     color: #E1EAF2 !important;
 }
@@ -234,20 +234,20 @@ h1, .stTitle {
 }
 
 /* Markdown text */
-[data-testid="stMarkdownContainer"] p {
+/* [data-testid="stMarkdownContainer"] p {
     font-size: 20px !important;
     line-height: 1.6 !important;
 }
 
 /* Bullet lists */
-[data-testid="stMarkdownContainer"] li {
+/* [data-testid="stMarkdownContainer"] li {
     font-size: 20px !important;
-}
+} */
 
 /* Bold text */
-[data-testid="stMarkdownContainer"] strong {
+/* [data-testid="stMarkdownContainer"] strong {
     font-size: 20px !important;
-}
+} */ 
 
 /* ---------------------- Tabs ---------------------- */
 .stTabs [data-baseweb="tab"] {
@@ -298,6 +298,48 @@ header[data-testid="stHeader"]::before {
 [data-testid="stSidebar"] > div:first-child {
     height: 100% !important;
     overflow-y: auto !important;
+
+
+/* ---------------------- Sidebar + Main Layout Fix ---------------------- */
+
+/* Sidebar fixed below top bar */
+[data-testid="stSidebar"] {
+    position: fixed !important;
+    top: 3.5rem !important;      /* below top bar */
+    left: 0 !important;
+    width: 370px !important;
+    height: calc(100vh - 3.5rem) !important;
+    overflow-y: auto !important;
+    z-index: 100;
+}
+
+/* Main content shifted to the right and below top bar */
+[data-testid="stAppViewContainer"] {
+    margin-left: 370px !important;  /* match sidebar width */
+    margin-top: 3.5rem !important;  /* below top bar */
+    padding: 0 2rem !important;
+}
+
+/* Block container inside main content */
+.block-container {
+    padding: 2rem !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 992px) {
+    [data-testid="stAppViewContainer"] {
+        margin-left: 0 !important;
+    }
+    [data-testid="stSidebar"] {
+        position: relative !important;
+        width: 100% !important;
+        top: 0 !important;
+        height: auto !important;
+    }
+}
+
 
 /* ---------------------- Buttons ---------------------- */
 div.stButton > button:first-child {
