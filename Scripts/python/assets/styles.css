@@ -73,15 +73,15 @@
 
 
 /* Sidebar title */
-/* .custom-sidebar-title {
+.custom-sidebar-title {
     font-size: 40px !important;
     font-weight: 900 !important;
     color: #39FF14 !important;
     margin-top: 0px !important;  /* pushes it to top */
-    /* margin-bottom: 60px !important;  /* add space before navigation */
-    /* text-align: center !important;
+    margin-bottom: 60px !important;  /* add space before navigation */
+    text-align: center !important;
     line-height: 1.1 !important;
-}  */
+} 
 
 /* Optional: remove Streamlit’s default padding around markdown */
 [data-testid="stSidebar"] > div:first-child {
