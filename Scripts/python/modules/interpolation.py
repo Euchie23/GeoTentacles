@@ -420,6 +420,15 @@ def render():
             automargin=True
         )
 
+
+        # ---- Hover formatting ----
+        fig.update_traces(
+            hovertemplate=
+            "Longitude: %{x:.3f}<br>" +
+            "Latitude: %{y:.3f}<br>" +
+            f"{pollutant} concentration: %{z:.3f} mg/kg<extra></extra>"
+        )
+
     st.plotly_chart(fig, width='stretch')
 
     st.markdown("<hr style='border-top: 2px solid #39FF14; margin-top: 50px 0;'>", unsafe_allow_html=True)
