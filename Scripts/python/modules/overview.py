@@ -71,31 +71,24 @@ def render():
 
     st.markdown(
         """
-        <div style='margin-top:15px;'>
-        <span style='-weight:bold;
-        Decision Context
-        </span>
-        <br>
+        ## Decision Context
+    
         Marine ecosystems are exposed to spatially heterogeneous pollution driven by
         anthropogenic activity, biological uptake, and environmental transport.
         This overview supports rapid identification of pollution hotspots and
         priority areas for further investigation.
-        <br>
-        <i>Methods demonstrated using squid tissue chemistry are fully transferable
-        to other marine bioindicator species.</i>
-        <br><br>
-        <span style='font-weight:bold; font-size:20px;'>
-        What does the full analytical journey look like?
-        </span>
-        <br>
-        🌐 <b>Overview</b> → What did we measure?<br>
-        🌊 <b>Seafloor Signals</b> → What’s happening between measurements?<br>
-        🔮 <b>Toxic Tide Mapping</b> → Where might risk emerge next?<br>
-        🌿 <b>EcoPulse Index</b> → What does this mean for ecosystem condition?<br>
-        📉 <b>Disruption Dynamics</b> → What changed — and why does it matter?<br>
-        📘 <b>Logbook</b> → So what overall conclusions can we draw?
-
-        </div>
+    
+        *Methods demonstrated using squid tissue chemistry are fully transferable
+        to other marine bioindicator species.*
+    
+        ### What does the full analytical journey look like?
+    
+        - 🌐 **Overview** → What did we measure?
+        - 🌊 **Seafloor Signals** → What’s happening between measurements?
+        - 🔮 **Toxic Tide Mapping** → Where might risk emerge next?
+        - 🌿 **EcoPulse Index** → What does this mean for ecosystem condition?
+        - 📉 **Disruption Dynamics** → What changed — and why does it matter?
+        - 📘 **Logbook** → So what overall conclusions can we draw?
         """,
         unsafe_allow_html=True
     )
