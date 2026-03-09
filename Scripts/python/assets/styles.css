@@ -359,16 +359,36 @@ div.stButton > button:first-child:hover {
 
 /* ---------------------- Text displays ---------------------- */
     
+/* Metric labels */
 div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
-    font-size: 18px !important;
-    font-weight: 600 !important;
+    font-size: 20px !important;      /* label size */
+    font-weight: 700 !important;
+    color: #E1EAF2 !important;
 }
 
+/* Metric numeric values — same size as label */
 div[data-testid="stMetric"] div[data-testid="stMetricValue"],
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span,
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span * {
-    font-size: 24px !important;
-    font-weight: 800 !important;
+    font-size: 20px !important;      /* same as label */
+    font-weight: 600 !important;     /* slightly bold */
+    line-height: 1.2 !important;
+    color: #E1EAF2 !important;       /* match label text color */
+}
+
+/* Optional: delta values (if you ever use them) */
+div[data-testid="stMetric"] div[data-testid="stMetricDelta"] {
+    font-size: 18px !important;
+    color: #FFD700 !important;       /* gold */
+    font-weight: 600 !important;
+}
+
+/* Time Span or multi-line text remains normal size */
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] p,
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] span p {
+    font-size: 18px !important;      /* slightly smaller for multi-line */
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
 }
 
 /* ---------------------- Form Submit Buttons ---------------------- */
