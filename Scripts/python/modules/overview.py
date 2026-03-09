@@ -32,10 +32,7 @@ def render():
 
     DEFAULT_MAP_CENTER = [-48.0, -55.0]
     DEFAULT_MAP_ZOOM = 3
-    # DEFAULT_POLLUTANT = "Metal_A"
-    # DEFAULT_TISSUE = "liver"
-    # DEFAULT_YEAR = 2020
-    # DEFAULT_MONTH = 3
+
 
     # ---------------------------------------------------
     # SESSION STATE INITIALIZATION (SAFE ORDER)
@@ -75,7 +72,7 @@ def render():
     st.markdown(
         """
         <div style='margin-top:15px;'>
-        <span style='font-weight:bold; font-size:20px;'>
+        <span style='font-weight:bold; font-size:32px;'>
         Decision Context
         </span>
         <br>
