@@ -131,34 +131,41 @@ div[data-testid="stAppViewContainer"] > * {
 
 /* ---------------------- Sidebar + Main Layout Fix ---------------------- */
 
+/* Fixed top bar (if you have one; adjust height if different) */
+header[data-testid="stHeader"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3.5rem !important;       /* match your header height */
+    z-index: 1000 !important;
+    background-color: #001f3f !important;
+}
+
+/* Sidebar fixed below top bar */
+[data-testid="stSidebar"] {
+    position: fixed !important;
+    top: 3.5rem !important;          /* push below header */
+    left: 0 !important;
+    width: 370px !important;         /* fixed sidebar width */
+    height: calc(100vh - 3.5rem) !important;  /* fill remaining viewport */
+    overflow-y: auto !important;
+    z-index: 100 !important;
+}
+
+/* Main content shifted right and below top bar */
 [data-testid="stAppViewContainer"] {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-}
-
-/* Sidebar fixed width */
-[data-testid="stSidebar"] > div:first-child {
-    width: 370px !important;
-    min-width: 370px !important;
-    flex-shrink: 0;
-}
-
-/* Main panel flex-grow fills remaining space */
-[data-testid="stAppViewContainer"] > div[role="main"] {
-    flex-grow: 1;
-    padding: 2rem !important;
-    box-sizing: border-box;
+    margin-left: 370px !important;   /* offset for sidebar */
+    margin-top: 3.5rem !important;   /* offset for header */
+    padding: 0 2rem !important;      /* optional horizontal padding */
 }
 
 /* Block container inside main panel */
-[data-testid="stAppViewContainer"] .block-container {
-    width: 100% !important;
+.block-container {
+    height: calc(100vh - 3.5rem) !important;  /* fill available height */
+    overflow-y: auto !important;
+    padding: 2rem !important;
     max-width: 100% !important;
-    margin: 0 !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-    display: block !important;
 }
 
 /* ---------------------- Full Width Tabs ---------------------- */
