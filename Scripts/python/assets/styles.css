@@ -233,6 +233,22 @@ h1, .stTitle {
     line-height: 1.6 !important;
 }
 
+/* Markdown text */
+[data-testid="stMarkdownContainer"] p {
+    font-size: 28px !important;
+    line-height: 1.6 !important;
+}
+
+/* Bullet lists */
+[data-testid="stMarkdownContainer"] li {
+    font-size: 20px !important;
+}
+
+/* Bold text */
+[data-testid="stMarkdownContainer"] strong {
+    font-size: 20px !important;
+}
+
 /* ---------------------- Tabs ---------------------- */
 .stTabs [data-baseweb="tab"] {
     font-size: 20px !important;
@@ -268,7 +284,7 @@ h1, .stTitle {
 
 /* ---------------------- Top bar ---------------------- */
 header, .css-nahz7x {
-    background-color: #001f3f !important;
+    background-color: #0a2f44 !important;
 }
          
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
