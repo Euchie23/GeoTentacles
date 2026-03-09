@@ -82,7 +82,8 @@ def render():
     if "force_map_view" not in st.session_state:
         st.session_state.force_map_view = False
 
-
+    st.title("🦑 Executive Overview Module 📝")
+    
     st.markdown(
         """
         ## Decision Context
