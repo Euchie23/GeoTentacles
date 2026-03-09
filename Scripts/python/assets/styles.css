@@ -3,14 +3,15 @@
 
     /* Combine background image + overlay so it scrolls with content */
 [data-testid="stSidebar"] > div:first-child {
-    position: relative; 
-    top: 2rem;
-    left: 0;
-    bottom: 0;
+    position: fixed !important;
+    top: 0 !important;           /* push sidebar to very top */
+    left: 0 !important;
     width: 370px !important;
     min-width: 370px !important;
-    overflow-y: auto;
+    height: 100vh !important;    /* full viewport height */
+    overflow-y: auto !important;
     color: #E1EAF2;
+    z-index: 100 !important;
 
     background:
         linear-gradient(rgba(0, 31, 63, 0.6), rgba(0, 31, 63, 0.6)),
