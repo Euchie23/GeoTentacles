@@ -145,10 +145,10 @@ header[data-testid="stHeader"] {
 /* Sidebar fixed below top bar */
 [data-testid="stSidebar"] {
     position: fixed !important;
-    top: 3.5rem !important;          /* push below header */
+    top: 0 !important;           /* push sidebar back to top */
     left: 0 !important;
-    width: 370px !important;         /* fixed sidebar width */
-    height: calc(100vh - 3.5rem) !important;  /* fill remaining viewport */
+    width: 370px !important;
+    height: 100vh !important;    /* full height of viewport */
     overflow-y: auto !important;
     z-index: 100 !important;
 }
