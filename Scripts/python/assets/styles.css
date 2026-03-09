@@ -143,11 +143,12 @@ div[data-testid="stAppViewContainer"] > * {
     flex-shrink: 0;
 }
 
-/* Main panel starts after sidebar */
 [data-testid="stAppViewContainer"] > div[role="main"] {
-    margin-left: 370px !important;  /* offset main panel to the right of sidebar */
-    padding: 2rem !important;       /* internal padding */
+    position: relative;
+    margin-left: 370px !important;  /* offset by fixed sidebar width */
+    padding: 2rem !important;       /* internal content padding */
     box-sizing: border-box;
+    width: calc(100vw - 370px) !important;  /* fill remaining space */
 }
 
 /* Block container inside main panel */
@@ -155,7 +156,7 @@ div[data-testid="stAppViewContainer"] > * {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding-left: 2rem !important;   /* content padding only */
+    padding-left: 2rem !important;
     padding-right: 2rem !important;
     display: block !important;
 }
