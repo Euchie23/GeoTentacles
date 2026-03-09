@@ -367,7 +367,7 @@ div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
 
 /* Keep metric titles unchanged */
 div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
-    font-size: 32px !important;    /* title size stays big */
+    font-size: 20px !important;    /* title size stays big */
     font-weight: 800 !important;
 }
 
