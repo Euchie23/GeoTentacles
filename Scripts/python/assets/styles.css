@@ -186,9 +186,15 @@ body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div
     padding: 0 !important;       /* reset padding to let block-container handle spacing */
 }
 
-[data-testid="stAppViewContainer"] .block-container {
+/* [data-testid="stAppViewContainer"] .block-container {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
+} */
+
+[data-testid="stAppViewContainer"] .block-container,
+[data-testid="stAppViewContainer"] .block-container > div {
+    font-size: 20px !important;
+    line-height: 1.8 !important;
 }
 
 /* Add spacing between sidebar and main content */
@@ -313,7 +319,7 @@ header, .css-nahz7x {
     background-color: #001f3f !important;
 }
             
-/* ---------------------- 🧭 Fix Top Bar Alignment (Streamlit 1.51+) ---------------------- */
+/* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
 
 /* Sidebar inner div scrolls normally */
 [data-testid="stSidebar"] > div:first-child {
