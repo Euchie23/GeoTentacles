@@ -143,20 +143,19 @@ div[data-testid="stAppViewContainer"] > * {
     flex-shrink: 0;
 }
 
-/* Main panel grows to fill remaining space */
+/* Main panel starts after sidebar */
 [data-testid="stAppViewContainer"] > div[role="main"] {
-    flex-grow: 1;               /* take remaining width */
-    padding: 2rem !important;   /* internal padding */
+    margin-left: 370px !important;  /* offset main panel to the right of sidebar */
+    padding: 2rem !important;       /* internal padding */
     box-sizing: border-box;
-    margin: 0;                   /* remove old 20px margin */
 }
 
 /* Block container inside main panel */
 [data-testid="stAppViewContainer"] .block-container {
-    width: 100% !important;       /* fill main panel */
+    width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding-left: 2rem !important;  /* internal gap from left edge of main panel */
+    padding-left: 2rem !important;   /* content padding only */
     padding-right: 2rem !important;
     display: block !important;
 }
