@@ -180,16 +180,22 @@ body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div
     flex-shrink: 0;  /* prevent shrinking */
 }
 
-/* Main content fills remaining space */
 [data-testid="stAppViewContainer"] > div[role="main"] {
     flex-grow: 1;
-    margin-left: 20px !important;   /* small gap from sidebar */
-    padding: 2rem 2rem 2rem 2rem !important;  /* top/right/bottom/left */
+    margin-left: 10px !important; /* small gap between sidebar and block-container */
+    padding: 0 !important;       /* reset padding to let block-container handle spacing */
 }
 
 [data-testid="stAppViewContainer"] .block-container {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
+}
+
+/* Add spacing between sidebar and main content */
+[data-testid="stAppViewContainer"] .block-container {
+    padding-left: 3rem !important;  /* gap from sidebar */
+    padding-right: 2rem !important; /* optional right padding */
+    max-width: 100% !important;
 }
 
 /* ---------------------- FULL WIDTH MAIN PANEL & TABS FIX ---------------------- */
