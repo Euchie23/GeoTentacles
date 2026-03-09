@@ -566,10 +566,10 @@ def render():
     st.markdown(card["description"])
 
 
-    missing = [f for f in features if f not in model_df.columns]
-    if missing:
-        st.error(f"Missing features: {missing}")
-        return
+    # missing = [f for f in features if f not in model_df.columns]
+    # if missing:
+    #     st.error(f"Missing features: {missing}")
+    #     return
 
     #model_df["predicted"] = model.predict(model_df[features])
     missing = [f for f in features if f not in model_df.columns]
@@ -580,6 +580,7 @@ def render():
     X = model_df[features].astype(float).to_numpy()
     
     model_df["predicted"] = model.predict(X)
+
 
     # --------------------------------------------------
     # RISK TRANSLATION
