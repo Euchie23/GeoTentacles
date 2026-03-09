@@ -3,11 +3,12 @@
 
     /* Combine background image + overlay so it scrolls with content */
 [data-testid="stSidebar"] > div:first-child {
-    position: fixed;
+    position: relative; 
     top: 2rem;
     left: 0;
     bottom: 0;
     width: 370px !important;
+    min-width: 370px !important;
     overflow-y: auto;
     color: #E1EAF2;
 
@@ -143,12 +144,11 @@ div[data-testid="stAppViewContainer"] > * {
     flex-shrink: 0;
 }
 
+/* Main panel flex-grow fills remaining space */
 [data-testid="stAppViewContainer"] > div[role="main"] {
-    position: relative;
-    margin-left: 370px !important;  /* offset by fixed sidebar width */
-    padding: 2rem !important;       /* internal content padding */
+    flex-grow: 1;
+    padding: 2rem !important;
     box-sizing: border-box;
-    width: calc(100vw - 370px) !important;  /* fill remaining space */
 }
 
 /* Block container inside main panel */
