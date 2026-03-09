@@ -139,37 +139,6 @@ div[data-testid="stAppViewContainer"] > * {
     z-index: 1;
 }
 
-/* div[data-testid="stAppViewContainer"]::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(10, 47, 68, 0.7);
-    z-index: 0;
-} */
-/* div[data-testid="stAppViewContainer"]> * {
-    position: relative;
-    z-index: 1;
-} */
-
-/* .block-container {
-    overflow-y: auto !important;
-    height: 100vh !important;
-    padding-top: 4rem !important;
-    padding-bottom: 2rem !important;
-
-
-    padding-left: 5rem !important; 
-    padding-right: 2rem !important;
-
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    max-width: 100% !important;
-} */
-
- /* section[data-testid="stSidebar"] + div {
-    margin-left: 18rem; 
-} 
-*/
 /* ---------------------- Sidebar + Main Layout Fix ---------------------- */
 
 /* Sidebar width */
@@ -185,29 +154,10 @@ section[data-testid="stSidebar"] {
     margin: 0 !important;
 }
 
-/* Force main content to start exactly at sidebar edge */
-/*div[data-testid="stAppViewContainer"] > div:nth-child(2) {
-    margin-left: 370px; 
-    padding-left: 0 !important;
-    margin-top: 0 !important;
-    transition: margin-left 0.3s ease-in-out;
-}
-*/
-
 /* Main content margin when sidebar is collapsed */
 body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div:nth-child(2) {
     margin-left: 0;
 }
-
-
-/* Ensure Streamlit’s block container doesn’t add spacing */
-/* .block-container {
-    margin: 0 !important;
-    padding: 2rem 3rem !important;
-    max-width: 100% !important;
-    overflow-y: auto !important;
-    height: 100vh !important;
-} */
 
 /* Collapsed sidebar behavior */
 @media (max-width: 992px) {
@@ -232,9 +182,14 @@ body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div
 
 /* Main content fills remaining space */
 [data-testid="stAppViewContainer"] > div[role="main"] {
-    flex-grow: 1;       /* take remaining space */
-    margin-left: 0 !important;  /* remove forced margins */
-    padding: 2rem !important;   /* optional padding */
+    flex-grow: 1;
+    margin-left: 20px !important;   /* small gap from sidebar */
+    padding: 2rem 2rem 2rem 2rem !important;  /* top/right/bottom/left */
+}
+
+[data-testid="stAppViewContainer"] .block-container {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
 }
 
 /* ---------------------- FULL WIDTH MAIN PANEL & TABS FIX ---------------------- */
@@ -354,50 +309,10 @@ header, .css-nahz7x {
             
 /* ---------------------- 🧭 Fix Top Bar Alignment (Streamlit 1.51+) ---------------------- */
 
-/* Keep the top bar visible and consistent */
-/* header[data-testid="stHeader"] {
-    background-color: #001f3f !important;
-    height: 3.5rem !important;
-    z-index: 1000 !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-} */
-
-/* Sidebar should start just below the fixed top bar */
-/*[data-testid="stSidebar"] {
-    position: fixed !important;
-    top: 3.5rem !important;      
-    height: calc(100vh - 3.5rem) !important;
-    margin: 0 !important;
-}*/
-
 /* Sidebar inner div scrolls normally */
 [data-testid="stSidebar"] > div:first-child {
     height: 100% !important;
     overflow-y: auto !important;
-}
-
-/* Main app container shifts down equally
-div[data-testid="stAppViewContainer"] {
-    margin-top: 3.5rem !important;   align with sidebar 
-    padding-top: 0 !important;
-} */
-
-/* The block container keeps its scroll and padding */
-/* .block-container {
-    height: calc(100vh - 3.5rem) !important;
-    overflow-y: auto !important;
-} */
-
-/*.block-container {
-    height: calc(100vh - 3.5rem) !important;
-    overflow-y: auto !important;
-    padding: 2rem 3rem !important;
-    margin: 0 !important;
-    max-width: 100% !important;
-}*/
 
 /* ---------------------- Buttons ---------------------- */
 div.stButton > button:first-child {
