@@ -1,9 +1,3 @@
-"""
-Executive Overview Module
-
-Provides high-level KPIs and spatial visualization to identify pollution
-hotspots and temporal trends. Designed for non-technical decision-makers.
-"""
 
 import streamlit as st
 import pydeck as pdk
@@ -82,7 +76,7 @@ def render():
     if "force_map_view" not in st.session_state:
         st.session_state.force_map_view = False
 
-    st.title("🦑 Executive Overview Module 📝")
+    st.title("🦑 Executive Overview 📝")
     
     st.markdown(
         """
