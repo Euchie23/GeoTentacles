@@ -141,12 +141,19 @@ def render():
             tissue_options = sorted(df["Tissue"].unique())
             year_options = sorted(df["Year"].unique())
 
+            # pollutant = st.selectbox(
+            #     "Pollutant",
+            #     pollutant_options,
+            #     index=pollutant_options.index(
+            #         tab_params.get("pollutant", pollutant_options[0])
+            #     )
+            # )
+
             pollutant = st.selectbox(
                 "Pollutant",
                 pollutant_options,
-                index=pollutant_options.index(
-                    tab_params.get("pollutant", pollutant_options[0])
-                )
+                index=pollutant_options.index(tab_params.get("pollutant", pollutant_options[0])),
+                label_visibility="visible"  # ensures label is clear
             )
 
             tissue = st.selectbox(
