@@ -17,6 +17,22 @@ from utils.preprocessing import convert_coordinates, render_pollutant_header, re
 # Loading Data
 DATA_FILE = "squid_pollution.csv"
 
+# ----------------- Apply CSS for metrics -----------------
+st.markdown("""
+<style>
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+}
+
+div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ---------------------------------------------------
 # RENDER FUNCTION
 # ---------------------------------------------------
