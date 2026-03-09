@@ -130,49 +130,33 @@ div[data-testid="stAppViewContainer"] > * {
 
 /* ---------------------- Sidebar + Main Layout Fix ---------------------- */
 
-/* Sidebar width */
-[data-testid="stSidebar"] > div:first-child {
-    width: 370px !important;
-    min-width: 370px !important;
-    flex-shrink: 0;
-}
-
-/* Remove default spacing from Streamlit wrappers */
-div[data-testid="stSidebar"],
-section[data-testid="stSidebar"] {
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* Collapsed sidebar behavior */
-body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div:nth-child(2),
-@media (max-width: 992px) {
-    div[data-testid="stAppViewContainer"] > div:nth-child(2) {
-        margin-left: 0 !important;
-    }
-}
-
-/* Make sidebar + main content a flex row */
 [data-testid="stAppViewContainer"] {
     display: flex;
     flex-direction: row;
     width: 100vw;
 }
 
-/* Main panel container */
-[data-testid="stAppViewContainer"] > div[role="main"] {
-    flex-grow: 1;
-    padding: 2rem !important;      /* internal padding for main content */
-    margin-left: 20px !important;  /* gap from sidebar */
-    box-sizing: border-box;
+/* Sidebar fixed width */
+[data-testid="stSidebar"] > div:first-child {
+    width: 370px !important;
+    min-width: 370px !important;
+    flex-shrink: 0;
 }
 
-/* Main panel content */
+/* Main panel grows to fill remaining space */
+[data-testid="stAppViewContainer"] > div[role="main"] {
+    flex-grow: 1;               /* take remaining width */
+    padding: 2rem !important;   /* internal padding */
+    box-sizing: border-box;
+    margin: 0;                   /* remove old 20px margin */
+}
+
+/* Block container inside main panel */
 [data-testid="stAppViewContainer"] .block-container {
-    width: 100% !important;
-    max-width: 100% !important;    /* fill main panel */
+    width: 100% !important;       /* fill main panel */
+    max-width: 100% !important;
     margin: 0 !important;
-    padding-left: 3rem !important; /* adjust gap from sidebar */
+    padding-left: 2rem !important;  /* internal gap from left edge of main panel */
     padding-right: 2rem !important;
     display: block !important;
 }
