@@ -285,6 +285,12 @@ h1, .stTitle {
 /* ---------------------- Top bar ---------------------- */
 header[data-testid="stHeader"] {
     background-color: #0a2f44 !important;
+    height: 3.5rem !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
 }
 
 /* remove transparent overlay Streamlit sometimes adds */
@@ -298,7 +304,7 @@ header[data-testid="stHeader"]::before {
 [data-testid="stSidebar"] > div:first-child {
     height: 100% !important;
     overflow-y: auto !important;
-
+}
 
 /* ---------------------- Sidebar + Main Layout Fix ---------------------- */
 
