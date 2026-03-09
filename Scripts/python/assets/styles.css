@@ -370,7 +370,7 @@ div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
 div[data-testid="stMetric"] div[data-testid="stMetricValue"],
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span,
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span * {
-    font-size: 20px !important;      /* same as label */
+    font-size: 18px !important;      /* same as label */
     font-weight: 600 !important;     /* slightly bold */
     line-height: 1.2 !important;
     color: #E1EAF2 !important;       /* match label text color */
@@ -378,7 +378,7 @@ div[data-testid="stMetric"] div[data-testid="stMetricValue"] span * {
 
 /* Optional: delta values (if you ever use them) */
 div[data-testid="stMetric"] div[data-testid="stMetricDelta"] {
-    font-size: 18px !important;
+    font-size: 16px !important;
     color: #FFD700 !important;       /* gold */
     font-weight: 600 !important;
 }
@@ -386,7 +386,7 @@ div[data-testid="stMetric"] div[data-testid="stMetricDelta"] {
 /* Time Span or multi-line text remains normal size */
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] p,
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span p {
-    font-size: 18px !important;      /* slightly smaller for multi-line */
+    font-size: 16px !important;      /* slightly smaller for multi-line */
     font-weight: 500 !important;
     line-height: 1.3 !important;
 }
