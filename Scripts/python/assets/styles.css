@@ -95,22 +95,11 @@
     padding: 10px;
 }
             
-/* Make the sidebar background extend the full height */
-/* section[data-testid="stSidebar"] {
-    min-height: 100vh !important;
-} */
 
 /* Optional: adjust padding for expanders inside sidebar */
 section[data-testid="stSidebar"] .st-expander {
     margin-bottom: 1rem;
 }
-            
-/* Disable sidebar resize handle */
-/*div[data-testid="stSidebarResizer"] {
-    display: none !important;
-    pointer-events: none !important;
-}*/
-
 
 /* ---------------------- Main Panel Background ---------------------- */
 
@@ -145,6 +134,7 @@ div[data-testid="stAppViewContainer"] > * {
 [data-testid="stSidebar"] > div:first-child {
     width: 370px !important;
     min-width: 370px !important;
+    flex-shrink: 0;
 }
 
 /* Remove default spacing from Streamlit wrappers */
@@ -154,12 +144,8 @@ section[data-testid="stSidebar"] {
     margin: 0 !important;
 }
 
-/* Main content margin when sidebar is collapsed */
-body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div:nth-child(2) {
-    margin-left: 0;
-}
-
 /* Collapsed sidebar behavior */
+body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div:nth-child(2),
 @media (max-width: 992px) {
     div[data-testid="stAppViewContainer"] > div:nth-child(2) {
         margin-left: 0 !important;
@@ -173,65 +159,40 @@ body[data-testid="collapsedSidebar"] div[data-testid="stAppViewContainer"] > div
     width: 100vw;
 }
 
-/* Sidebar stays fixed width */
-[data-testid="stSidebar"] > div:first-child {
-    width: 370px !important;
-    min-width: 370px !important;
-    flex-shrink: 0;  /* prevent shrinking */
-}
-
+/* Main panel container */
 [data-testid="stAppViewContainer"] > div[role="main"] {
     flex-grow: 1;
-    margin-left: 10px !important; /* small gap between sidebar and block-container */
-    padding: 0 !important;       /* reset padding to let block-container handle spacing */
+    padding: 2rem !important;      /* internal padding for main content */
+    margin-left: 20px !important;  /* gap from sidebar */
+    box-sizing: border-box;
 }
 
-/* [data-testid="stAppViewContainer"] .block-container {
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
-} */
-
-[data-testid="stAppViewContainer"] .block-container,
-[data-testid="stAppViewContainer"] .block-container > div {
-    font-size: 20px !important;
-    line-height: 1.8 !important;
-}
-
-/* Add spacing between sidebar and main content */
+/* Main panel content */
 [data-testid="stAppViewContainer"] .block-container {
-    padding-left: 3rem !important;  /* gap from sidebar */
-    padding-right: 2rem !important; /* optional right padding */
-    max-width: 100% !important;
-}
-
-/* ---------------------- FULL WIDTH MAIN PANEL & TABS FIX ---------------------- */
-
-/* Make all block-container elements inside main content occupy full width */
-[data-testid="stAppViewContainer"] .block-container,
-[data-testid="stAppViewContainer"] .block-container > div {
     width: 100% !important;
-    max-width: 100% !important;   /* override Streamlit max width */
-    margin: 0 !important;         /* remove auto centering */
-    padding-left: 2rem !important;
+    max-width: 100% !important;    /* fill main panel */
+    margin: 0 !important;
+    padding-left: 3rem !important; /* adjust gap from sidebar */
     padding-right: 2rem !important;
-    display: block !important;    /* prevent flex centering */
+    display: block !important;
 }
 
-/* Ensure BaseWeb tabs themselves stretch full width */
+/* ---------------------- Full Width Tabs ---------------------- */
 .stTabs,
 .stTabs > div[data-baseweb="tab-panel"],
 .stTabs > div[data-baseweb="tab-panel"] > div {
     width: 100% !important;
-    display: block !important;    /* override internal flex centering */
+    display: block !important;
     margin: 0 !important;
 }
 
-/* Optional: fix buttons inside tabs so they align left instead of center */
+/* Optional: align buttons left */
 div.stButton > button:first-child {
     margin: 0 !important;
 }
 
 /* ---------------------- Titles ---------------------- */
+
 h1, .stTitle {
     font-size: 34px !important;
     font-weight: 800 !important;
@@ -244,7 +205,6 @@ h1, .stTitle {
     line-height: 1.8 !important;
     color: #E1EAF2 !important;
 }
-
             
 /* ---------------------- 🟢 Markdown Headers Fix ---------------------- */
 
