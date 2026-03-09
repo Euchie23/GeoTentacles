@@ -72,7 +72,7 @@ def render():
     st.markdown(
         """
         <div style='margin-top:15px;'>
-        <span style='font-weight:bold; font-size:32px;'>
+        <span style='-weight:bold;
         Decision Context
         </span>
         <br>
