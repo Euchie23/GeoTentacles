@@ -67,8 +67,6 @@ def render():
         st.session_state.force_map_view = False
 
 
-    st.subheader("Executive Overview")
-
     st.markdown(
         """
         ## Decision Context
