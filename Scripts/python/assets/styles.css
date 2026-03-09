@@ -357,38 +357,38 @@ div.stButton > button:first-child:hover {
     color: #eee4a7 !important;
 }
 
-/* ---------------------- Text displays ---------------------- */
+/* ---------------------- KPI displays ---------------------- */
     
-/* Metric labels */
+/* Metric labels (keep slightly bigger) */
 div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
-    font-size: 20px !important;      /* label size */
+    font-size: 16px !important;      /* slightly bigger than numbers if desired */
     font-weight: 700 !important;
     color: #E1EAF2 !important;
 }
 
-/* Metric numeric values — shrink everything inside recursively */
+/* Numeric values — shrink everything to match Time Span text */
 div[data-testid="stMetric"] div[data-testid="stMetricValue"],
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span,
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] span * {
-    font-size: 14px !important;      /* now smaller than label */
-    font-weight: 600 !important;
-    line-height: 1.2 !important;
-    color: #E1EAF2 !important;
-}
-
-/* Optional: Delta values */
-div[data-testid="stMetric"] div[data-testid="stMetricDelta"] {
-    font-size: 12px !important;
-    color: #FFD700 !important;
-    font-weight: 600 !important;
-}
-
-/* Multi-line text like Time Span */
-div[data-testid="stMetric"] div[data-testid="stMetricValue"] p,
-div[data-testid="stMetric"] div[data-testid="stMetricValue"] span p {
-    font-size: 16px !important;      /* normal text size for multi-line labels */
+    font-size: 16px !important;      /* same as Time Span text */
     font-weight: 500 !important;
     line-height: 1.3 !important;
+    color: #E1EAF2 !important;       /* same color as labels */
+}
+
+/* Multi-line Time Span text stays the same (also 16px) */
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] p,
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] span p {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+}
+
+/* Optional: Delta values remain slightly smaller */
+div[data-testid="stMetric"] div[data-testid="stMetricDelta"] {
+    font-size: 14px !important;
+    color: #FFD700 !important;
+    font-weight: 600 !important;
 }
 
 /* ---------------------- Form Submit Buttons ---------------------- */
