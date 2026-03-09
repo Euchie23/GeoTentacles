@@ -358,31 +358,74 @@ div.stButton > button:first-child:hover {
 }
 
 /* ---------------------- Text displays ---------------------- */
-/* Target the numeric values in metrics and shrink them */
-div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
-    font-size: 20px !important;    /* adjust smaller */
-    font-weight: 600 !important;   /* optional: keep slightly bold */
-    line-height: 1.2 !important;
+    
+/* ---------------------- General body font ---------------------- */
+body, .css-1d391kg {  /* Streamlit body wrapper */
+    font-family: 'Inter', sans-serif;
+    color: #E1EAF2;
 }
 
-/* Keep metric titles unchanged */
+/* ---------------------- Headers ---------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    color: #E1EAF2;
+    margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 32px !important; font-weight: 800 !important; }
+h2 { font-size: 28px !important; font-weight: 700 !important; }
+h3 { font-size: 24px !important; font-weight: 700 !important; }
+
+/* ---------------------- Markdown / Paragraphs ---------------------- */
+div[data-testid="stMarkdownContainer"] p {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+    color: #E1EAF2 !important;
+}
+
+div[data-testid="stMarkdownContainer"] strong {
+    font-weight: 700 !important;
+}
+
+/* ---------------------- Buttons ---------------------- */
+button[data-testid="stButton"] {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    background-color: #2A3F5F !important;
+    color: #E1EAF2 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px !important;
+    border: none !important;
+}
+
+/* Optional: hover effect */
+button[data-testid="stButton"]:hover {
+    background-color: #3B5A7F !important;
+}
+
+/* ---------------------- st.metric KPIs ---------------------- */
+/* Metric labels */
 div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
-    font-size: 20px !important;    /* title size stays big */
-    font-weight: 800 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #E1EAF2 !important;
 }
 
-/* Shrink numeric values in st.metric completely */
+/* Metric numeric values — recursively target nested spans */
 div[data-testid="stMetric"] div[data-testid="stMetricValue"],
-div[data-testid="stMetric"] div[data-testid="stMetricValue"] span {
-    font-size: 20px !important;     /* smaller, same as label */
-    font-weight: 600 !important;    /* optional */
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] span,
+div[data-testid="stMetric"] div[data-testid="stMetricValue"] span * {
+    font-size: 24px !important;      /* slightly bigger than labels */
+    font-weight: 800 !important;
+    color: #39FF14 !important;       /* neon green or choose your theme color */
     line-height: 1.2 !important;
 }
 
-/* Keep labels consistent */
-div[data-testid="stMetric"] div[data-testid="stMetricLabel"] {
-    font-size: 20px !important;
-    font-weight: 800 !important;
+/* Optional: Delta values (if using st.metric with delta) */
+div[data-testid="stMetric"] div[data-testid="stMetricDelta"] {
+    font-size: 18px !important;
+    color: #FFD700 !important;       /* gold for deltas */
+    font-weight: 600 !important;
 }
 
 /* ---------------------- Form Submit Buttons ---------------------- */
