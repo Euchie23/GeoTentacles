@@ -314,11 +314,11 @@ header[data-testid="stHeader"] {
 } */
 
 /* Remove pseudo-element overlay */
-header[data-testid="stHeader"]::before,
+/* header[data-testid="stHeader"]::before,
 header[data-testid="stHeader"]::after {
     background: transparent !important;
     content: none !important;
-}
+} */
 
 /* Ensure no parent opacity or blending affects it */
 [data-testid="stHeader"] * {
