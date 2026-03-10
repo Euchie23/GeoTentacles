@@ -132,28 +132,6 @@ div[data-testid="stAppViewContainer"] > * {
 
 /* ---------------------- Sidebar + Main Layout Fix ---------------------- */
 
-/* Fixed top bar (if you have one; adjust height if different) */
-header[data-testid="stHeader"] {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    height: 3.5rem !important;       /* match your header height */
-    z-index: 1000 !important;
-    background-color: #001f3f !important;
-}
-
-/* Sidebar fixed below top bar */
-[data-testid="stSidebar"] {
-    position: fixed !important;
-    top: 0 !important;           /* push sidebar back to top */
-    left: 0 !important;
-    width: 370px !important;
-    height: 100vh !important;    /* full height of viewport */
-    overflow-y: auto !important;
-    z-index: 100 !important;
-}
-
 /* Main content shifted right and below top bar */
 [data-testid="stAppViewContainer"] {
     margin-left: 370px !important;   /* offset for sidebar */
@@ -284,7 +262,7 @@ h1, .stTitle {
 
 /* ---------------------- Top bar ---------------------- */
 header[data-testid="stHeader"] {
-    background-color: #0a2f44 !important;
+    background-color: #041E2F !important;   /* deep sea navy */
     height: 3.5rem !important;
     position: fixed !important;
     top: 0 !important;
@@ -293,9 +271,14 @@ header[data-testid="stHeader"] {
     z-index: 1000 !important;
 }
 
-/* remove transparent overlay Streamlit sometimes adds */
+/* Remove Streamlit toolbar color */
+[data-testid="stToolbar"] {
+    background: transparent !important;
+}
+
+/* Remove weird overlay */
 header[data-testid="stHeader"]::before {
-    background-color: #0a2f44 !important;
+    background: transparent !important;
 }
          
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
