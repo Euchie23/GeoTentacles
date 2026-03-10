@@ -284,7 +284,7 @@ def render():
         st.session_state.params[TAB_NAME] = {}
 
 
-    st.header("🌿 EcoPulse Index — Integrated Marine Health")
+    st.title("🌿 EcoPulse Index — Integrated Marine Health")
 
     st.markdown("""
 The **EcoPulse Index** provides a high-level view of marine ecosystem condition by
