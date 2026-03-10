@@ -287,9 +287,9 @@ h1, .stTitle {
 }  */
 
 
-/* Top bar background */
+/* Fixed header with deep-sea navy */
 header[data-testid="stHeader"] {
-    background-color: #041E2F !important;  /* deep-sea navy */
+    background-color: #041E2F !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -298,21 +298,27 @@ header[data-testid="stHeader"] {
     z-index: 1000 !important;
 }
 
-/* Inner divs that Streamlit wraps around the header */
+/* Header inner div */
 header[data-testid="stHeader"] > div {
-    background-color: #041E2F !important;  /* covers toolbar inner div */
+    background-color: #041E2F !important;
 }
 
-/* Make Streamlit toolbar transparent */
+/* Remove Streamlit toolbar overlay */
 [data-testid="stToolbar"] {
     background: transparent !important;
 }
 
-/* Remove pseudo-element overlays (sometimes Streamlit adds ::before) */
-header[data-testid="stHeader"]::before {
+/* Remove pseudo-element overlay */
+header[data-testid="stHeader"]::before,
+header[data-testid="stHeader"]::after {
     background: transparent !important;
+    content: none !important;
 }
 
+/* Ensure no parent opacity or blending affects it */
+[data-testid="stHeader"] * {
+    background-color: inherit !important;
+}
 
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
 
