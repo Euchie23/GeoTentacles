@@ -298,6 +298,11 @@ header[data-testid="stHeader"] {
     z-index: 1000 !important;
 }
 
+/* Top-level toolbar / green bar fix */
+div[data-testid="MainMenuBar"] {
+    background-color: #041E2F !important;  /* deep-sea navy */
+}
+
 /* Header inner div */
 header[data-testid="stHeader"] > div {
     background-color: #04122F !important;
