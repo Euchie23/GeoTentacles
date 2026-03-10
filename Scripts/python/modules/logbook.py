@@ -17,10 +17,7 @@ import streamlit as st
 
 DEFAULT_MAP_CENTER = [-48.0, -55.0]
 DEFAULT_MAP_ZOOM = 6
-# DEFAULT_POLLUTANT = "Metal_A"
-# DEFAULT_TISSUE = "liver"
-# DEFAULT_YEAR = 2019
-# DEFAULT_MONTH = 3
+
 
 def set_confirm(delete_key):
     st.session_state[delete_key] = True
@@ -89,22 +86,6 @@ def render():
                             #Restore note text
                             st.session_state.preload_note_input = entry["notes"]
 
-                            # Restore tab inputs from snapshot
-                            # for k, v in entry["inputs"].items():
-                            #     st.session_state.params[k] = v
-
-                            # Restore all tab inputs from snapshot (generic, works for any tab)
-                            #st.session_state.params[tab_name] = entry["inputs"].copy()
-
-                            # Restore map state
-                            # ✅ Reset saved flag so panel is active on new edit
-                            #st.session_state.edit_mode_saved = False
-
-  
-
-                            # Restore note text
-                            #st.session_state.preload_note_input = entry["notes"]
-
                             # Set edit mode
                             st.session_state.edit_mode = {"active": True, "tab": tab_name, "index": i}
                             # ✅ Force notes panel to auto-expand after rerun
@@ -112,9 +93,10 @@ def render():
                             st.session_state.auto_expand_notes = True
                             st.session_state.toast_message = f"📸 Snapshot reloaded for {tab_name}. Please save changes after editing."
 
-                            #st.session_state.page = tab_name
 
                             st.rerun()
+
+                    
                     with col3:
                         delete_key = f"delete_confirm_{tab_name}_{i}"
 
