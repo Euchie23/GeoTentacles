@@ -309,9 +309,9 @@ header[data-testid="stHeader"] {
 } */
 
 /* Remove Streamlit toolbar overlay */
-[data-testid="stToolbar"] {
+/* [data-testid="stToolbar"] {
     background: transparent !important;
-}
+} */
 
 /* Remove pseudo-element overlay */
 header[data-testid="stHeader"]::before,
