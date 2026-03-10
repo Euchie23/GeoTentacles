@@ -287,24 +287,32 @@ h1, .stTitle {
 }  */
 
 
-
+/* Top bar background */
 header[data-testid="stHeader"] {
+    background-color: #041E2F !important;  /* deep-sea navy */
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     height: 3.5rem !important;
-    z-index: 1000 !important; 
-    background-color: #041E2F !important; /* deep-sea navy */
+    z-index: 1000 !important;
 }
 
+/* Inner divs that Streamlit wraps around the header */
 header[data-testid="stHeader"] > div {
-    background-color: #041E2F !important; /* covers the toolbar inner div */
+    background-color: #041E2F !important;  /* covers toolbar inner div */
 }
 
+/* Make Streamlit toolbar transparent */
 [data-testid="stToolbar"] {
-    background: transparent !important; /* overlay invisible */
+    background: transparent !important;
 }
+
+/* Remove pseudo-element overlays (sometimes Streamlit adds ::before) */
+header[data-testid="stHeader"]::before {
+    background: transparent !important;
+}
+
 
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
 
