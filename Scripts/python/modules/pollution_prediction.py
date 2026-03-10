@@ -266,7 +266,7 @@ def render():
         st.session_state.force_map_view = False
 
 
-    st.header("🌊 Toxic Tide Mapping — Predictive Pollution Risk")
+    st.title("🌊 Toxic Tide Mapping — Predictive Pollution Risk")
 
     # --------------------------------------------------
     # INTRO — PURPOSE & LAYERS
