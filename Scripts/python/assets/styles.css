@@ -261,31 +261,49 @@ h1, .stTitle {
 }
 
 /* ---------------------- Top bar ---------------------- */
-header[data-testid="stHeader"] {
-    background-color: #041E2F !important;   /* deep sea navy */
+/* header[data-testid="stHeader"] {
+    background-color: #041E2F !important;   /* deep sea navy
     height: 3.5rem !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     z-index: 1000 !important;
-}
+} */
 
 /* Streamlit toolbar inside the header */
-[data-testid="stToolbar"] {
+/* [data-testid="stToolbar"] {
     background-color: #041E2F !important;
 }
 
 /* Some Streamlit versions wrap toolbar again */
+/* header[data-testid="stHeader"] > div {
+    background-color: #041E2F !important;
+} */
+
+/* Remove weird overlay */
+/* header[data-testid="stHeader"]::before {
+    background: transparent !important;
+}  */
+
+
+
+header[data-testid="stHeader"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3.5rem !important;
+    z-index: 1000 !important;
+    background-color: #041E2F !important; /* deep sea navy */
+}
 header[data-testid="stHeader"] > div {
     background-color: #041E2F !important;
 }
-
-/* Remove weird overlay */
-header[data-testid="stHeader"]::before {
+[data-testid="stToolbar"] {
     background: transparent !important;
 }
-         
+
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
 
 /* Sidebar inner div scrolls normally */
