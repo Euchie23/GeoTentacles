@@ -288,7 +288,7 @@ h1, .stTitle {
 
 
 /* Fixed header with deep-sea navy */
-header[data-testid="stHeader"] {
+/* header[data-testid="stHeader"] {
     background-color: #04122F !important;
     position: fixed !important;
     top: 0 !important;
@@ -296,7 +296,7 @@ header[data-testid="stHeader"] {
     right: 0 !important;
     height: 3.5rem !important;
     z-index: 1000 !important;
-}
+} */
 
 /* Top-level toolbar / green bar fix */
 div[data-testid="MainMenuBar"] {
