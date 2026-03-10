@@ -287,6 +287,17 @@ h1, .stTitle {
 }  */
 
 
+/* Hide Streamlit default top bar */
+header[data-testid="stHeader"] {
+    display: none !important;
+}
+
+/* Hide toolbar container if it exists */
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
+
 /* Fixed header with deep-sea navy */
 header[data-testid="stHeader"] {
     background-color: #04122F !important;
@@ -347,11 +358,18 @@ header[data-testid="stHeader"]::after {
 }
 
 /* Main content shifted to the right and below top bar */
-[data-testid="stAppViewContainer"] {
-    margin-left: 370px !important;  /* match sidebar width */
-    margin-top: 3.5rem !important;  /* below top bar */
+/* [data-testid="stAppViewContainer"] {
+    margin-left: 370px !important;  /* match sidebar width 
+    margin-top: 3.5rem !important;  /* below top bar 
     padding: 0 2rem !important;
+} */
+
+
+[data-testid="stAppViewContainer"] {
+    margin-left: 370px !important;
+    margin-top: 0 !important;
 }
+
 
 /* Block container inside main content */
 .block-container {
