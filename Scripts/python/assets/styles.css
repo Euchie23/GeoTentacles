@@ -321,9 +321,9 @@ header[data-testid="stHeader"]::after {
 } */
 
 /* Ensure no parent opacity or blending affects it */
-[data-testid="stHeader"] * {
+/* [data-testid="stHeader"] * {
     background-color: inherit !important;
-}
+} */
 
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
 
