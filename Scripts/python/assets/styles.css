@@ -370,6 +370,10 @@ header[data-testid="stHeader"]::after {
     margin-top: 0 !important;
 }
 
+[data-testid="stSidebar"] {
+    top: 0 !important;
+    height: 100vh !important;
+}
 
 /* Block container inside main content */
 .block-container {
