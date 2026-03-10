@@ -328,10 +328,10 @@ header[data-testid="stHeader"]::after {
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
 
 /* Sidebar inner div scrolls normally */
-[data-testid="stSidebar"] > div:first-child {
+/* [data-testid="stSidebar"] > div:first-child {
     height: 100% !important;
     overflow-y: auto !important;
-}
+} */
 
 /* ---------------------- Sidebar + Main Layout Fix ---------------------- */
 
