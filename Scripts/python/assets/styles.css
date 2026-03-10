@@ -271,9 +271,14 @@ header[data-testid="stHeader"] {
     z-index: 1000 !important;
 }
 
-/* Remove Streamlit toolbar color */
+/* Streamlit toolbar inside the header */
 [data-testid="stToolbar"] {
-    background: transparent !important;
+    background-color: #041E2F !important;
+}
+
+/* Some Streamlit versions wrap toolbar again */
+header[data-testid="stHeader"] > div {
+    background-color: #041E2F !important;
 }
 
 /* Remove weird overlay */
