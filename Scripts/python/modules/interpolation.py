@@ -110,7 +110,7 @@ def render():
     if TAB_NAME not in st.session_state.params:
         st.session_state.params[TAB_NAME] = {}
 
-    st.header("🌊 Seafloor Signals — Pollution Interpolation")
+    st.title("🌊 Seafloor Signals — Pollution Interpolation")
 
     # --------------------------------------------------
     # INTRO — PURPOSE & LAYERS
