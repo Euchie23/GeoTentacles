@@ -294,14 +294,16 @@ header[data-testid="stHeader"] {
     left: 0 !important;
     right: 0 !important;
     height: 3.5rem !important;
-    z-index: 1000 !important;
-    background-color: #041E2F !important; /* deep sea navy */
+    z-index: 1000 !important; 
+    background-color: #041E2F !important; /* deep-sea navy */
 }
+
 header[data-testid="stHeader"] > div {
-    background-color: #041E2F !important;
+    background-color: #041E2F !important; /* covers the toolbar inner div */
 }
+
 [data-testid="stToolbar"] {
-    background: transparent !important;
+    background: transparent !important; /* overlay invisible */
 }
 
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
