@@ -21,14 +21,37 @@ The full research pipeline lives in the private Squid_Fest repo — email me for
 
 ---
 
+## 🖥️ Interactive Dashboards
+
+GeoTentacles provides two key dashboards for spatial insight and decision support:
+
+### 🗺️ Hotspots
+**Historical and Predicted Catch or Pollution Hotspots** — Track long-term trends and anticipate future events in marine species distribution.
+
+![Hotspots Screenshot](https://drive.google.com/uc?export=view&id=16QFd0BjXcCvKwhat1yurb5nd4y4adsEn)
+
+[🚀 Launch Hotspots Dashboard](https://euchie23.shinyapps.io/geotentacles__hotspots/)
+
+---
+
+### 🌎 MarineScope
+**The Window into Marine Health** — Maps pollution, ecosystem condition, and environmental change with continuous surfaces and composite indices.
+
+![MarineScope Screenshot](https://drive.google.com/uc?export=view&id=18ME9ue0aXP4RuhggHhYc5Df9usN9qiCU)
+
+[🚀 Launch MarineScope Dashboard](https://geotentacles-marinescope.streamlit.app)
+
+---
+
 ## 📂 Repository Structure
 
 - `/sql` — PostGIS schema, spatial functions, index scripts
+- `/scripts` — R and Python Scripts for ML and App Creation
 - `/spatial` — QGIS layers, GeoJSON exports, grids, rasters
 - `/notebooks` — Exploratory spatial notebooks (Python + SQL)
-- `/outputs` — Maps, hotspot layers, summary tables, rasters
-- `/data` — Raw & processed geospatial datasets
-- `/app` — Future interactive Streamlit spatial dashboards
+- `/outputs` — Maps, hotspot layers, summary tables
+- `/data` — Raw & processed geospatial and predictor datasets
+- `/app` — Interactive Streamlit spatial dashboards
 
 
 ---
@@ -39,10 +62,10 @@ The full research pipeline lives in the private Squid_Fest repo — email me for
 |--------|------------|---------------|--------|------|
 | **20-Year Squid Catch Hotspot Dynamics** | [**Charting the Currents**](https://github.com/Euchie23/GeoTentacles/tree/main/hotspot_dynamics) | Explore long-term squid catch hotspots (2000–2020) using PostGIS clustering, spatial grids, and density maps to understand where squids gather over time. | ✅ Completed | [🗺️ Hotspots Dashboard](<https://euchie23.shinyapps.io/geotentacles__hotspots/>) |
 | **Squid Catch Hotspot Prediction (Classification)** | [**Forecasting the Swarms**](https://github.com/Euchie23/GeoTentacles/tree/main/hotspot_predictions) | Predict likely future squid catch hotspots with ML classification, helping fisheries anticipate and plan for swarming behavior. | ✅ Completed | 🗺️ Hotspots Dashboard |
-| **Pollution Level Spatial Prediction (Regression)** | **Toxic Tide Mapping** |Map predicted pollution intensity across space using ML regression, interpolated grids, lagged squid catch, SST, SSH, Chlorophyll-a, and upstream human activity (industrial & agricultural pressures) to identify areas where contaminants may impact marine life. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
-| **Marine Pollution Interpolation (Kriging / IDW)** | **Seafloor Signals** | Transform raw pollutant chemistry points into smooth, continuous spatial surfaces using kriging and IDW interpolation for easier interpretation. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
-| **Marine Health Index (MCI)** | **EcoPulse Index** | Combine catch data, pollution data, habitat layers and human pressures into a single composite index that measures the overall health of marine ecosystems. | 🟢 Planned | 🧪 Pollution & Marine Health Explorer |
-| **COVID-Impact Marine Health Model** | **Disruption Dynamics** | Analyze how marine ecosystems changed pre- vs post-COVID using spatial ML modeling, integrated with lagged environmental/catch metrics in addition to industrial/agricultural pressures, providing scenario-based insights for policy and management. | 🟢 Planned | 🔬 Scenario Simulator / Capstone |
+| **Pollution Level Spatial Prediction (Regression)** | [**Toxic Tide Mapping**](https://github.com/Euchie23/GeoTentacles/blob/main/notebooks/marine_toxic_tide/toxic_tide_mapping.ipynb) |Map predicted pollution intensity across space using ML regression, interpolated grids, lagged squid catch, SST, SSH, Chlorophyll-a, and upstream human activity (industrial & agricultural pressures) to identify areas where contaminants may impact marine life. | ✅ Completed | [🌐 MarineScope Dashboard](https://geotentacles-marinescope.streamlit.app)|
+| **Marine Pollution Interpolation (IDW)** | **Seafloor Signals** | Transform raw pollutant chemistry points into smooth, continuous spatial surfaces using kriging and IDW interpolation for easier interpretation. | ✅ Completed | 🌐 MarineScope Dashboard |
+| **Marine Health Index (MCI)** | **EcoPulse Index** | Combine catch data, pollution data, habitat layers and human pressures into a single composite index that measures the overall health of marine ecosystems. | ✅ Completed | 🌐 MarineScope Dashboard |
+| **COVID-Impact Marine Health Model** | **Disruption Dynamics** | Analyze how marine ecosystems changed pre- vs post-COVID using spatial ML modeling, integrated with lagged environmental/catch metrics in addition to industrial/agricultural pressures, providing scenario-based insights for policy and management. | ✅ Completed | 🌐 MarineScope Dashboard |
 
 
 ---
