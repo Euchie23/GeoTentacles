@@ -115,12 +115,24 @@ load_css()
 #     unsafe_allow_html=True
 # )
 
-# st.sidebar.markdown(
-#     "<hr style='border-top: 2px solid #39FF14; margin: 10px 0;'>",
-#     unsafe_allow_html=True
-# )
+st.sidebar.markdown("""
+<h1 style="font-size:32px; font-weight:800; text-align:center;">
+🌐 MarineScope
+</h1>
+""", unsafe_allow_html=True)
 
-st.sidebar.title("🌐 MarineScope")
+st.sidebar.markdown(
+    "<hr style='border-top: 2px solid #39FF14; margin: 10px 0;'>",
+    unsafe_allow_html=True
+)
+
+# st.sidebar.markdown("""
+# <h1 style="font-size: 32px; font-weight: 800; text-align: center;">
+#     <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f916.png" width="32" style="vertical-align:middle;"> 
+#     Predictive Catch Models 
+#     <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f991.png" width="32" style="vertical-align:middle;">
+# </h1>
+# """, unsafe_allow_html=True)
 
 # ============================================================
 # 🔹 Navigation (WITH EDIT LOCK)
@@ -141,7 +153,18 @@ else:
 
 
 with st.sidebar:
-    st.header("Navigation")
+   # Custom "Tabs" header in the sidebar
+    st.sidebar.markdown("""
+    <div style="
+        font-size: 23px;
+        font-weight: 800;
+        color: #FFD700;
+        text-align: justify;
+        margin-bottom: 12px;
+    ">
+        Tabs:
+    </div>
+    """, unsafe_allow_html=True)
     page = st.radio(
         "Select module",
         available_pages,
