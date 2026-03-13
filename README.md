@@ -94,7 +94,7 @@ GeoTentacles aims to:
 - Geospatial Python (geopandas, shapely, rasterio, pykrige / scikit-learn spatial ML)
 
 **Machine Learning**
-- Regression: Random Forest Regressor, GAMs, Gradient Boosting
+- Regression: Random Forest Regressor, Elastic Net
 - Spatial cross-validation (blocked CV)
 
 **Dashboards**
@@ -107,7 +107,7 @@ GeoTentacles aims to:
 - Geometry creation: `ST_SetSRID(ST_MakePoint(lon, lat), 4326)`
 - Distance metrics: `ST_Distance`, `ST_DWithin`
 - Grid tiling: hex or square cells for hotspot stability
-- Pollution interpolation: kriging, IDW, ML regression on grid averages
+- Pollution interpolation: IDW, ML regression on grid averages
 - Marine Health Index: normalized composite of pollution, catch, habitat, and human pressures
 - Hotspot detection: DBSCAN, Getis-Ord, kernel density estimation
 
