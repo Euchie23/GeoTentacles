@@ -76,6 +76,44 @@ def render():
     if "force_map_view" not in st.session_state:
         st.session_state.force_map_view = False
 
+
+    # --- remove top padding of Streamlit main panel ---
+    st.markdown("""
+    <style>
+    .block-container {
+        padding-top: 1rem !important;  /* small top padding, you can adjust */
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Centered Dashboard Tour banner
+    st.markdown("""
+    <div style="
+        display: flex;
+        justify-content: center;          /* center horizontally */
+        margin-top: 5px;                 /* distance from top of panel */
+        margin-bottom: 25px;              /* space below banner */
+    ">
+        <div style="
+            background-color: rgba(255, 215, 0, 0.1);   /* subtle gold background */
+            color: #FFD700;
+            padding: 8px 20px;
+            border-left: 4px solid #FFD700;            /* small gold accent */
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            max-width: 600px;                           /* keeps it neat */
+            text-align: center;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        ">
+            🎬 <a href="https://euchie23.github.io/GeoTentacles/Scripts/python/video_under_construction.html"
+               target="_blank" style="color:#FFD700; text-decoration:underline;">
+               Watch Dashboard Tour
+            </a>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
     st.title("🦑 Executive Overview 📝")
     
     st.markdown(
