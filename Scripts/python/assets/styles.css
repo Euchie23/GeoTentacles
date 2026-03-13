@@ -1,26 +1,70 @@
 
+/* ---------------------- Main Panel Background ---------------------- */
+
+html, body {
+    background: none !important;
+}
+
+div[data-testid="stAppViewContainer"] {
+    background-image: url("https://images.unsplash.com/photo-1530951980629-fbeef86f69a1?q=80&w=2768&auto=format&fit=crop");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+div[data-testid="stAppViewContainer"]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 47, 68, 0.7);
+    z-index: 0;
+}
+
+div[data-testid="stAppViewContainer"] > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* -------------------------------------------------- */
+/* REMOVE STREAMLIT UI ELEMENTS */
+/* -------------------------------------------------- */
+
+
+/* Hide top header and toolbar */
+header[data-testid="stHeader"],
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
+
+
 /* ---------------------- Sidebar ---------------------- */
 
     /* Combine background image + overlay so it scrolls with content */
 [data-testid="stSidebar"] > div:first-child {
-    position: fixed !important;
-    top: 0 !important;           /* push sidebar to very top */
-    left: 0 !important;
-    width: 370px !important;
-    min-width: 370px !important;
-    height: 100vh !important;    /* full viewport height */
-    overflow-y: auto !important;
-    color: #E1EAF2;
-    z-index: 100 !important;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 370px;
+    overflow-y: auto;        /* allows scrolling */
+    height: 100vh;
+    z-index: 1000;
+    # padding-top: 1rem !important;
+    
+    
+    /* Combine background image + overlay so it scrolls with content */
     background:
         linear-gradient(rgba(0, 31, 63, 0.6), rgba(0, 31, 63, 0.6)),
         url("https://thumbs.dreamstime.com/b/underwater-seascape-ocean-coral-reef-deep-sea-bottom-swimming-under-water-marine-corals-background-vector-seaweed-algae-354608779.jpg");
+    # background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    color: #E1EAF2;
+    border-right: 2px solid rgba(255,255,255,0.15);
 }
 
-    
 
 /* Ensure sidebar content is above overlay */
 [data-testid="stSidebar"] > div:first-child > * {
@@ -84,9 +128,9 @@
 } 
 
 /* Optional: remove Streamlit’s default padding around markdown */
-[data-testid="stSidebar"] > div:first-child {
+/* [data-testid="stSidebar"] > div:first-child {
     padding-top: 2px !important;
-}
+} */
 
 
 /* Sidebar footer */
@@ -98,36 +142,33 @@
 }
             
 
+/* Make the sidebar background extend the full height */
+section[data-testid="stSidebar"] {
+    min-height: 100vh !important;
+}
+
 /* Optional: adjust padding for expanders inside sidebar */
 section[data-testid="stSidebar"] .st-expander {
     margin-bottom: 1rem;
 }
 
-/* ---------------------- Main Panel Background ---------------------- */
-
-html, body {
-    background: none !important;
+[data-testid="stSidebar"] [data-baseweb="radio"] label {
+    margin-bottom: 12px !important;
 }
 
-div[data-testid="stAppViewContainer"] {
-    background-image: url("https://images.unsplash.com/photo-1530951980629-fbeef86f69a1?q=80&w=2768&auto=format&fit=crop");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-}
+/* Collapsed sidebar behavior */
+@media (max-width: 992px) {
 
-div[data-testid="stAppViewContainer"]::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-color: rgba(10, 47, 68, 0.7);
-    z-index: 0;
-}
+    [data-testid="stSidebar"] {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+    }
 
-div[data-testid="stAppViewContainer"] > * {
-    position: relative;
-    z-index: 1;
+    [data-testid="stAppViewContainer"] {
+        margin-left: 0 !important;
+    }
+
 }
 
 /* ---------------------- Sidebar + Main Layout Fix ---------------------- */
@@ -288,18 +329,18 @@ h1, .stTitle {
 
 
 /* Hide Streamlit default top bar */
-header[data-testid="stHeader"] {
+/* header[data-testid="stHeader"] {
     display: none !important;
-}
+} */
 
 /* Hide toolbar container if it exists */
-[data-testid="stToolbar"] {
+/* [data-testid="stToolbar"] {
     display: none !important;
-}
+} */
 
 
 /* Fixed header with deep-sea navy */
-header[data-testid="stHeader"] {
+/* header[data-testid="stHeader"] {
     background-color: #04122F !important;
     position: fixed !important;
     top: 0 !important;
@@ -307,7 +348,7 @@ header[data-testid="stHeader"] {
     right: 0 !important;
     height: 3.5rem !important;
     z-index: 1000 !important;
-}
+} */
 
 /* Top-level toolbar / green bar fix */
 /* div[data-testid="MainMenuBar"] {
@@ -339,23 +380,23 @@ header[data-testid="stHeader"]::after {
 /* ---------------------- 🧭 Fix Top Bar Alignment ---------------------- */
 
 /* Sidebar inner div scrolls normally */
-[data-testid="stSidebar"] > div:first-child {
+/* [data-testid="stSidebar"] > div:first-child {
     height: 100% !important;
     overflow-y: auto !important;
-}
+} */
 
 /* ---------------------- Sidebar + Main Layout Fix ---------------------- */
 
 /* Sidebar fixed below top bar */
-[data-testid="stSidebar"] {
+/* [data-testid="stSidebar"] {
     position: fixed !important;
-    top: 3.5rem !important;      /* below top bar */
+    top: 3.5rem !important;      /* below top bar 
     left: 0 !important;
     width: 370px !important;
     height: calc(100vh - 3.5rem) !important;
     overflow-y: auto !important;
     z-index: 100;
-}
+} */
 
 /* Main content shifted to the right and below top bar */
 /* [data-testid="stAppViewContainer"] {
@@ -365,25 +406,25 @@ header[data-testid="stHeader"]::after {
 } */
 
 
-[data-testid="stAppViewContainer"] {
+/* [data-testid="stAppViewContainer"] {
     margin-left: 370px !important;
     margin-top: 0 !important;
-}
+} */
 
-[data-testid="stSidebar"] {
+/* [data-testid="stSidebar"] {
     top: 0 !important;
     height: 100vh !important;
-}
+} */
 
 /* Block container inside main content */
-.block-container {
+/* .block-container {
     padding: 2rem !important;
     margin: 0 !important;
     max-width: 100% !important;
-}
+} */
 
 /* Responsive adjustments for smaller screens */
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
     [data-testid="stAppViewContainer"] {
         margin-left: 0 !important;
     }
@@ -393,7 +434,7 @@ header[data-testid="stHeader"]::after {
         top: 0 !important;
         height: auto !important;
     }
-}
+} */
 
 
 /* ---------------------- Buttons ---------------------- */
@@ -445,4 +486,35 @@ div[data-testid="stForm"] button:hover {
     color: #eee4a7 !important;
 }
 
+/* ---------------------- Main Panel Alignment Fix ---------------------- */
+
+.block-container {
+    max-width: none !important;
+    margin-left: 0 !important;              /* start at left 0 */
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    box-sizing: border-box !important;
+
+    /* occupy full width minus sidebar width */
+    width: calc(100vw - 430px) !important;
+}
+
+/* ---------------------- Adjust when sidebar collapses ---------------------- */
+
+[data-testid="stSidebar"][aria-expanded="false"] ~ div .block-container {
+    width: calc(100vw - 80px) !important;
+}
+
+/* ---------------------- Inner content wrapper fix ---------------------- */
+
+.block-container > div {
+    max-width: 100% !important;
+    width: 100% !important;      /* prevents centering / wrapping */
+}
+
+/* ---------------------- Prevent Horizontal Scroll ---------------------- */
+
+html, body, .stApp {
+    overflow-x: hidden !important;
+}
 
