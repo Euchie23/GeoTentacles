@@ -7,7 +7,7 @@ This module uses geostatistical techniques to interpolate pollutant concentratio
 
 ## 📘 Executive Summary
 - Input: chemical measurements at sampled locations
-- Processing: Kriging and Inverse Distance Weighting (IDW) to interpolate pollution across the study area
+- Processing: Inverse Distance Weighting (IDW) to interpolate pollution across the study area
 - Output: continuous spatial surfaces of pollutant concentrations
 
 **Key insights**
@@ -37,7 +37,6 @@ This module uses geostatistical techniques to interpolate pollutant concentratio
 - Interactive maps with hoverable pollutant concentrations
 
 **Interactive Features**
-- Choose interpolation method (Kriging / IDW)
 - Select pollutant type and tissue
 - Insights section explaining the surface patterns in non-technical language
 
