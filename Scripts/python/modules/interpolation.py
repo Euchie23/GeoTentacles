@@ -433,7 +433,7 @@ def render():
             hovertemplate=
             "Longitude: %{x:.3f}<br>" +
             "Latitude: %{y:.3f}<br>" +
-            f"{pollutant} concentration: %{z:.3f} mg/kg<extra></extra>"
+            f"{pollutant} concentration: %{{z:.3f}} mg/kg<extra></extra>"
         )
 
     st.plotly_chart(fig, width='stretch')
