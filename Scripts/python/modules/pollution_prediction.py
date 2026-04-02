@@ -101,8 +101,8 @@ RISK_COLORS = {
 # ======================================================
 
 def generate_toxic_tide_insights(metrics, pollutant, df):
-    r2 = metrics.get("R2", None)
-    rmse = metrics.get("RMSE", None)
+    r2 = metrics.get("R2_log", None)
+    rmse = metrics.get("RMSE_log", None)
 
     exceed_pct = (df["risk_ratio"] > 1).mean() * 100
     confidence = get_confidence_label(pollutant)
