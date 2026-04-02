@@ -1,7 +1,7 @@
 # 🌊 Seafloor Signals — Marine Pollution Interpolation
 
 ## 🧭 Problem Framing & Decision Context
-Raw pollutant measurements are discrete and scattered, making it difficult to identify patterns in the marine environment. Decision-makers require continuous spatial surfaces to visualize contamination trends and locate hotspots for monitoring.
+Marine pollution data are often sparse and scattered, limiting environmental managers’ ability to identify contamination patterns. This tool converts discrete measurements into continuous surfaces to support actionable decision-making.
 
 This module uses geostatistical techniques to interpolate pollutant concentrations across the seabed, creating smooth, interpretable surfaces.
 
@@ -11,26 +11,26 @@ This module uses geostatistical techniques to interpolate pollutant concentratio
 - Output: continuous spatial surfaces of pollutant concentrations
 
 **Key insights**
-- Interpolated surfaces highlight areas of high contamination
+- Interpolated surfaces reveal high-risk areas and contamination gradients, enabling evidence-based monitoring and management decisions.
 - Visual patterns support targeted sampling and ecological assessment
 
 **Takeaway for decision-makers:** clear spatial surfaces enable better planning and monitoring.
 
 ## 🌍 Real-World Value
-- Converts sparse sampling into actionable spatial surfaces
+- Converts limited sampling points into decision-ready spatial intelligence, supporting targeted monitoring, intervention, and stakeholder reporting.
 - Supports environmental monitoring and habitat assessment
 - Enables rapid identification of contamination hotspots
 
 ## 🎯 Applied Use Cases
-- Marine pollution risk assessment
-- Sampling strategy optimization
-- Environmental reporting for consultancies and NGOs
+- Risk assessment for environmental consultancies and NGOs
+- Optimization of sampling strategies for monitoring programs
+- Screening-level reporting to support environmental management decisions
 
 ## 🧩 Module Overview
 
 **Core Objectives**
 - Transform discrete pollutant points into continuous surfaces
-- Enable interactive visualization of seafloor pollution
+- Enable interactive exploration and interpretation of seafloor pollution surfaces, with guidance notes for non-technical stakeholders.
 
 **Outputs Generated**
 - Raster/GeoJSON maps of interpolated pollutants
@@ -41,7 +41,7 @@ This module uses geostatistical techniques to interpolate pollutant concentratio
 - Insights section explaining the surface patterns in non-technical language
 
 ## 🔧 Tools & Techniques
-- Python: geopandas, rasterio, pykrige
+- Python libraries supporting geospatial and geostatistical analysis, including geopandas, rasterio, pykrige; interactive visualization via Streamlit and Plotly.
 - Streamlit for interactive mapping
 - Plotly / Folium for visualization
 
@@ -50,8 +50,8 @@ This module uses geostatistical techniques to interpolate pollutant concentratio
 - Hoverable interactive maps for hotspot identification
 
 ## 📉 Limitations & Future Work
-- Interpolation accuracy depends on sampling density
-- Future work: combine with oceanographic features for improved predictions
+- Accuracy depends on sampling density and spatial coverage; users should interpret surfaces as screening-level estimates, not regulatory-grade measurements
+- Future directions: integrate oceanographic covariates, explore advanced interpolation methods, and enable temporal trend forecasting for dynamic decision-making.
 
 ## 🧭 Summary Statement
-Seafloor Signals converts point-based measurements into actionable, continuous surfaces to guide environmental monitoring and marine health assessment.
+Seafloor Signals transforms point-based marine pollution data into decision-ready spatial surfaces, enabling environmental managers, NGOs, and consultancies to identify hotspots, prioritize monitoring, and communicate actionable insights effectively.
