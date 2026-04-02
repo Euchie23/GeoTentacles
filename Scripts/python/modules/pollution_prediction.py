@@ -470,7 +470,7 @@ def render():
                             st.warning("⚠️ Nothing to save (note is empty).")
 
 
-     # -----------------------------
+    # -----------------------------
     # Footer Contact Information
     # -----------------------------
 
@@ -527,21 +527,25 @@ def render():
     # modules -> python -> Scripts -> repo root
     
     OUTPUT_FILE = REPO_ROOT / "outputs" / "marine_toxic_tide" / "model_comparison_table.csv"
+
+    if not OUTPUT_FILE.exists():
+        st.error(f"Metrics file not found: {OUTPUT_FILE}")
+        return
     
     metrics_df = pd.read_csv(OUTPUT_FILE)
 
     # metrics_df = pd.read_csv("output/model_comparison_table.csv")
-    metrics = (
-        metrics_df
-        .query("pollutant == @pollutant and model == @model_type")
-        .iloc[0]
-    )
+    filtered = metrics_df.query("pollutant == @pollutant and model == @model_type")
+    if filtered.empty:
+        st.error("No performance metrics found for this configuration.")
+        return
+    metrics = filtered.iloc[0]
 
     st.subheader("🔍 Layer 1 — Model & Credibility")
 
     c1, c2, c3 = st.columns(3)
-    c1.metric("R²", f"{metrics['R2']:.3f}")
-    c2.metric("RMSE", f"{metrics['RMSE']:.3f}")
+    c1.metric("R² (log scale)", f"{metrics['R2_log']:.3f}")
+    c2.metric("RMSE (log scale)", f"{metrics['RMSE_log']:.3f}")
     c3.metric("Model type", model_type)
     
 
@@ -552,7 +556,11 @@ def render():
     # --------------------------------------------------
 
     model = load_model(pollutant, model_type)
-    features = FEATURE_SETS[model_type]
+    #features = FEATURE_SETS[model_type]
+    features = FEATURE_SETS.get(model_type)
+    if not features:
+        st.error(f"No feature set for model: {model_type}")
+        return
     
     card = describe_model(model_type)
 
@@ -579,15 +587,20 @@ def render():
     
     X = model_df[features].astype(float).to_numpy()
     
-    model_df["predicted"] = model.predict(X)
-
+    log_preds = model.predict(X)
+    log_preds = np.clip(log_preds, a_min=-20, a_max=None) 
+    model_df["predicted_concentration"] = np.expm1(log_preds)
+    model_df["predicted_concentration"] = model_df["predicted_concentration"].clip(lower=0)
 
     # --------------------------------------------------
     # RISK TRANSLATION
     # --------------------------------------------------
 
     limit = METAL_RML.get(pollutant, ORGANIC_RML.get(pollutant, np.nan))
-    model_df["risk_ratio"] = model_df["predicted"] / limit
+    if np.isnan(limit):
+        st.error(f"No regulatory limit defined for {pollutant}")
+        return
+    model_df["risk_ratio"] = model_df["predicted_concentration"] / limit
     model_df["risk_level"] = model_df["risk_ratio"].apply(classify_risk)
 
 
@@ -652,7 +665,7 @@ def render():
 
     # ⚡ Compute mean predicted & risk per grid cell
     summary = joined.groupby("index_right").agg(
-        predicted=("predicted", "mean"),
+       predicted_concentration =("predicted_concentration", "mean"),
         risk_ratio=("risk_ratio", "mean")
     )
     summary["risk_level"] = summary["risk_ratio"].apply(classify_risk)
@@ -681,7 +694,7 @@ def render():
         for _, row in grid.iterrows():
             tooltip_text = (
                 f"{row['grid_label']}<br>"
-                f"Predicted: {row['predicted']:.2f} mg/kg<br>"
+                f"Esimated Concentration (Model-Derived): {row['predicted_concentration']:.2f} mg/kg<br>"
                 f"Risk ratio: {row['risk_ratio']:.2f} (Predicted / Safety Limit)<br>"
                 f"Risk level: {row['risk_level']}"
             )
@@ -817,8 +830,12 @@ def render():
 
     st.subheader("⚠️ Layer 4 — Decision Flags")
 
+    if "log_concentration" not in model_df.columns:
+        st.warning("Skipping anomaly detection (log_concentration missing).")
+        return
+
     # Residual-based anomaly detection
-    residuals = model_df["log_concentration"] - model_df["predicted"]
+    residuals = model_df["log_concentration"] - np.log1p(model_df["predicted_concentration"])
     mad = np.median(np.abs(residuals))
     threshold = 3 * mad * 1.4826
 
@@ -843,14 +860,14 @@ def render():
                         "latitude_dd",
                         "longitude_dd",
                         "concentration",
-                        "predicted",
+                        "predicted_concentration",
                         "risk_level"
                     ]
                 ].rename(columns={
                     "latitude_dd": "Latitude (decimal degrees)",
                     "longitude_dd": "Longitude (decimal degrees)",
                     "concentration": "Observed concentration",
-                    "predicted": "Model-predicted concentration"
+                    "predicted_concentration": "Model-predicted concentration"
                 }),
                 use_container_width=True
             )
