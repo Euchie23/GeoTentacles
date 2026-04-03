@@ -1,61 +1,66 @@
 # 🌊 Disruption Dynamics — COVID Impact on Marine Health
 
 ## 🧭 Problem Framing & Decision Context
-COVID-related reductions in human activity provide a natural experiment for ecosystem response. This module now incorporates **lagged industrial/agricultural indices and environmental/catch data from 2018–2020** to better interpret pre- vs post-COVID changes.
+COVID-related reductions in human activity provide a natural experiment to examine ecosystem sensitivity. This module evaluates marine ecosystem condition **pre- vs post-COVID (2019 vs 2020–2021) using the EcoPulse Index** per tissue sample alongside industrial and agricultural pressure indicators. The focus is on relative ecosystem response and tissue sensitivity, not direct causation, to support strategic monitoring and decision-making.
 
 ## 📘 Executive Summary
-- **Input:** EcoPulse Index per tissue, industrial & agricultural activity, lagged environmental/catch indicators  
-- **Processing:** temporal comparison using 2019–2020 data, with lagged pressures  
-- **Output:** pre/post-COVID maps, trend plots, dynamic insights  
+- **Input:** EcoPulse per tissue, industrial and agricultural pressures, pre- vs post-COVID years.  
+- **Processing:** Compare mean EcoPulse and pressure indicators across periods, generate plots and narratives. 
+- **Output:** Pre/post-COVID bar charts, pressure tables, and plain-language insights.
+- **Takeaway for decision-makers:** Provides a quick comparative view to support monitoring and strategic planning.
 
 **Key insights**
-- Ecosystem improvements are clearer when accounting for lagged human and environmental pressures  
-- Legacy pollution or persistent pressures are highlighted  
+- Ecosystem condition improved, declined, or remained broadly stable
+- Human pressures show corresponding trends (increase/decrease/stable)
+- Sensitive tissues or regions can be identified for monitoring
 
 **Takeaway for decision-makers:** identify sensitive regions and plan interventions using robust, multi-layer data.
 
 ## 🌍 Real-World Value
-- Scenario-based policy guidance  
-- Highlights lagged effects of human activity on ecosystems  
-- Supports monitoring, research, and resource allocation  
+- Enables comparative assessment of ecosystem sensitivity under sudden human activity changes
+- Supports identification of vulnerable tissues or regions for targeted interventions
+- Guides policy evaluation, post-disruption monitoring, and adaptive management  
 
 ## 🎯 Applied Use Cases
-- Policy evaluation: measure ecosystem response to human activity reduction  
-- Targeted monitoring and restoration  
-- Integration with predictive modeling for future scenarios  
+- Scenario analysis of COVID-related reductions in human activity
+- Targeted monitoring and restoration prioritization
+- Decision-support for resource allocation during sudden ecological disruptions  
 
 ## 🧩 Module Overview
 
 **Core Objectives**
-- Compare pre- vs post-COVID EcoPulse scores  
-- Incorporate industrial & agricultural pressures with lag  
-- Integrate lagged environmental catch data (2018–2020)  
-- Generate maps, trend plots, and plain-language insights  
+- Compare pre- vs post-COVID EcoPulse scores
+- Quantify human pressures (industrial & agricultural) and their relative change
+- Generate dynamic executive narratives
+- Visualize period-wise trends via bar charts and tables 
 
 **Outputs Generated**
-- Interactive maps of EcoPulse pre/post-COVID  
-- Time-series plots of human pressures  
-- Dynamic insights section for non-technical interpretation  
+- Bar plots comparing EcoPulse pre- vs post-COVID
+- Human pressure diagnostics tables and grouped bar charts
+- Dynamic text explaining ecosystem response
 
 **Interactive Features**
-- Select tissue type and years  
-- Include/exclude transition year 2020  
-- Insights section explains trends in plain language  
+- Filter by tissue type
+- Include/exclude 2020 pandemic year
+- Expandable executive interpretation section
 
 ## 🔧 Tools & Techniques
-- Python: pandas, geopandas, plotly  
-- Streamlit for interactive dashboards  
-- Lagged feature engineering for pressure indices  
+- Python: pandas, geopandas, numpy, plotly
+- Streamlit for interactive dashboards and note logging
+- Dynamic narrative generation for executive insights 
 
 ## 📈 Visual Outputs
-- Pre/post COVID EcoPulse maps  
-- Trend lines of industrial/agricultural activity  
-- Hoverable interactive elements  
+- Bar charts of EcoPulse index (pre/post COVID)
+- Tables summarizing industrial & agricultural pressures
+- Grouped bar charts showing relative pressure changes
+- Interactive elements and expandable narrative insights
 
 ## 📉 Limitations & Future Work
-- Data gaps and uneven sampling  
-- Lag assumptions approximate  
-- Future: include environmental drivers (SST, currents) for mechanistic insights  
+- Associations, not causation — pre/post comparison does not prove COVID caused changes
+- Pre/post periods cover different number of years (2019 vs 2020–2021), slightly biasing averages
+- Pressure indicators are proxies, not absolute measures
+- Sampling coverage may vary by tissue or period
+- Future: include additional environmental drivers (SST, currents) or longer time series for mechanistic interpretation 
 
 ## 🧭 Summary Statement
-Disruption Dynamics quantifies ecosystem responses to human activity changes during COVID, integrating lagged pressures to support evidence-based management and scenario planning.
+Disruption Dynamics quantifies marine ecosystem sensitivity to human activity changes during COVID, integrating EcoPulse scores and human pressure indicators to support comparative analysis, strategic monitoring, and evidence-based decision-making.
