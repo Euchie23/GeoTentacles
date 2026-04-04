@@ -370,7 +370,7 @@ The focus is on **system sensitivity**, not direct causation.
         x="Period",
         y="EcoPulse",
         color="Period",
-        title="Average Ecosystem Condition Before vs During COVID"
+        title="Average Ecosystem Condition Before vs After COVID
     )
     st.plotly_chart(fig, use_container_width=True)
 
