@@ -34,13 +34,14 @@ def describe_model(model_name):
         },
 
         "full_pressures_plus_censoring": {
-            "title": "Regulatory-Aware Exposure Model",
+            "title": "Detection-Limit-Aware Exposure Model",
             "description": """
             Combines environmental drivers, fisheries activity, and upstream human pressures
-            while explicitly accounting for laboratory detection limits.
-            
-            This model is designed for regulatory and risk-assessment contexts, ensuring
-            predictions remain stable even when measurements fall below detection thresholds.
+            while accounting for laboratory detection limits.
+        
+            This model is designed for screening and risk-prioritization contexts, helping
+            users interpret patterns more cautiously when measurements fall below detection
+            thresholds.
             """
         }
     }
