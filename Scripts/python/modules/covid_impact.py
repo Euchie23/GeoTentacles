@@ -142,7 +142,7 @@ def render():
     if TAB_NAME not in st.session_state.params:
         st.session_state.params[TAB_NAME] = {}
 
-    st.title("🔬 Disruption Dynamics — COVID Impact on Marine Health")
+    st.title("🔬 Disruption Dynamics — COVID-Era Changes in Marine Health")
 
     st.markdown("""
 This module evaluates how marine ecosystem condition changed during
