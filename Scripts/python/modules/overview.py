@@ -473,6 +473,10 @@ def render():
     col1, col2, col3, col4 = st.columns(4)
 
     if filtered.empty:
+        st.warning("No detected samples available for the selected filters.")
+        return
+
+    if filtered.empty:
         col1.metric("Mean Concentration", "N/A")
         col2.metric("Max Concentration", "N/A")
         col3.metric("Detected Samples", 0)
