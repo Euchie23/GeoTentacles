@@ -2,8 +2,17 @@ import numpy as np
 import pandas as pd
 
 
+# def min_max_scale(series):
+#     return (series - series.min()) / (series.max() - series.min())
+
 def min_max_scale(series):
-    return (series - series.min()) / (series.max() - series.min())
+    min_val = series.min()
+    max_val = series.max()
+
+    if pd.isna(min_val) or pd.isna(max_val) or max_val == min_val:
+        return pd.Series(0.5, index=series.index)
+
+    return (series - min_val) / (max_val - min_val)
 
 
 def compute_ecopulse_index(
