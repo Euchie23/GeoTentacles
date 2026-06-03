@@ -381,6 +381,15 @@ def render():
 
     agg = aggregate_pollution(subset)
     #st.dataframe(agg[["longitude_dd", "latitude_dd", "concentration"]].head().reset_index(drop=True), width='stretch')
+    if len(agg) < 3:
+        st.warning("At least 3 sampling locations are recommended for interpolation.")
+        return
+    
+    if len(agg) < 8:
+        st.info(
+            "Interpolation is based on a small number of sampling locations, "
+            "so the surface should be interpreted cautiously."
+        )
 
 
     x = agg["longitude_dd"].astype(float).values
