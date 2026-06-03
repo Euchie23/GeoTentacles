@@ -445,6 +445,24 @@ def render():
             f"{pollutant} concentration: %{{z:.3f}} mg/kg<extra></extra>"
         )
 
+        fig.add_scatter(
+            x=x,
+            y=y,
+            mode="markers",
+            marker=dict(
+                color="white",
+                size=6,
+                line=dict(color="black", width=1)
+            ),
+            name="Observed samples",
+            hovertemplate=(
+                "Observed sample<br>"
+                "Longitude: %{x:.3f}<br>"
+                "Latitude: %{y:.3f}"
+                "<extra></extra>"
+            )
+        )
+
     st.plotly_chart(fig, width='stretch')
 
     st.markdown("<hr style='border-top: 2px solid #39FF14; margin-top: 50px 0;'>", unsafe_allow_html=True)
