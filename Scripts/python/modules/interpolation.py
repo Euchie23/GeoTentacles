@@ -380,23 +380,80 @@ def render():
         return
 
     agg = aggregate_pollution(subset)
-    #st.dataframe(agg[["longitude_dd", "latitude_dd", "concentration"]].head().reset_index(drop=True), width='stretch')
-    if len(agg) < 3:
-        st.warning("At least 3 sampling locations are recommended for interpolation.")
+    # st.dataframe(agg[["longitude_dd", "latitude_dd", "concentration"]].head().reset_index(drop=True), width='stretch')
+    
+    n_points = len(agg)
+    
+    if n_points == 0:
+        st.warning("No sampling locations available for this selection.")
         return
     
-    if len(agg) < 8:
-        st.info(
-            "Interpolation is based on a small number of sampling locations, "
-            "so the surface should be interpreted cautiously."
-        )
-
-
     x = agg["longitude_dd"].astype(float).values
     y = agg["latitude_dd"].astype(float).values
     z = agg["concentration"].astype(float).values
-
-
+    
+    # --------------------------------------------------
+    # Sparse-data handling
+    # --------------------------------------------------
+    if n_points == 1:
+        st.warning(
+            "Only one sampling location is available for this pollutant, tissue, and year. "
+            "A spatial interpolation surface cannot be meaningfully estimated. "
+            "Showing the observed sample point only."
+        )
+    
+        fig = px.scatter(
+            agg,
+            x="longitude_dd",
+            y="latitude_dd",
+            color="concentration",
+            color_continuous_scale=custom_scale,
+            labels={
+                "concentration": f"{pollutant} concentration (mg/kg)",
+                "longitude_dd": "Longitude (decimal degrees)",
+                "latitude_dd": "Latitude (decimal degrees)"
+            },
+            title=f"Observed Sample Point — {pollutant}, {tissue}, {year}"
+        )
+    
+        fig.update_traces(
+            marker=dict(size=12, line=dict(color="black", width=1)),
+            hovertemplate=(
+                "Observed sample<br>"
+                "Longitude: %{x:.3f}<br>"
+                "Latitude: %{y:.3f}<br>"
+                f"{pollutant} concentration: %{{marker.color:.3f}} mg/kg"
+                "<extra></extra>"
+            )
+        )
+    
+        st.plotly_chart(fig, width="stretch")
+    
+        with st.expander("🧭 What this means - Click here to see full analysis"):
+            st.markdown(
+                f"""
+                This selection contains only **one observed sampling location**, so the app cannot estimate a reliable spatial interpolation surface.
+    
+                The point shown represents the measured concentration for **{pollutant}** in **{tissue} tissue** during **{year}**.
+    
+                Use this view as **direct sample evidence only**, not as a hotspot map or interpolation result.
+                """
+            )
+    
+        return
+    
+    elif n_points == 2:
+        st.warning(
+            "Only two sampling locations are available. "
+            "The interpolated surface is highly uncertain and should be interpreted as a simple gradient between observed points."
+        )
+    
+    elif n_points < 8:
+        st.info(
+            f"Interpolation is based on {n_points} sampling locations. "
+            "The surface can help visualize broad patterns, but uncertainty is higher where samples are sparse."
+        )
+    
     xi, yi = create_grid(x, y, resolution)
     zi = idw_interpolation(x, y, z, xi, yi)
 
