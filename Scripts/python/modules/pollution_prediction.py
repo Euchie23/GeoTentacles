@@ -273,8 +273,11 @@ def render():
     # --------------------------------------------------
 
     st.markdown("""
-    This module predicts spatial pollution risk using machine-learning models
+    This module estimates spatial pollution risk using machine-learning models
     informed by oceanography, fisheries activity, and upstream human pressures.
+    
+    Predictions are intended for screening and prioritization, not regulatory
+    confirmation or site-level compliance decisions.
 
     The analysis progresses through four interpretive layers:
     1. **Prediction** — Where concentrations may be elevated  
