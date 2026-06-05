@@ -1,7 +1,7 @@
-# 🌊 Disruption Dynamics — COVID Impact on Marine Health
+# 🌊 Disruption Dynamics — COVID-Era Changes in Marine Health
 
 ## 🧭 Problem Framing & Decision Context
-COVID-related reductions in human activity provide a natural experiment to examine ecosystem sensitivity. This module evaluates marine ecosystem condition **pre- vs post-COVID (2019 vs 2020–2021) using the EcoPulse Index** per tissue sample alongside industrial and agricultural pressure indicators. The focus is on relative ecosystem response and tissue sensitivity, not direct causation, to support strategic monitoring and decision-making.
+COVID-related changes in human activity provide a useful disruption-period comparison for examining ecosystem sensitivity. This module evaluates marine ecosystem condition **pre- vs post-COVID (2019 vs 2020–2021) using the EcoPulse Index** per tissue sample alongside industrial and agricultural pressure indicators. The focus is on relative ecosystem response and tissue sensitivity, not direct causation, to support strategic monitoring and decision-making.
 
 ## 📘 Executive Summary
 - **Input:** EcoPulse per tissue, industrial and agricultural pressures, pre- vs post-COVID years.  
@@ -22,7 +22,7 @@ COVID-related reductions in human activity provide a natural experiment to exami
 - Guides policy evaluation, post-disruption monitoring, and adaptive management  
 
 ## 🎯 Applied Use Cases
-- Scenario analysis of COVID-related reductions in human activity
+- Scenario-style comparison of COVID-era changes in human activity indicators
 - Targeted monitoring and restoration prioritization
 - Decision-support for resource allocation during sudden ecological disruptions  
 
