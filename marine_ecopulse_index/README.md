@@ -1,7 +1,7 @@
 # 🌿 EcoPulse Index — Integrated Marine Health Decision Tool
 
 ## 🧭 Problem Framing & Decision Context
-Raw observations are discrete and scattered. EcoPulse transforms these into a continuous, interpretable metric, with dynamic filters for tissue, maturity, gender, and year. Users can apply view-mode lenses to emphasize juvenile sensitivity, contamination hotspots, or overall ecosystem stress.
+Raw observations are discrete and scattered. EcoPulse transforms these observations into an interpretable relative ecosystem-condition score, with dynamic filters for tissue, maturity, gender, and year. Users can apply view-mode lenses to emphasize juvenile sensitivity, contamination hotspots, or overall ecosystem stress.
 
 ## 📘 Executive Summary
 - **Output:** interactive maps with EcoPulse Index points sized by sample count, colored by stress-to-resilience gradient
@@ -15,7 +15,7 @@ Raw observations are discrete and scattered. EcoPulse transforms these into a co
 - Visual patterns guide targeted monitoring and resource allocation
 - Analysis can highlight early-life-stage sensitivity vs mature-stage resilience
 
-**Takeaway for decision-makers:** EcoPulse scores provide an interpretable, holistic metric for ecosystem health with upstream and environmental context.
+**Takeaway for decision-makers:** EcoPulse scores provide an interpretable relative metric for ecosystem condition, integrating pollution exposure, biological context, and tissue sensitivity.
 
 ## 🌍 Real-World Value
 - Converts scattered observations into interpretable spatial summaries
@@ -54,7 +54,7 @@ Raw observations are discrete and scattered. EcoPulse transforms these into a co
 - Notes panel captures contextual interpretation for future reference 
 
 ## 🔧 Tools & Techniques
-- Python: pandas, geopandas, numpy, rasterio (if spatial layers used)
+- Python: pandas, geopandas, numpy; rasterio can be added in future versions if raster-based habitat layers are integrated.
 - Streamlit for interactive dashboards
 - Plotly/Folium for visualization and mapping
 - Custom utilities for data preprocessing, coordinate conversion, and index calculation 
@@ -74,6 +74,7 @@ Raw observations are discrete and scattered. EcoPulse transforms these into a co
 - Weighting and view-mode assumptions could be refined with additional data
 - Future work: integrate additional environmental drivers (SST, Chlorophyll-a, SSH), habitat layers, and lagged catch data
 - Consider automated hotspot detection and uncertainty quantification
+- EcoPulse is a relative screening index; low scores indicate comparatively higher stress within the dataset, not automatic regulatory concern.
 
 ## 🧭 Summary Statement
 EcoPulse Index transforms point-based marine data into an interactive, filterable, and interpretable decision-support tool. It aggregates biological, pollution, and environmental context, supports scenario analysis, and provides dynamic executive insights to guide monitoring, conservation, and resource allocation.
