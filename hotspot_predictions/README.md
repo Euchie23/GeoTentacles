@@ -14,7 +14,7 @@ This module addresses the need for **forward-looking, probabilistic hotspot pred
 ## 📘 Executive Summary
 
 **What we did:**  
-We developed and validated a Random Forest classifier to estimate squid catch hotspot likelihood using vessel-scale environmental and oceanographic predictors, including sea surface temperature, depth, sea surface height, and chlorophyll-a derived from polygon-level summaries. Predictions were evaluated on independent test years (2016–2020) during the January–June peak aggregation
+We developed and validated a Random Forest classifier to estimate squid catch hotspot likelihood using vessel-scale environmental and oceanographic predictors, including sea surface temperature, depth, sea surface height, and chlorophyll-a, derived from polygon-level summaries. Predictions were evaluated on independent test years (2016–2020) during the January–June peak aggregation
 
 **Main outcomes:**  
 - The selected reduced model reliably distinguishes hotspot from non-hotspot conditions across all years, performing consistently better than random allocation. 
