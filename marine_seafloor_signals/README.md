@@ -3,7 +3,7 @@
 ## 🧭 Problem Framing & Decision Context
 Marine pollution data are often sparse and scattered, limiting environmental managers’ ability to identify contamination patterns. This tool converts discrete measurements into continuous surfaces to support actionable decision-making.
 
-This module uses geostatistical techniques to interpolate pollutant concentrations across the seabed, creating smooth, interpretable surfaces.
+This module uses Inverse Distance Weighting (IDW) to create screening-level interpolated pollutant surfaces from observed sampling points. The surfaces help visualize broad spatial gradients while preserving warnings when sample coverage is sparse.
 
 ## 📘 Executive Summary
 - Input: chemical measurements at sampled locations
@@ -33,15 +33,20 @@ This module uses geostatistical techniques to interpolate pollutant concentratio
 - Enable interactive exploration and interpretation of seafloor pollution surfaces, with guidance notes for non-technical stakeholders.
 
 **Outputs Generated**
-- Raster/GeoJSON maps of interpolated pollutants
-- Interactive maps with hoverable pollutant concentrations
+- Interactive IDW interpolation surfaces
+- Observed sample-point overlays
+- Hoverable pollutant concentration estimates
+- Sparse-data warnings when too few sampling locations are available
 
 **Interactive Features**
-- Select pollutant type and tissue
+- Select pollutant type, tissue, and year
+- Adjust interpolation resolution where available
+- View observed sample points over the interpolated surface
+- Receive warnings when interpolation is based on limited sampling coverage
 - Insights section explaining the surface patterns in non-technical language
 
 ## 🔧 Tools & Techniques
-- Python libraries supporting geospatial and geostatistical analysis, including geopandas, rasterio, pykrige; interactive visualization via Streamlit and Plotly.
+- Python libraries supporting geospatial analysis and IDW interpolation, including pandas, numpy, geopandas/scipy utilities, Streamlit, and Plotly.
 - Streamlit for interactive mapping
 - Plotly / Folium for visualization
 
@@ -51,6 +56,7 @@ This module uses geostatistical techniques to interpolate pollutant concentratio
 
 ## 📉 Limitations & Future Work
 - Accuracy depends on sampling density and spatial coverage; users should interpret surfaces as screening-level estimates, not regulatory-grade measurements
+- Very sparse selections may show observed sample points only or carry high uncertainty; interpolated surfaces should not be interpreted as measured concentrations at unsampled locations.
 - Future directions: integrate oceanographic covariates, explore advanced interpolation methods, and enable temporal trend forecasting for dynamic decision-making.
 
 ## 🧭 Summary Statement
