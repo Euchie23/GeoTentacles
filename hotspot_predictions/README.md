@@ -14,7 +14,7 @@ This module addresses the need for **forward-looking, probabilistic hotspot pred
 ## 📘 Executive Summary
 
 **What we did:**  
-We developed and validated a Random Forest classifier to estimate squid catch hotspot likelihood using vessel-scale environmental predictors (sea surface temperature and depth) derived from polygon-level summaries. Predictions were evaluated on independent test years (2016–2020) during the January–June peak aggregation
+We developed and validated a Random Forest classifier to estimate squid catch hotspot likelihood using vessel-scale environmental and oceanographic predictors, including sea surface temperature, depth, sea surface height, and chlorophyll-a derived from polygon-level summaries. Predictions were evaluated on independent test years (2016–2020) during the January–June peak aggregation
 
 **Main outcomes:**  
 - The selected reduced model reliably distinguishes hotspot from non-hotspot conditions across all years, performing consistently better than random allocation. 
@@ -23,7 +23,7 @@ We developed and validated a Random Forest classifier to estimate squid catch ho
 
 **Data scope:**  
 - 21-year squid catch dataset aggregated to 0.25° × 0.25° polygon grid cells  
-- Environmental covariates used in the final model: sea surface temperature (SST) and bathymetry (depth)
+- Environmental covariates used in the final model: sea surface temperature (SST), bathymetry/depth, sea surface height (SSH), and chlorophyll-a
 - Additional remote sensing variables were evaluated but excluded due to marginal or inconsistent performance gains
 
 ---
@@ -138,7 +138,7 @@ Calibration curves were used to assess how well predicted probabilities align wi
 ---
 
 ### 3️⃣ Binary Hotspot Classification
-Probability outputs were thresholded (default = 0.7) to generate conservative binary hotspot predictions.
+Probability outputs were thresholded using a default probability threshold of 0.5 for static validation and binary hotspot outputs. The interactive dashboard allows users to explore alternative operational thresholds depending on whether they want a broader early-warning view or a more conservative hotspot map.
 
 **Key findings**
 - Strong ability to correctly identify non-hotspot areas across all years  
@@ -206,8 +206,8 @@ This project is a direct continuation of **hotspot_dynamics — 20-Year Spatio-T
 
 ---
 
-## 🧪 Shiny Integration (In Progress)
-All model outputs, validation metrics, and spatial predictions are stored as serialized `.qs` files and PostGIS tables to support interactive exploration in a Shiny application. Planned functionality includes:
+## 🧪 Shiny Dashboard Integration
+All model outputs, validation metrics, and spatial predictions are stored as serialized `.qs` files and PostGIS tables to support interactive exploration in a Shiny application. Interactive functionality includes:
 - Adjustable probability thresholds  
 - Year-by-year comparison  
 - Probability vs binary views  
