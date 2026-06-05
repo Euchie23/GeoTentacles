@@ -3,15 +3,15 @@
 ## 🧭 Problem Framing & Decision Context
 Marine ecosystems are impacted by multiple pollutants that vary spatially and temporally. Environmental consultancies and regulatory agencies need predictive tools to identify where contamination may occur to focus monitoring and management.
 
-This module predicts pollution intensity across squid catch regions using chemical data **and upstream human activity**, including industrial and agricultural outputs, as well as **lagged environmental and catch data** from 2018–2021 to capture delayed effects of both natural and anthropogenic factors.
+This module estimates model-based pollution risk patterns across squid catch regions using chemical data, environmental indicators, fisheries activity, and upstream human-pressure proxies.
 
 ## 📘 Executive Summary
 - **Input:** pollutant chemistry, catch locations, industrial & agricultural indices, squid catch, and environmental data (SST, SSH, Chlorophyll-a, Depth)  
-- **Processing:** ElasticNet regression models predict spatial pollution intensity across a regular grid, Predictions account for delayed effects captured via lagged environmental and catch data.
+- **Processing:** ElasticNet regression models estimate pollutant concentration patterns under observed sampling and environmental conditions. Outputs are translated into screening-level risk classes, confidence tiers, and executive interpretations.
 - **Output:** interactive maps of predicted pollution concentrations
 
 **Key insights**
-- Pollution hotspots correlate with high human activity areas and catch/lagged environmental signals  
+- Model-estimated hotspots may align with human-pressure proxies, catch intensity, and lagged environmental signals 
 - Lagged indicators reveal delayed pollution impacts
 
 **Takeaway for decision-makers:** dynamic pollution maps enable targeted monitoring and intervention, incorporating temporal effects from human and environmental pressures.
@@ -23,7 +23,7 @@ This module predicts pollution intensity across squid catch regions using chemic
 
 ## 🎯 Applied Use Cases
 - Pollution risk assessment and monitoring  
-- Policy planning and compliance prioritization  
+- Policy planning, monitoring prioritization, and screening-level compliance support  
 - Integration with marine health indices for ecological management
 - Outputs include tiered confidence levels and model-derived risk signals, helping decision-makers prioritize locations for monitoring without over-interpreting absolute values.  
 
@@ -41,14 +41,16 @@ This module predicts pollution intensity across squid catch regions using chemic
 
 **Interactive Features**
 - Filter by tissue type, analyte, and month  
-- Hover for pollutant values, upstream pressures, and environmental indicators  
+- Hover for pollutant values, upstream pressures, and environmental indicators
+- Select target pollutant and model configuration where available
+- Review model fit, confidence tier, risk ratio, and anomaly/review flags 
 
 **Insights Section**
 - Dynamic plain-language explanations  
 - Explains why hotspots occur and which drivers contribute  
 
 ## 🔧 Tools & Techniques
-- Python: pandas, geopandas, scikit-learn (ElasticNet regression)  
+- Python: pandas, geopandas, scikit-learn for machine-learning model training and serialized model inference
 - Streamlit for dashboard interactivity  
 - Plotly / Folium for spatial visualization
 - Simplified distance-weighted pressure indices approximate spatial influence of human activities
@@ -62,7 +64,8 @@ This module predicts pollution intensity across squid catch regions using chemic
 - Lag assumptions may vary by pollutant
 - Censored measurements reflect detection limits, not environmental processes. Including is_censored as a feature can bias predictions, especially for low-concentration pollutants. Interpret model outputs accordingly.
 - Anomaly detection uses back-transformed residuals from log-modeled concentrations. Extreme values may reflect transformation effects, so interpret anomalies as screening indicators rather than definitive outliers.
-- Incorporate ocean currents, seasonal effects, and additional environmental drivers  
+- Incorporate ocean currents, seasonal effects, and additional environmental drivers
+- Outputs are model-estimated screening signals under observed data conditions; they should guide monitoring prioritization, not be treated as confirmed pollution measurements or regulatory determinations.
 
 ## 🧭 Summary Statement
 Predictive pollution surfaces with lagged human pressures and environmental data allow actionable identification of ecological risk areas in marine environments.
