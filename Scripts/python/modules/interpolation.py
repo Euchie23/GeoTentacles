@@ -391,6 +391,10 @@ def render():
     x = agg["longitude_dd"].astype(float).values
     y = agg["latitude_dd"].astype(float).values
     z = agg["concentration"].astype(float).values
+
+    st.dataframe(
+    agg[["longitude_dd","latitude_dd","concentration"]]
+)
     
     # --------------------------------------------------
     # Sparse-data handling
