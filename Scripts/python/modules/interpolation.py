@@ -383,6 +383,19 @@ def render():
     # st.dataframe(agg[["longitude_dd", "latitude_dd", "concentration"]].head().reset_index(drop=True), width='stretch')
     
     n_points = len(agg)
+
+    with st.expander("ℹ️ How interpolation inputs are prepared"):
+        st.markdown("""
+        Observed measurements collected at the same sampling location are averaged prior to interpolation.
+    
+        The resulting surface represents estimated **site-level mean concentrations**
+        rather than individual sample measurements.
+    
+        This reduces overrepresentation of locations with many biological samples
+        and produces a more stable spatial estimate.
+        """)
+        
+    st.write(f"Sampling locations: {n_points}")
     
     if n_points == 0:
         st.warning("No sampling locations available for this selection.")
