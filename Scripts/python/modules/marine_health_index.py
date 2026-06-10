@@ -682,8 +682,8 @@ areas that may be **resilient, stressed, or potentially vulnerable**.
     }
 
     # ---------------- Notes ----------------
-    with st.sidebar:
-        notes_panel("Disruption Dynamics", snapshot_inputs)
+    # with st.sidebar:
+    #     notes_panel("Disruption Dynamics", snapshot_inputs)
 
     # -----------------------------
     # Executive interpretation
