@@ -106,7 +106,7 @@ def render():
             text-align: center;
             box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
         ">
-            🎬 <a href="https://euchie23.github.io/GeoTentacles/Scripts/python/video_under_construction.html"
+            🎬 <a href="https://youtu.be/ghv9fk6276c"
                target="_blank" style="color:#FFD700; text-decoration:underline;">
                Watch Dashboard Tour
             </a>
