@@ -106,7 +106,7 @@ def render():
             text-align: center;
             box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
         ">
-            🎬 <a https://youtu.be/m0ECpnxTsNI"
+            🎬 <a href="https://youtu.be/m0ECpnxTsNI"
                target="_blank" style="color:#FFD700; text-decoration:underline;">
                Watch Dashboard Tour
             </a>
