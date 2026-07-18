@@ -31,6 +31,7 @@ GeoTentacles provides two key dashboards for spatial insight and decision suppor
 ![Hotspots Screenshot](https://drive.google.com/uc?export=view&id=16QFd0BjXcCvKwhat1yurb5nd4y4adsEn)
 
 [🚀 Launch Hotspots Dashboard](https://euchie23.shinyapps.io/geotentacles__hotspots/)
+[🎥 Watch the 5-Minute Guided Tour](https://youtu.be/vKbAumUKFQU)
 
 ---
 
@@ -40,6 +41,7 @@ GeoTentacles provides two key dashboards for spatial insight and decision suppor
 ![MarineScope Screenshot](https://drive.google.com/uc?export=view&id=18ME9ue0aXP4RuhggHhYc5Df9usN9qiCU)
 
 [🚀 Launch MarineScope Dashboard](https://geotentacles-marinescope.streamlit.app)
+[🎥 Watch the 5-Minute Guided Tour](https://youtu.be/m0ECpnxTsNI)
 
 ---
 
